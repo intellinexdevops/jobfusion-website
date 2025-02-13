@@ -1,5 +1,4 @@
 "use client"
-
 import * as React from "react"
 import Link from "next/link"
 
@@ -14,46 +13,68 @@ import {
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import Logo from "./Logo"
+import { useBreadcrumbStore } from "@/libs/zustand/BreadCrumb"
+import { usePathname } from "next/navigation"
+import { SearchDialog } from "../SearchDialog"
 
 const components: { title: string; href: string; description: string }[] = [
     {
-        title: "Alert Dialog",
-        href: "/docs/primitives/alert-dialog",
+        title: "Software Development",
+        href: "software-development",
         description:
             "A modal dialog that interrupts the user with important content and expects a response.",
     },
     {
-        title: "Hover Card",
-        href: "/docs/primitives/hover-card",
+        title: "Graphic Design",
+        href: "graphic-design",
         description:
             "For sighted users to preview content available behind a link.",
     },
     {
-        title: "Progress",
-        href: "/docs/primitives/progress",
+        title: "Database Management",
+        href: "database-management",
         description:
             "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
     },
     {
-        title: "Scroll-area",
-        href: "/docs/primitives/scroll-area",
+        title: "Network Engineering",
+        href: "network-engineering",
         description: "Visually or semantically separates content.",
     },
     {
-        title: "Tabs",
-        href: "/docs/primitives/tabs",
+        title: "Cybersecurity",
+        href: "cybersecurity",
         description:
             "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
     },
     {
-        title: "Tooltip",
-        href: "/docs/primitives/tooltip",
+        title: "Blockchain",
+        href: "blockchain",
         description:
             "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
     },
 ]
 
 export function HeaderNavigationMenu() {
+    const setBreadCrumb = useBreadcrumbStore((state) => state.setBreadcrumb);
+    const pathname = usePathname();
+
+    React.useEffect(() => {
+        console.log(pathname)
+        switch (pathname) {
+            case '/':
+                setBreadCrumb({ title: "Home", url: "/" });
+                break;
+            case '/careers':
+                setBreadCrumb({ title: "Careers", url: "/careers" });
+                break;
+            case '/career-details':
+                setBreadCrumb({ title: "Details", url: "/career-details" });
+            default:
+                break;
+        }
+    }, [pathname, setBreadCrumb]);
+
     return (
         <div className="flex flex-row items-center gap-x-10" >
             <Logo />
@@ -80,27 +101,27 @@ export function HeaderNavigationMenu() {
                                         </Link>
                                     </NavigationMenuLink>
                                 </li>
-                                <ListItem href="/docs" title="Introduction">
+                                <ListItem href="/docs" title="About">
                                     Re-usable components built using Radix UI and Tailwind CSS.
                                 </ListItem>
-                                <ListItem href="/docs/installation" title="Installation">
+                                <ListItem href="/docs/installation" title="Mission">
                                     How to install dependencies and structure your app.
                                 </ListItem>
-                                <ListItem href="/docs/primitives/typography" title="Typography">
+                                <ListItem href="/docs/primitives/typography" title="Vision">
                                     Styles for headings, paragraphs, lists...etc
                                 </ListItem>
                             </ul>
                         </NavigationMenuContent>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
-                        <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+                        <NavigationMenuTrigger>Jobs</NavigationMenuTrigger>
                         <NavigationMenuContent>
                             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                                 {components.map((component) => (
                                     <ListItem
                                         key={component.title}
                                         title={component.title}
-                                        href={component.href}
+                                        href={`/careers/${component.href}`}
                                     >
                                         {component.description}
                                     </ListItem>
@@ -111,10 +132,13 @@ export function HeaderNavigationMenu() {
                     <NavigationMenuItem>
                         <Link href="/docs" legacyBehavior passHref>
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                Documentation
+                                Media
                             </NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
+
+                    <SearchDialog />
+
                 </NavigationMenuList>
             </NavigationMenu>
         </div>

@@ -9,7 +9,10 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "JobFusion",
+  title: {
+    template: "%s - JobFusion",
+    default: "JobFusion"
+  },
   description: "Create, Build, Achieve",
 };
 
