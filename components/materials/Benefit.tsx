@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 export default function Benefit() {
@@ -7,10 +8,10 @@ export default function Benefit() {
         "User-friendly interface for a smooth experience."
     ]
     return (
-        <section>
-            <p className='text-center font-medium mt-20'>Benefits</p>
-            <div className='grid grid-cols-1 md:grid-cols-2 px-10'>
+        <section className='mt-28' >
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:px-16 md:px-10'>
                 <div className='lg:p-10 p-5' >
+                    <p className='font-medium mb-3'>Benefits</p>
                     <p className='md:text-2xl font-semibold lg:text-3xl text-xl'>Unlock New Opportunities: Discover the Benefits of Our Job Portal App</p>
                     <p className='text-sm mt-4'>
                         Our Job Portal App streamlines the hiring process for recruiters while empowering candidates to find their ideal jobs. Experience a seamless connection between talent and opportunity, tailored to meet your needs.
@@ -25,6 +26,17 @@ export default function Benefit() {
                             </li>
                         ))}
                     </ul>
+                </div>
+                <div>
+                    <div className='relative w-full h-[500px]' >
+                        <Image
+                            src="/images/iphone_13_pro.png"
+                            alt='Benefit Image'
+                            fill
+                            objectFit='contain'
+                            loading='lazy'
+                        />
+                    </div>
                 </div>
             </div>
         </section>

@@ -81,7 +81,7 @@ export default function Footer() {
                     <div>
                         <Brand className='rounded mb-2' size={60} />
                         <Logo className='mb-3' />
-                        <div className='flex flex-row items-center gap-2 mt-3' >
+                        <div className='flex flex-col gap-2 mt-3' >
                             <AppleDownload />
                             <AndroidDownload />
                         </div>
