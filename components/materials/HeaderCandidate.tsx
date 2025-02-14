@@ -8,9 +8,10 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover"
+import { User } from 'lucide-react'
 
 
-export default function HeaderNav() {
+export default function HeaderCandidate() {
     const router = useRouter()
     const handleOnGetStarted = () => {
         router.push("/authentication/sign-in/")
@@ -20,13 +21,13 @@ export default function HeaderNav() {
             <div className='container flex flex-row items-center justify-between py-4' >
                 <HeaderNavigationMenu />
                 <div className='flex flex-row items-center gap-x-4 ' >
-                    <Button className='hidden md:flex' variant={'outline'} size={'lg'} onClick={handleOnGetStarted} >
-                        Get Started
+                    <Button className='hidden md:flex' variant={'outline'} onClick={handleOnGetStarted} >
+                        Upgrade
                     </Button>
                     <Popover>
                         <PopoverTrigger asChild>
-                            <Button size={'lg'} >
-                                Download App
+                            <Button size={'icon'} className='rounded-full' >
+                                <User />
                             </Button>
                         </PopoverTrigger>
                         <PopoverContent align='end' className='w-auto' >

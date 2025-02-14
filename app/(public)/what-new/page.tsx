@@ -63,34 +63,40 @@ export default function WhatNew() {
   // aray static
   const data = [
     {
-      category: "category 1",
-      title: "Title 1",
-      description: "sdvdvbvuvyf",
+      category: "Technology",
+      title: "Introduction to Artificial Intelligence",
+      description:
+        "Artificial Intelligence (AI) refers to the simulation of human intelligence processes by machines, especially computer systems. These processes include learning, reasoning, problem-solving, perception, and language understanding. AI can be used in various fields, such as healthcare, robotics, and natural language processing, to make tasks more efficient and accurate.",
     },
     {
-      category: "category 2",
-      title: "Title 2",
-      description: "sdvdvbvuvyf",
+      category: "Science",
+      title: "The Theory of Evolution The Theory of Evolution",
+      description:
+        "The Theory of Evolution, proposed by Charles Darwin in the 19th century, suggests that species evolve over time through a process of natural selection. This process involves the survival and reproduction of organisms that are better adapted to their environment. Over generations, small genetic changes accumulate, leading to the diversity of life we see today.",
     },
     {
-      category: "category 3",
-      title: "Title 3",
-      description: "sdvdvbvuvyf",
+      category: "History",
+      title: "The Renaissance Period",
+      description:
+        "The Renaissance was a cultural movement that began in Italy during the 14th century and spread throughout Europe. It marked a period of revival in art, literature, and learning. The era saw advancements in science, exploration, and philosophy, with figures like Leonardo da Vinci, Michelangelo, and Galileo Galilei contributing to its intellectual and artistic growth.",
     },
     {
-      category: "category 4",
-      title: "Title 4",
-      description: "sdvdvbvuvyf",
+      category: "Health",
+      title: "Benefits of Regular Exercise",
+      description:
+        "Regular exercise is essential for maintaining a healthy body and mind. It helps improve cardiovascular health, boosts mood, strengthens muscles and bones, and increases overall energy levels. Exercise can also help manage weight, reduce the risk of chronic diseases like diabetes, and improve sleep quality.",
     },
     {
-      category: "category 5",
-      title: "Title 5",
-      description: "sdvdvbvuvyf",
+      category: "Finance",
+      title: "The Basics of Personal Finance",
+      description:
+        "Personal finance involves managing your money, including budgeting, saving, investing, and planning for retirement. Understanding personal finance is essential for making informed financial decisions. It helps individuals create a financial plan, pay off debt, and build wealth over time. Learning about credit scores, insurance, and taxes is also a key component of personal finance.",
     },
     {
-      category: "category 6",
-      title: "Title 6",
-      description: "sdvdvbvuvyf",
+      category: "Travel",
+      title: "Top 5 Travel Destinations for 2025",
+      description:
+        "As the world opens up post-pandemic, many travelers are eager to explore new destinations. Some of the top travel destinations for 2025 include Japan for its rich culture and modern cities, Iceland for its stunning landscapes, Italy for its history and cuisine, Costa Rica for adventure tourism, and New Zealand for its natural beauty and outdoor activities. Each offers unique experiences for tourists seeking new adventures.",
     },
   ];
 
@@ -212,7 +218,7 @@ export default function WhatNew() {
         </div>
 
         {/* items */}
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 mb-5">
+        <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 xl:grid-cols-4 gap-6 mb-5">
           {data.map((item, idx) => (
             <MediaCard data={item} key={idx} />
           ))}
