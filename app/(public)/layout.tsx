@@ -1,3 +1,4 @@
+import Footer from '@/components/materials/Footer';
 import HeaderNav from '@/components/materials/HeaderNav';
 import React, { ReactNode } from 'react'
 
@@ -6,6 +7,7 @@ export default function PublicLayout({ children }: Readonly<{ children: ReactNod
         <section>
             <HeaderNav />
             {children}
+            <Footer />
         </section>
     )
 }

@@ -132,7 +132,14 @@ export function HeaderNavigationMenu() {
                     <NavigationMenuItem>
                         <Link href="/docs" legacyBehavior passHref>
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                                Media
+                                What&apos;s new ?
+                            </NavigationMenuLink>
+                        </Link>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
+                        <Link href="/docs" legacyBehavior passHref>
+                            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                Post Jobs
                             </NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>

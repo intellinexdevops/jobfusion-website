@@ -30,7 +30,7 @@ export default function Hero() {
                 <div className='absolute border-r border-gray-200 top-5 h-28 md:flex hidden -z-10 border-dashed animate-pulse' />
             </div>
             <div className='flex items-center justify-center' >
-                <div className='relative w-[900px] h-[400px] -mt-16' >
+                <div className='relative md:w-[900px] md:h-[400px] md:-mt-16 w-[400px] h-[200px]' >
                     <Image
                         src="/images/dashboard.png"
                         fill

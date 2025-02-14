@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
-
-export default function Logo() {
+import clsx from 'clsx'
+export default function Logo({ className }: { className?: string }) {
     return (
-        <Link href="/" className='font-bold text-primary text-lg' >JobFusion</Link>
+        <Link href="/" className={clsx(`font-bold text-primary text-lg ${className}`)} >JobFusion</Link>
     )
 }
