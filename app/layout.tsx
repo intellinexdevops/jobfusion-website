@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import ReactQueryProvider from "@/libs/react-query/ReactQueryProvider";
+import { ThemeProvider } from "@/components/theme-provider";
 const poppins = Poppins({
   variable: "--font-geist-mono",
   subsets: ["latin"],
@@ -24,13 +25,20 @@ export default function RootLayout({
 
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${poppins.variable} ${poppins.className} antialiased`}
       >
-        <ReactQueryProvider>
-          {children}
-        </ReactQueryProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ReactQueryProvider>
+            {children}
+          </ReactQueryProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

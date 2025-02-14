@@ -51,6 +51,8 @@ export default {
           "5": "hsl(var(--chart-5))",
         },
         bg: "#F9F9F9",
+        footer: "hsl(var(--footer))",
+        line: "hsl(var(--line))",
       },
       borderRadius: {
         lg: "var(--radius)",

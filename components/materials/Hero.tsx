@@ -20,14 +20,14 @@ export default function Hero() {
 
                 {/* Canvas */}
                 <div
-                    className='absolute border-b top-0 md:top-20 border-gray-200 border-dashed left-0 right-0 animate-pulse'
+                    className='absolute border-b top-0 md:top-20 border-line border-dashed left-0 right-0 animate-pulse'
                 />
                 <div
-                    className='absolute border-b bottom-0 md:bottom-20 border-gray-200 border-dashed left-0 right-0 animate-pulse'
+                    className='absolute border-b bottom-0 md:bottom-20 border-line border-dashed left-0 right-0 animate-pulse'
                 />
-                <div className='absolute border-r border-gray-200 top-5 -z-10 bottom-5 md:flex hidden right-40 border-dashed animate-pulse' />
-                <div className='absolute border-l border-gray-200 top-5 -z-10 bottom-5 md:flex hidden  left-40 border-dashed animate-pulse' />
-                <div className='absolute border-r border-gray-200 top-5 h-28 md:flex hidden -z-10 border-dashed animate-pulse' />
+                <div className='absolute border-r border-line top-5 -z-10 bottom-5 md:flex hidden right-40 border-dashed animate-pulse' />
+                <div className='absolute border-l border-line top-5 -z-10 bottom-5 md:flex hidden  left-40 border-dashed animate-pulse' />
+                <div className='absolute border-r border-line top-5 h-28 md:flex hidden -z-10 border-dashed animate-pulse' />
             </div>
             <div className='flex items-center justify-center' >
                 <div className='relative md:w-[900px] md:h-[400px] md:-mt-16 w-[400px] h-[200px]' >

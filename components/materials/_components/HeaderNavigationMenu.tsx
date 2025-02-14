@@ -80,7 +80,7 @@ export function HeaderNavigationMenu() {
             <Logo />
             <NavigationMenu>
                 <NavigationMenuList>
-                    <NavigationMenuItem>
+                    <NavigationMenuItem className="hidden xl:flex" >
                         <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
                         <NavigationMenuContent>
                             <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
@@ -113,7 +113,7 @@ export function HeaderNavigationMenu() {
                             </ul>
                         </NavigationMenuContent>
                     </NavigationMenuItem>
-                    <NavigationMenuItem>
+                    <NavigationMenuItem className="xl:flex hidden" >
                         <NavigationMenuTrigger>Jobs</NavigationMenuTrigger>
                         <NavigationMenuContent>
                             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
@@ -129,14 +129,14 @@ export function HeaderNavigationMenu() {
                             </ul>
                         </NavigationMenuContent>
                     </NavigationMenuItem>
-                    <NavigationMenuItem>
+                    <NavigationMenuItem className="xl:flex hidden" >
                         <Link href="/docs" legacyBehavior passHref>
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                                 What&apos;s new ?
                             </NavigationMenuLink>
                         </Link>
                     </NavigationMenuItem>
-                    <NavigationMenuItem>
+                    <NavigationMenuItem className="xl:flex hidden" >
                         <Link href="/docs" legacyBehavior passHref>
                             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                                 Post Jobs
