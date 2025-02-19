@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <>
+    <section className="container" >
       <div className="flex flex-col w-full h-[300px] md:h-[480px] items-center justify-center relative mt-20">
         <h1 className="lg:text-5xl md:text-4xl text-3xl  text-center font-semibold leading-snug">
           Find Your Dream Job or Ideal <br /> Candidate
@@ -40,6 +40,6 @@ export default function Hero() {
           />
         </div>
       </div>
-    </>
+    </section>
   );
 }

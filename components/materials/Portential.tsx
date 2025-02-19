@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Portential() {
     return (
-        <section className='mt-20 px-10' >
+        <section className='mt-20 px-10 container' >
             <p className='text-center font-medium mb-10' >Potential</p>
             <p className='text-center md:text-3xl text-2xl font-semibold' >Unlock Your Career Potential <br /> with Us</p>
             <p className='text-center text-xs md:text-sm mt-4'>

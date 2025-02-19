@@ -16,6 +16,7 @@ import Logo from "./Logo";
 import { useBreadcrumbStore } from "@/libs/zustand/BreadCrumb";
 import { usePathname } from "next/navigation";
 import { SearchDialog } from "../SearchDialog";
+import Brand from "@/public/icons/Brand";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -53,6 +54,11 @@ const components: { title: string; href: string; description: string }[] = [
     description:
       "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
   },
+  {
+    title: "View All",
+    description: "",
+    href: "/",
+  }
 ];
 
 export function HeaderNavigationMenu() {
@@ -91,6 +97,7 @@ export function HeaderNavigationMenu() {
                       href="/"
                     >
                       {/*Logo  */}
+                      <Brand size={100} className="rounded-md" />
                       <div className="mb-2 mt-4 text-lg font-medium">
                         JobFusion
                       </div>
@@ -101,13 +108,13 @@ export function HeaderNavigationMenu() {
                     </Link>
                   </NavigationMenuLink>
                 </li>
-                <ListItem href="/docs" title="About">
+                <ListItem href="/about" title="About">
                   Re-usable components built using Radix UI and Tailwind CSS.
                 </ListItem>
-                <ListItem href="/docs/installation" title="Mission">
+                <ListItem href="/about#mission" title="Mission">
                   How to install dependencies and structure your app.
                 </ListItem>
-                <ListItem href="/docs/primitives/typography" title="Vision">
+                <ListItem href="/about#vision" title="Vision">
                   Styles for headings, paragraphs, lists...etc
                 </ListItem>
               </ul>
@@ -117,15 +124,17 @@ export function HeaderNavigationMenu() {
             <NavigationMenuTrigger>Jobs</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                {components.map((component) => (
-                  <ListItem
-                    key={component.title}
-                    title={component.title}
-                    href={`/careers/${component.href}`}
-                  >
-                    {component.description}
-                  </ListItem>
-                ))}
+                {components.map((component) => {
+                  return (
+                    <ListItem
+                      key={component.title}
+                      title={component.title}
+                      href={`/careers/${component.href}`}
+                    >
+                      {component.description}
+                    </ListItem>
+                  )
+                })}
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>

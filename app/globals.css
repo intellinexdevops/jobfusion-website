@@ -43,7 +43,7 @@ body {
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
+    --primary: 151 100 37%;
     --primary-foreground: 0 0% 9%;
     --secondary: 0 0% 14.9%;
     --secondary-foreground: 0 0% 98%;
@@ -76,4 +76,17 @@ body {
   .container {
     @apply max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto px-4
   }
+}
+
+@layer components {
+  .swiper-pagination-bullet {
+      @apply border-0;
+      @apply bg-muted-foreground text-muted;
+    }
+  
+    .swiper-pagination-bullet-active {
+      background-color: aqua;
+      width: 20px;
+      height: 20px;
+    }
 }

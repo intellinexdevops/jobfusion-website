@@ -57,7 +57,7 @@ export default function WhatNew() {
   ];
 
   // state manager ment
-  const [selectedCategory, setSelectedCategory] = useState<any>(
+  const [selectedCategory, setSelectedCategory] = useState(
     categories[0].value
   );
   // aray static
@@ -176,7 +176,7 @@ export default function WhatNew() {
                 >
                   {value
                     ? categories.find((framework) => framework.value === value)
-                        ?.label
+                      ?.label
                     : "Select Categories..."}
                   <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
