@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Logo from './_components/Logo'
 import Link from 'next/link'
 import { ChevronRight, LinkIcon, Moon, Sun } from 'lucide-react'
@@ -74,7 +74,18 @@ export default function Footer() {
 
     const now = new Date()
     const year = now.getFullYear()
-    const { setTheme } = useTheme()
+    const { setTheme, theme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) return null;
+
+    const toggleTheme = () => {
+        setTheme(theme === "light" ? "dark" : "light");
+    };
 
     return (
         <footer className='bg-footer pt-10' >
@@ -88,11 +99,8 @@ export default function Footer() {
                             <AndroidDownload />
                         </div>
                         <div className='flex flex-row items-center gap-2 mt-5' >
-                            <Button onClick={() => setTheme("light")} variant="outline" size="icon" >
-                                <Sun />
-                            </Button>
-                            <Button onClick={() => setTheme("dark")} variant="outline" size="icon" >
-                                <Moon />
+                            <Button onClick={() => toggleTheme()} variant="outline" size="icon" >
+                                {theme === "light" ? <Moon /> : <Sun />}
                             </Button>
                         </div>
                     </div>

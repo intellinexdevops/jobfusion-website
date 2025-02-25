@@ -1,10 +1,11 @@
-import React from 'react'
+
+import React, { Suspense } from 'react'
+import Loading from './loading'
 
 export default function AuthenticationLayout({ children }: { children: React.ReactNode }) {
     return (
-        <section>
+        <Suspense fallback={<Loading />}>
             {children}
-        </section>
-
+        </Suspense>
     )
 }
