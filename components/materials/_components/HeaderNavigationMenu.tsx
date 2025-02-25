@@ -146,9 +146,9 @@ export function HeaderNavigationMenu() {
             </Link>
           </NavigationMenuItem>
           <NavigationMenuItem className="xl:flex hidden">
-            <Link href="/docs" legacyBehavior passHref>
+            <Link href="/pricing" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Post Jobs
+                Post for free
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>

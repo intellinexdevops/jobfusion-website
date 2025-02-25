@@ -1,4 +1,4 @@
-import CareerDetailCom from '@/components/materials/CareerDetailCom';
+import CareerBodyComponent from '@/components/materials/CareerBodyComponent';
 import React from 'react'
 
 export default async function CareesPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -13,7 +13,7 @@ export default async function CareesPage({ params }: { params: Promise<{ slug: s
                     </p>
                 </div>
             </div>
-            <CareerDetailCom title={title} />
+            <CareerBodyComponent title={title} />
         </div>
     )
 }
