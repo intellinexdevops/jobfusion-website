@@ -1,5 +1,8 @@
+import AboutUs from '@/components/materials/AboutUs'
+import OurTeam from '@/components/materials/OurTeam'
+import OurSevices from '@/components/materials/OurSevices'
 import React from 'react'
-
+import OurClient from '@/components/materials/OurClient'
 export default function AboutPage() {
     return (
         <div className='mt-20' >
@@ -12,6 +15,10 @@ export default function AboutPage() {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
                 </p>
             </div>
+            <AboutUs/>
+            <OurTeam/>
+            <OurSevices/>
+            <OurClient/>
         </div>
     )
 }
