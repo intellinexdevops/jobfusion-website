@@ -5,9 +5,9 @@ import React from "react";
 
 export default function CardTeam({ data }: { data: any }) {
   return (
-    <div className="">
-      <div className="flex flex-col justify-center">
-        <div className="relative w-[350px] h-[350px] rounded-lg overflow-hidden">
+
+      <div className="">
+        <div className="relative flex-1 h-72 rounded-lg overflow-hidden">
           <Image
             src="/images/placeholder-image.webp"
             alt="about"
@@ -86,6 +86,6 @@ export default function CardTeam({ data }: { data: any }) {
           </Link>
         </div>
       </div>
-    </div>
+
   );
 }

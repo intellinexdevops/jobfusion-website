@@ -45,7 +45,7 @@ export default function OurTeam() {
   ];
 
   return (
-    <div className="container mt-20">
+    <div className="container mt-20" id="vision" > 
       <div className="flex flex-col items-center ">
         <p className="font-semibold text-3xl my-3">Our team</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -58,11 +58,11 @@ export default function OurTeam() {
           loop={true}
           modules={[Autoplay, Navigation, Pagination, A11y]}
           slidesPerView={2}
-          spaceBetween={20}
+          spaceBetween={50}
           breakpoints={{
             320: { slidesPerView: 1 },
             680: { slidesPerView: 2 },
-            768: { slidesPerView: 3 },
+            768: { slidesPerView: 4 },
           }}
           speed={700}
           className="relative"
