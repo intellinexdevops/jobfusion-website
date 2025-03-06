@@ -1,13 +1,14 @@
 
 import CareerHeaderBottom from '@/components/materials/CareerHeaderBottom'
-import React from 'react'
+import React, { Suspense } from 'react'
 import CareerBodyComponent from "@/components/materials/CareerBodyComponent";
+import Loading from '../loading';
 
 export default function CareerPage() {
     return (
-        <div>
+        <Suspense fallback={<Loading />} >
             <CareerHeaderBottom />
             <CareerBodyComponent title="" />
-        </div>
+        </Suspense>
     )
 }

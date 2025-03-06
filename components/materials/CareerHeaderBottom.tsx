@@ -4,7 +4,7 @@ import { Home } from 'lucide-react'
 export default function CareerHeaderBottom() {
     return (
         <div>
-            <div className='bg-primary' >
+            <div className='bg-primary dark:bg-primary/5' >
                 <div className='mt-20 container pt-10'>
                     <Breadcrumb>
                         <BreadcrumbList>
@@ -21,7 +21,7 @@ export default function CareerHeaderBottom() {
                     </Breadcrumb>
                 </div>
             </div>
-            <div className='bg-primary pb-6'>
+            <div className='bg-primary dark:bg-primary/5 pb-6'>
                 <div className='container pt-2'>
                     <p className='text-2xl text-white capitalize font-semibold'>
                         Careers

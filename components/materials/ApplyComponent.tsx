@@ -1,6 +1,6 @@
 "use client"
-import { Building, StarIcon, UploadIcon, Verified } from 'lucide-react'
-import React from 'react'
+import { Building, Star, StarIcon, UploadIcon, Verified } from 'lucide-react'
+import React, { useEffect } from 'react'
 import { Label } from '../ui/label'
 import { Input } from '../ui/input'
 import {
@@ -15,16 +15,75 @@ import {
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import { toast } from "sonner"
+import { useRouter } from 'next/navigation'
 
 export default function ApplyComponent() {
 
+    const [isSuccessApplied, setIsSuccessApplied] = React.useState<boolean>(false)
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    const [rating, setRating] = React.useState<number>(0);
+    const [hover, setHover] = React.useState<number>(0);
+    const [feedback, setFeedback] = React.useState<string>("");
+
+    const router = useRouter()
 
     const handleOnApplyNow = () => {
         toast.success("You have applied your application.", {
             description: "",
-        })
+        });
+        setIsSuccessApplied(true)
     }
 
+    const handleFeedback = () => {
+        // Validate the feedback
+        if (feedback.trim() === "") {
+            toast.error("Please provide your feedback.", {
+                description: "",
+            })
+            return
+        } else if (rating <= 0) {
+            toast.error("Please provide a rating.", {
+                description: "",
+            })
+            return
+        }
+
+        toast.success("Your feedback has been submitted.", {
+            description: "",
+        })
+        setIsOpen(false)
+        setRating(0)
+        setFeedback("")
+        setHover(0);
+
+        // Redirect to the job details page with 500 seconds
+        setTimeout(() => {
+            router.back();
+        }, 500)
+    }
+
+    const handleFeedbackCancel = () => {
+        setIsOpen(false)
+        setRating(0)
+        setFeedback("")
+        setHover(0);
+
+        setTimeout(() => {
+            router.back();
+        }, 500)
+    }
+
+
+    useEffect(() => {
+        if (isSuccessApplied) {
+            const timer = setTimeout(() => {
+                setIsOpen(true)
+                setIsSuccessApplied(false)
+            }, 1000)
+            return () => clearTimeout(timer)
+        }
+    }, [isSuccessApplied]);
     return (
         <div className='container mb-10' >
             <div className='grid lg:grid-cols-12 grid-cols-1' >
@@ -129,6 +188,67 @@ export default function ApplyComponent() {
 
                 </div>
             </div>
+
+            <AlertDialog open={isOpen}>
+                {/* <DialogTrigger asChild>
+                    <Button>
+                        HAHA
+                    </Button>
+                </DialogTrigger> */}
+                <AlertDialogContent>
+                    <AlertDialogHeader>
+                        <AlertDialogTitle asChild>
+                            <span className='font-medium' >Send your feedback</span>
+                        </AlertDialogTitle>
+                        <AlertDialogDescription>
+                            Give feedback to this company.
+                        </AlertDialogDescription>
+                        <div>
+                            <div className='flex flex-row items-center gap-3 mt-4 mb-10' >
+                                <div className='w-10 h-10 bg-primary/10 rounded-md flex items-center justify-center' >
+                                    <Building className='text-primary' />
+                                </div>
+                                <div className='flex flex-row'>
+                                    <div className='flex flex-col' >
+                                        <p className='text-lg font-medium'>Google</p>
+                                        <p className='text-xs text-gray-500'>4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <p className='font-medium text-sm'>How was your experienced?</p>
+                            <div className="flex space-x-2 mt-3 mb-10">
+                                {[...Array(5)].map((_, index) => {
+                                    const starValue = index + 1;
+                                    return (
+                                        <Star
+                                            key={index}
+                                            className={`w-5 h-5 cursor-pointer transition-colors duration-200 ${starValue <= (hover || rating) ? 'text-[#FD9426]' : 'text-gray-400'
+                                                }`}
+                                            onClick={() => setRating(starValue)}
+                                            onMouseEnter={() => setHover(starValue)}
+                                            onMouseLeave={() => setHover(0)}
+                                            fill={starValue <= (hover || rating) ? 'currentColor' : 'none'}
+                                        />
+                                    );
+                                })}
+                            </div>
+                            <p className='font-medium text-sm mb-3'>Comment</p>
+                            <textarea
+                                className='w-full text-sm h-32 p-3 border border-gray-300 rounded-md focus:outline-none focus:border-primary'
+                                placeholder='Write your feedback here...'
+                                value={feedback}
+                                onChange={(e) => setFeedback(e.target.value)}
+                            />
+                        </div>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                        <AlertDialogCancel onClick={handleFeedbackCancel} >Close</AlertDialogCancel>
+                        <AlertDialogAction onClick={handleFeedback}>Submit</AlertDialogAction>
+                    </AlertDialogFooter>
+                </AlertDialogContent>
+            </AlertDialog>
+
+
         </div>
     )
 }

@@ -1,6 +1,6 @@
 "use client"
 
-import { Bookmark, Building, Clock2, MapPin } from "lucide-react";
+import { Building, Clock2, Heart, MapPin } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export default function CareerCard({ data }: { data: { id: string, title: string } }) {
@@ -9,7 +9,7 @@ export default function CareerCard({ data }: { data: { id: string, title: string
         router.push(`/careers/details/${data.id}?breadcrumb=${data.title}`)
     }
     return (
-        <div className="bg-white rounded-lg p-4">
+        <div className="bg-white dark:bg-primary/5 rounded-lg p-4">
             <div className="flex flex-row  justify-between">
                 <div>
                     {/*<Briefcase/>*/}
@@ -46,12 +46,12 @@ export default function CareerCard({ data }: { data: { id: string, title: string
 
             <div className="flex flex-row items-center gap-3 mt-3">
 
-                <button onClick={handleOnDetail} className="text-xs bg-primary px-4 py-2 rounded text-white">
+                <button onClick={handleOnDetail} className="text-xs bg-primary/10 text-primary px-4 py-2 rounded-lg font-medium">
                     Details
                 </button>
 
-                <button>
-                    <Bookmark size={16} className="text-gray-500" />
+                <button className="text-xs group hover:bg-primary/10 border transition-all duration-200 ease-linear w-[30px] h-[30px] rounded-lg text-white flex items-center justify-center">
+                    <Heart size={16} className="text-gray-300 group-hover:text-primary transition-all duration-200 ease-linear" />
                 </button>
             </div>
 
