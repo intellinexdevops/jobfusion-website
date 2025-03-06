@@ -1,8 +1,11 @@
+"use client"
 import React from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Hero() {
+  const router = useRouter()
   return (
     <section className="container" >
       <div className="flex flex-col w-full h-[300px] md:h-[480px] items-center justify-center relative mt-20">
@@ -16,7 +19,7 @@ export default function Hero() {
           effortlessly to find the perfect match.
         </p>
         <div className="flex flex-row gap-4 mt-5">
-          <Button size="lg">Get Started</Button>
+          <Button onClick={() => router.push("/channel/987989/dashboard")} size="lg">Get Started</Button>
           <Button variant={"outline"} size={"lg"}>
             Sign Up
           </Button>

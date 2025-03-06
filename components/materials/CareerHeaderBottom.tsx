@@ -1,5 +1,6 @@
 import React from 'react'
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from '@/components/ui/breadcrumb'
+import { Home } from 'lucide-react'
 export default function CareerHeaderBottom() {
     return (
         <div>
@@ -8,7 +9,9 @@ export default function CareerHeaderBottom() {
                     <Breadcrumb>
                         <BreadcrumbList>
                             <BreadcrumbItem>
-                                <BreadcrumbLink className='text-white' href="/">Home</BreadcrumbLink>
+                                <BreadcrumbLink className='text-white' href="/">
+                                    <Home size={14} />
+                                </BreadcrumbLink>
                             </BreadcrumbItem>
                             <BreadcrumbSeparator className='text-white' />
                             <BreadcrumbItem>

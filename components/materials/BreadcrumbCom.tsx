@@ -8,6 +8,7 @@ import {
     BreadcrumbList,
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
+import { Home } from 'lucide-react';
 
 
 export default function BreadcrumbCom() {
@@ -21,7 +22,9 @@ export default function BreadcrumbCom() {
                     <Breadcrumb>
                         <BreadcrumbList>
                             <BreadcrumbItem>
-                                <BreadcrumbLink className='text-white' href="/">Home</BreadcrumbLink>
+                                <BreadcrumbLink className='text-white' href="/">
+                                    <Home size={14} />
+                                </BreadcrumbLink>
                             </BreadcrumbItem>
                             {pathParts!.slice(2).map((path, idx) => {
                                 const pageDisplay = path.split('-').join(' ');

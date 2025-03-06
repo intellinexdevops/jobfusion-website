@@ -17,48 +17,49 @@ import { useBreadcrumbStore } from "@/libs/zustand/BreadCrumb";
 import { usePathname } from "next/navigation";
 import { SearchDialog } from "../SearchDialog";
 import Brand from "@/public/icons/Brand";
+import { ChevronsRight, Computer, Database, Network, Palette, ShieldCheck } from "lucide-react";
 
-const components: { title: string; href: string; description: string }[] = [
+const components: { title: string; href: string; description: string, icon?: React.ReactNode }[] = [
   {
     title: "Software Development",
     href: "software-development",
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
+    icon: <Computer size={15} className="text-primary" />
   },
   {
     title: "Graphic Design",
     href: "graphic-design",
     description:
       "For sighted users to preview content available behind a link.",
+    icon: <Palette size={15} className="text-primary" />
   },
   {
     title: "Database Management",
     href: "database-management",
     description:
       "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+    icon: <Database size={15} className="text-primary" />
   },
   {
     title: "Network Engineering",
     href: "network-engineering",
     description: "Visually or semantically separates content.",
+    icon: <Network size={15} className="text-primary" />
   },
   {
     title: "Cybersecurity",
     href: "cybersecurity",
     description:
       "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-  },
-  {
-    title: "Blockchain",
-    href: "blockchain",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+    icon: <ShieldCheck size={15} className="text-primary" />
   },
   {
     title: "View All",
     description: "",
     href: "/",
-  }
+    icon: <ChevronsRight size={15} className="text-primary" />
+  },
 ];
 
 export function HeaderNavigationMenu() {
@@ -130,6 +131,7 @@ export function HeaderNavigationMenu() {
                       key={component.title}
                       title={component.title}
                       href={`/careers/${component.href}`}
+                      icon={component.icon}
                     >
                       {component.description}
                     </ListItem>
@@ -160,10 +162,10 @@ export function HeaderNavigationMenu() {
   );
 }
 
-const ListItem = React.forwardRef<
+export const ListItem = React.forwardRef<
   React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
+  React.ComponentPropsWithoutRef<"a"> & { icon?: React.ReactNode }
+>(({ className, title, children, icon, ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
@@ -175,8 +177,11 @@ const ListItem = React.forwardRef<
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          <div className="flex flex-row items-center gap-2" >
+            {icon && <span className="w-6 h-6 flex items-center justify-center rounded bg-primary/10">{icon}</span>}
+            <div className="text-sm font-medium leading-none">{title}</div>
+          </div>
+          <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
             {children}
           </p>
         </a>
