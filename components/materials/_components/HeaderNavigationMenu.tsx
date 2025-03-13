@@ -17,42 +17,21 @@ import { useBreadcrumbStore } from "@/libs/zustand/BreadCrumb";
 import { usePathname } from "next/navigation";
 import { SearchDialog } from "../SearchDialog";
 import Brand from "@/public/icons/Brand";
-import { ChevronsRight, Computer, Database, Network, Palette, ShieldCheck } from "lucide-react";
+import { ChevronsRight, Computer, Network } from "lucide-react";
 
 const components: { title: string; href: string; description: string, icon?: React.ReactNode }[] = [
   {
-    title: "Software Development",
-    href: "software-development",
+    title: "IT & CS Jobs",
+    href: "it-and-cs-jobs",
     description:
       "A modal dialog that interrupts the user with important content and expects a response.",
     icon: <Computer size={15} className="text-primary" />
   },
   {
-    title: "Graphic Design",
-    href: "graphic-design",
-    description:
-      "For sighted users to preview content available behind a link.",
-    icon: <Palette size={15} className="text-primary" />
-  },
-  {
-    title: "Database Management",
-    href: "database-management",
-    description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-    icon: <Database size={15} className="text-primary" />
-  },
-  {
-    title: "Network Engineering",
-    href: "network-engineering",
+    title: "Freelance",
+    href: "freelance",
     description: "Visually or semantically separates content.",
     icon: <Network size={15} className="text-primary" />
-  },
-  {
-    title: "Cybersecurity",
-    href: "cybersecurity",
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-    icon: <ShieldCheck size={15} className="text-primary" />
   },
   {
     title: "View All",
@@ -124,7 +103,7 @@ export function HeaderNavigationMenu() {
           <NavigationMenuItem className="xl:flex hidden">
             <NavigationMenuTrigger>Jobs</NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+              <ul className="grid w-[400px] gap-3 p-4 md:grid-cols-1">
                 {components.map((component) => {
                   return (
                     <ListItem
