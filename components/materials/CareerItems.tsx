@@ -1,5 +1,5 @@
 "use client"
-import {useState} from "react";
+import { useState } from "react";
 import {
     Pagination,
     PaginationContent,
@@ -13,61 +13,61 @@ import CareerCard from "@/components/materials/CareerCard";
 
 export default function CareerItems() {
 
-    const data = [
+    const data: { id: string, title: string }[] = [
         {
-            id: 1,
+            id: "1",
             title: "Web Developer"
         },
         {
-            id: 2,
+            id: "2",
             title: "Developer"
         },
         {
-            id: 3,
+            id: "3",
             title: "Developer"
         },
         {
-            id: 4,
+            id: "4",
             title: "Developer"
         },
         {
-            id: 5,
+            id: "5",
             title: "Developer"
         },
         {
-            id: 6,
+            id: "6",
             title: "Developer"
         },
         {
-            id: 7,
+            id: "7",
             title: "Developer"
         },
         {
-            id: 8,
+            id: "8",
             title: "Developer"
         },
         {
-            id: 9,
+            id: "9",
             title: "Developer"
         },
         {
-            id: 10,
+            id: "10",
             title: "Developer"
         },
         {
-            id: 11,
+            id: "11",
             title: "Developer"
         },
         {
-            id: 12,
+            id: "12",
             title: "Developer"
         },
         {
-            id: 13,
+            id: "13",
             title: "Developer"
         },
         {
-            id: 14,
+            id: "14",
             title: "Developer"
         }
     ]
@@ -85,7 +85,7 @@ export default function CareerItems() {
         let pages = [];
 
         if (totalPages <= 4) {
-            pages = Array.from({length: totalPages}, (_, i) => i + 1);
+            pages = Array.from({ length: totalPages }, (_, i) => i + 1);
         } else {
             pages.push(1);
             if (currentPage > 3) pages.push("•••");
@@ -105,7 +105,7 @@ export default function CareerItems() {
     return (<div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 mt-6">
             {currentItems.map((item, i) => (
-                <CareerCard key={i} data={item}/>
+                <CareerCard key={i} data={item} />
             ))}
         </div>
 
@@ -113,8 +113,8 @@ export default function CareerItems() {
             <PaginationContent>
                 <PaginationItem>
                     <button disabled={currentPage === 1}
-                            className={currentPage === 1 ? "cursor-not-allowed" : "cursor-pointer"}>
-                        <PaginationPrevious onClick={() => setCurrentPage(currentPage - 1)}/>
+                        className={currentPage === 1 ? "cursor-not-allowed" : "cursor-pointer"}>
+                        <PaginationPrevious onClick={() => setCurrentPage(currentPage - 1)} />
                     </button>
                 </PaginationItem>
 
@@ -131,8 +131,8 @@ export default function CareerItems() {
 
                 <PaginationItem>
                     <button disabled={currentPage === totalPages}
-                            className={currentPage === totalPages ? "cursor-not-allowed" : "cursor-pointer"}>
-                        <PaginationNext onClick={() => setCurrentPage(currentPage + 1)}/>
+                        className={currentPage === totalPages ? "cursor-not-allowed" : "cursor-pointer"}>
+                        <PaginationNext onClick={() => setCurrentPage(currentPage + 1)} />
                     </button>
                 </PaginationItem>
 

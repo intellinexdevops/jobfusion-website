@@ -3,6 +3,8 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import ReactQueryProvider from "@/libs/react-query/ReactQueryProvider";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
+import Script from "next/script";
 const poppins = Poppins({
   variable: "--font-geist-mono",
   subsets: ["latin"],
@@ -31,8 +33,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ReactQueryProvider>{children}</ReactQueryProvider>
+          <ReactQueryProvider>
+            {children}
+            <Toaster />
+          </ReactQueryProvider>
         </ThemeProvider>
+        <Script src="https://www.google.com/recaptcha/api.js"></Script>
       </body>
     </html>
   );

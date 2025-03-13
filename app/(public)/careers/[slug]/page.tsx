@@ -5,7 +5,7 @@ export default async function CareesPage({ params }: { params: Promise<{ slug: s
     const slug = (await params).slug
     const title = slug.split('-').join(' ');
     return (
-        <div className='h-[2000px]'>
+        <div className=''>
             <div className='bg-primary pb-6'>
                 <div className='container pt-2'>
                     <p className='text-2xl text-white capitalize font-semibold'>
