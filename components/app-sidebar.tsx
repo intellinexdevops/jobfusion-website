@@ -11,21 +11,26 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
-import { Calendar, AppWindowIcon, MessageCircleMore, LayoutDashboard, Briefcase } from "lucide-react";
+import { Calendar, AppWindowIcon, MessageCircleMore, LayoutDashboard, Briefcase, Atom, FolderUp } from "lucide-react";
 import Logo from "./materials/_components/Logo";
 import FooterSidebarCom from "./materials/FooterSidebarCom";
 import { usePathname } from "next/navigation";
 
 const items = [
     {
-        title: "Profile",
-        url: "profile",
-        icon: AppWindowIcon,
-    },
-    {
         title: "Job",
         url: "job",
         icon: Briefcase,
+    },
+    {
+        title: "Workspace",
+        url: "workspace",
+        icon: Atom,
+    },
+    {
+        title: "Report",
+        url: "report",
+        icon: FolderUp,
     },
     {
         title: "Dashboard",
@@ -62,7 +67,7 @@ export function AppSidebar() {
                     <SidebarGroupLabel>Menu</SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
-                            {items.slice(2).map((item) => (
+                            {items.slice(3).map((item) => (
                                 <SidebarMenuItem key={item.title} className={`my-1 rounded-md ${isActive(item.url) ? 'bg-primary/15' : ''}`} >
                                     <SidebarMenuButton asChild>
                                         <a href={item.url}>
@@ -80,7 +85,7 @@ export function AppSidebar() {
                     <SidebarGroupLabel>Platform</SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
-                            {items.slice(0, 2).map((item) => (
+                            {items.slice(0, 3).map((item) => (
                                 <SidebarMenuItem key={item.title} className={`my-1 rounded-md ${isActive(item.url) ? 'bg-primary/15' : ''}`} >
                                     <SidebarMenuButton asChild>
                                         <a href={item.url}>
