@@ -1,4 +1,4 @@
-import WhatNewDetailCom from "@/components/pages/WhatNewDetailCom";
+import WhatNewDetailCom from "@/components/pages/what-new-detail-com";
 import React from "react";
 
 export default async function WhatNewDetails({
@@ -6,6 +6,6 @@ export default async function WhatNewDetails({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const id = (await params).id;
+  const { id } = await params;
   return <WhatNewDetailCom id={id} />;
 }

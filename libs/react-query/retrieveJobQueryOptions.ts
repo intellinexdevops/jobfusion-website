@@ -2,7 +2,7 @@
 
 import { queryOptions } from "@tanstack/react-query";
 import Api from "../Api";
-import { Job } from "@/types/Job";
+import { Job } from "@/types/job";
 
 export default function retrieveJobQueryOptions() {
   return queryOptions({

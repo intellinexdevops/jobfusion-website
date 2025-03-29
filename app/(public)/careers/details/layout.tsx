@@ -1,4 +1,4 @@
-import BreadcrumbCareerCom from '@/components/materials/BreadcrumbCareerCom'
+import BreadcrumbCareerCom from '@/components/materials/breadcrumb-career-com'
 import React, { PropsWithChildren } from 'react'
 
 export default function CarerrDetailLayout({ children }: PropsWithChildren) {

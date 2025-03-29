@@ -117,4 +117,8 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+
+  .btn-inx {
+    @apply text-sm text-white bg-primary py-2 px-4 rounded-xl border-2 border-white
+  }
 }

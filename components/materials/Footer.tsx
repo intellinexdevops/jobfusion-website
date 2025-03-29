@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import Logo from './_components/Logo'
+import Logo from './_components/logo'
 import Link from 'next/link'
 import { ChevronRight, LinkIcon, Moon, Sun } from 'lucide-react'
 import AppleDownload from '@/public/icons/AppleDownload'

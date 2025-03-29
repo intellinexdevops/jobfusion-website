@@ -19,7 +19,7 @@ export default function Hero() {
           effortlessly to find the perfect match.
         </p>
         <div className="flex flex-row gap-4 mt-5">
-          <Button onClick={() => router.push("/channel/987989/dashboard")} size="lg">Get Started</Button>
+          <Button onClick={() => router.push("/auth/channel/987989/dashboard")} size="lg">Get Started</Button>
           <Button variant={"outline"} size={"lg"}>
             Sign Up
           </Button>

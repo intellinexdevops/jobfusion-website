@@ -5,6 +5,7 @@ import ReactQueryProvider from "@/libs/react-query/ReactQueryProvider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
+
 const poppins = Poppins({
   variable: "--font-geist-mono",
   subsets: ["latin"],

@@ -12,8 +12,8 @@ import {
     SidebarMenuItem,
 } from "@/components/ui/sidebar"
 import { Calendar, AppWindowIcon, MessageCircleMore, LayoutDashboard, Briefcase, Atom, FolderUp } from "lucide-react";
-import Logo from "./materials/_components/Logo";
-import FooterSidebarCom from "./materials/FooterSidebarCom";
+import Logo from "./materials/_components/logo";
+import FooterSidebarCom from "./materials/footer-sidebar-com";
 import { usePathname } from "next/navigation";
 
 const items = [
