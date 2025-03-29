@@ -20,8 +20,6 @@ import Image from 'next/image'
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod"
-import { OAuthStrategy } from '@clerk/types'
-import { useSignIn } from '@clerk/nextjs'
 
 import {
     Form,
@@ -54,27 +52,6 @@ export default function LoginComponent() {
         console.log(values)
     }
 
-    const { signIn } = useSignIn()
-
-    if (!signIn) return null
-
-    const signInWith = async (strategy: OAuthStrategy) => {
-        try {
-            const res = await signIn
-                .authenticateWithRedirect({
-                    strategy,
-                    redirectUrl: '/authentication/sign-up/sso-callback',
-                    redirectUrlComplete: '/',
-                })
-            console.log(res)
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        } catch (err: any) {
-            // See https://clerk.com/docs/custom-flows/error-handling
-            // for more info on error handling
-            console.log(err.errors)
-            console.error(err, null, 2)
-        }
-    }
 
     return (
         <div className='h-screen flex items-center justify-center flex-col gap-10' >
@@ -169,7 +146,7 @@ export default function LoginComponent() {
                                 alt='Apple'
                             />
                         </Button>
-                        <Button size="icon" variant='outline' onClick={() => signInWith('oauth_google')} >
+                        <Button size="icon" variant='outline' onClick={() => { }} >
                             <Image
                                 src="/icons/google.svg"
                                 width={20}

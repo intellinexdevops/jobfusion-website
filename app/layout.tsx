@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import ReactQueryProvider from "@/libs/react-query/ReactQueryProvider";
+import ReactQueryProvider from "@/config/react-query/ReactQueryProvider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";

@@ -61,8 +61,6 @@ export default function AccountComponent() {
     const params = useSearchParams();
     const currentMenu = params?.get('menu') ?? "account";
 
-
-
     return (
         <div className='mt-20 mb-10' >
             <div className='container'>

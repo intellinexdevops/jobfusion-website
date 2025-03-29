@@ -3,7 +3,7 @@ import { Briefcase, Check } from 'lucide-react'
 import React from 'react'
 import { Button } from '../ui/button'
 import { useMutation } from '@tanstack/react-query'
-import Api from '@/libs/Api'
+import Api from '@/config/api'
 import { Payment } from '@/types/payment'
 
 export default function PricingComponent() {

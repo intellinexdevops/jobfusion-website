@@ -1,7 +1,7 @@
 // Reusable Queries
 
 import { queryOptions } from "@tanstack/react-query";
-import Api from "../Api";
+import Api from "../api";
 import { Job } from "@/types/job";
 
 export default function retrieveJobQueryOptions() {

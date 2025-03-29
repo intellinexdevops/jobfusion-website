@@ -15,7 +15,7 @@ import { Button } from '../ui/button';
 import { EyeClosedIcon, EyeIcon } from 'lucide-react';
 import { Checkbox } from '../ui/checkbox';
 import { useMutation } from '@tanstack/react-query';
-import Api from '@/libs/Api';
+import Api from '@/config/api';
 
 
 const formSchema = z.object({

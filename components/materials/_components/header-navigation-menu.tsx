@@ -13,7 +13,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import Logo from "./logo";
-import { useBreadcrumbStore } from "@/libs/zustand/BreadCrumb";
+import { useBreadcrumbStore } from "@/config/zustand/breadcrumb";
 import { usePathname } from "next/navigation";
 import { SearchDialog } from "../search-dialog";
 import Brand from "@/public/icons/Brand";
