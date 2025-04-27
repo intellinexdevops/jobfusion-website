@@ -13,9 +13,9 @@ import { z } from "zod"
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { EyeClosedIcon, EyeIcon } from 'lucide-react';
-import { Checkbox } from '../ui/checkbox';
 import { useMutation } from '@tanstack/react-query';
 import Api from '@/config/api';
+import Link from 'next/link';
 
 
 const formSchema = z.object({
@@ -115,26 +115,14 @@ export default function SignUpWithPhoneComponent() {
                     )}
                 />
 
-
-
-                <div className='flex flex-row items-center justify-between'>
-                    <div className="flex items-center space-x-2">
-                        <Checkbox id="terms" />
-                        <label
-                            htmlFor="terms"
-                            className="text-sm text-gray-600 font-normal leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                        >
-                            Remember me
-                        </label>
-                    </div>
-                </div>
-
                 <Button size="me" type='submit' className='font-medium text-[14px]'>
-                    Sign In
+                    Sign Up
                 </Button>
 
-                <p className='text-xs text-center text-gray-500'>Or other methods</p>
-
+                <div className='flex items-center space-x-1 justify-center'>
+                    <p className='text-xs text-center text-gray-500'>Already have an account?</p>
+                    <Link replace href="/sign-in" className='text-sm font-medium text-primary underline'>Sign In</Link>
+                </div>
 
             </form>
         </Form>

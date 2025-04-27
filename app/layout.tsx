@@ -7,7 +7,7 @@ import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
 
 const poppins = Poppins({
-  variable: "--font-geist-mono",
+  variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
@@ -22,8 +22,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  modal
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -36,6 +38,7 @@ export default function RootLayout({
         >
           <ReactQueryProvider>
             {children}
+            {modal}
             <Toaster />
           </ReactQueryProvider>
         </ThemeProvider>

@@ -12,10 +12,8 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import Logo from "./logo";
 import { useBreadcrumbStore } from "@/config/zustand/breadcrumb";
 import { usePathname } from "next/navigation";
-import { SearchDialog } from "../search-dialog";
 import Brand from "@/public/icons/Brand";
 import { ChevronsRight, Computer, Network } from "lucide-react";
 
@@ -63,7 +61,6 @@ export function HeaderNavigationMenu() {
 
   return (
     <div className="flex flex-row items-center gap-x-10">
-      <Logo />
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem className="hidden xl:flex">
@@ -133,8 +130,6 @@ export function HeaderNavigationMenu() {
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
-
-          <SearchDialog />
         </NavigationMenuList>
       </NavigationMenu>
     </div>

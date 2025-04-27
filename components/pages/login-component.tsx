@@ -1,15 +1,7 @@
 "use client"
 import React from 'react'
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
+
 import { Input } from '../ui/input'
-import Brand from '@/public/icons/Brand'
 import Logo from '../materials/_components/logo'
 import Link from 'next/link'
 import { Checkbox } from "@/components/ui/checkbox"
@@ -28,7 +20,10 @@ import {
     FormField,
     FormItem,
     FormMessage,
+    FormLabel
 } from "@/components/ui/form"
+import Modal from '../ui/modal'
+import { Label } from '../ui/label'
 
 
 const formSchema = z.object({
@@ -54,124 +49,127 @@ export default function LoginComponent() {
 
 
     return (
-        <div className='h-screen flex items-center justify-center flex-col gap-10' >
-            <div className='flex flex-col items-center gap-2'>
-                <Brand size={70} className='rounded-lg' />
+        <Modal>
+            <div>
                 <Logo />
+                <div className='mt-[30px]'>
+                    <p className='text-xl font-bold text-text'>Sign In</p>
+                    <p className='text-sm text-gray-600'>Please enter your details.</p>
+                </div>
             </div>
-            <Card className='w-[400px] p-2'>
-                <CardHeader className='flex flex-col items-center justify-center'>
-                    <CardTitle>Welcome back!</CardTitle>
-                    <CardDescription>Please login to continue.</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <Form {...form}>
-                        <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4 flex flex-col">
-
-                            <FormField
-                                control={form.control}
-                                name="identifier"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormControl>
-                                            <Input placeholder='Email or number' {...field} />
-                                        </FormControl>
-                                        {/* <FormDescription>
+            <Form {...form}>
+                <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4 flex flex-col mt-3">
+                    <FormField
+                        control={form.control}
+                        name="identifier"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Email Address</FormLabel>
+                                <FormControl>
+                                    <Input placeholder='' {...field} />
+                                </FormControl>
+                                {/* <FormDescription>
                                             This is your public display name.
                                         </FormDescription> */}
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
 
-                            <FormField
-                                control={form.control}
-                                name='password'
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormControl>
-                                            <div className='flex flex-row items-center gap-1'>
-                                                <Input type={showPassword ? 'text' : 'password'} placeholder='Password' {...field} />
-                                                <Button
-                                                    type='button'
-                                                    variant="outline"
-                                                    className='w-11 h-11'
-                                                    onClick={() => setShowPassword(!showPassword)}
-                                                >
-                                                    {showPassword ? <EyeIcon /> : <EyeClosedIcon />}
-                                                </Button>
-                                            </div>
-                                        </FormControl>
-                                        {/* <FormDescription>
+                    <FormField
+                        control={form.control}
+                        name='password'
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Password</FormLabel>
+                                <FormControl>
+                                    <div className='flex flex-row items-center gap-1'>
+                                        <Input type={showPassword ? 'text' : 'password'} {...field} />
+                                        <Button
+                                            type='button'
+                                            variant="outline"
+                                            className='w-10 h-10 rounded-[10px]'
+                                            onClick={() => setShowPassword(!showPassword)}
+                                        >
+                                            {showPassword ? <EyeIcon /> : <EyeClosedIcon />}
+                                        </Button>
+                                    </div>
+                                </FormControl>
+                                {/* <FormDescription>
                                             Use 8 or more characters including uppercase, lowercase, numbers, and symbols.
                                         </FormDescription> */}
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
 
-
-
-                            <div className='flex flex-row items-center justify-between'>
-                                <div className="flex items-center space-x-2">
-                                    <Checkbox id="terms" />
-                                    <label
-                                        htmlFor="terms"
-                                        className="text-sm text-gray-600 font-normal leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                    >
-                                        Remember me
-                                    </label>
-                                </div>
-                                <Link className='text-sm font-medium text-primary' href="/authentication/forgot-password">
-                                    Forgot Password?
-                                </Link>
-                            </div>
-
-                            <Button size="me" type='submit' className='font-medium text-[14px]'>
-                                Sign In
-                            </Button>
-
-                            <p className='text-xs text-center text-gray-500'>Or other methods</p>
-
-
-                        </form>
-                    </Form>
-
-                    <div className='flex items-center justify-center gap-3 mt-4'>
-                        <Button size="icon" variant='outline' >
-                            <Image
-                                src="/icons/apple.svg"
-                                width={20}
-                                height={20}
-                                alt='Apple'
-                            />
-                        </Button>
-                        <Button size="icon" variant='outline' onClick={() => { }} >
-                            <Image
-                                src="/icons/google.svg"
-                                width={20}
-                                height={20}
-                                alt='Apple'
-                            />
-                        </Button>
-                        <Button size="icon" variant='outline' >
-                            <Image
-                                src="/icons/linkedin.svg"
-                                width={20}
-                                height={20}
-                                alt='Apple'
-                            />
-                        </Button>
+                    <div className='flex flex-row items-center justify-between'>
+                        <div className="flex items-center space-x-2">
+                            <Checkbox id="terms" />
+                            <label
+                                htmlFor="terms"
+                                className="text-sm text-gray-600 font-normal leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            >
+                                Remember me
+                            </label>
+                        </div>
+                        <Link className='text-sm font-medium text-primary underline' href="/authentication/forgot-password">
+                            Forgot Password?
+                        </Link>
                     </div>
 
-                </CardContent>
-                <CardFooter className='flex items-center justify-center'>
-                    <p className='text-sm text-gray-500'>Don&apos;t have an account?</p>
-                    <Link className='text-sm font-medium text-primary ms-2' href="/authentication/sign-up">
-                        Sign up
-                    </Link>
-                </CardFooter>
-            </Card>
-        </div>
+                    <Button size="me" type='submit' className='font-medium text-[14px]'>
+                        Sign In
+                    </Button>
+
+                    <p className='text-xs text-center text-gray-500'>Or other methods</p>
+                </form>
+            </Form>
+
+            <div className='grid grid-cols-2 gap-3 mt-3'>
+                <Button variant='outline' className='space-x-1' >
+                    <Image
+                        src="/icons/apple.svg"
+                        width={20}
+                        height={20}
+                        alt='Apple'
+                    />
+                    <Label className='text-gray-600 font-medium'>Apple</Label>
+                </Button>
+                <Button variant='outline' className='space-x-1' onClick={() => { }} >
+                    <Image
+                        src="/icons/google.svg"
+                        width={20}
+                        height={20}
+                        alt='Apple'
+                    />
+                    <Label className='text-gray-600 font-medium'>Google</Label>
+                </Button>
+                <Button variant='outline' className='space-x-1' >
+                    <Image
+                        src="/icons/linkedin.svg"
+                        width={20}
+                        height={20}
+                        alt='Apple'
+                    />
+                    <Label className='text-gray-600 font-medium'>LinkedIn</Label>
+                </Button>
+                <Button variant='outline' className='space-x-1' >
+                    <Image
+                        src="/icons/github.svg"
+                        width={20}
+                        height={20}
+                        alt='Apple'
+                    />
+                    <Label className='text-gray-600 font-medium'>GitHub</Label>
+                </Button>
+            </div>
+
+            <div className='flex items-center space-x-1 justify-center'>
+                <p className='text-xs text-center text-gray-500'>Don&apos;t have an account?</p>
+                <Link replace href="/sign-up" className='text-sm font-medium text-primary underline'>Sign Up</Link>
+            </div>
+
+        </Modal>
     )
 }

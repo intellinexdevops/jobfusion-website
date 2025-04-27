@@ -1,79 +1,82 @@
 "use client"
 import React from 'react'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card'
-import Link from 'next/link'
-import Brand from '@/public/icons/Brand'
 import Logo from '../materials/_components/logo'
 import { Button } from '../ui/button'
 import Image from 'next/image'
 
-
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import SignUpWithEmailComponent from './sign-up-with-email-component'
 import SignUpWithPhoneComponent from './sign-up-with-phone-component'
+import { Label } from '../ui/label'
+import Modal from '../ui/modal'
 
 export default function SignUpComponent() {
     return (
-        <div className='h-screen flex items-center justify-center flex-col gap-10' >
-            <div className='flex flex-col items-center gap-2'>
-                <Brand size={70} className='rounded-lg' />
+        <Modal>
+            <div>
                 <Logo />
+                <div className='mt-[30px]'>
+                    <p className='text-xl font-bold text-text'>Sign Up</p>
+                    <p className='text-sm text-gray-600'>Please enter your details.</p>
+                </div>
             </div>
-            <Card className='w-[450px] p-2'>
-                <CardHeader className='flex flex-col items-center justify-center'>
-                    <CardTitle>Create new account!</CardTitle>
-                    <CardDescription>Enter your credentials.</CardDescription>
-                </CardHeader>
 
+            <div className='grid grid-cols-2 gap-3 mt-[30px]'>
+                <Button variant='outline' className='space-x-1' >
+                    <Image
+                        src="/icons/apple.svg"
+                        width={20}
+                        height={20}
+                        alt='Apple'
+                    />
+                    <Label className='text-gray-600 font-medium'>Apple</Label>
+                </Button>
+                <Button variant='outline' className='space-x-1' onClick={() => { }} >
+                    <Image
+                        src="/icons/google.svg"
+                        width={20}
+                        height={20}
+                        alt='Apple'
+                    />
+                    <Label className='text-gray-600 font-medium'>Google</Label>
+                </Button>
+                <Button variant='outline' className='space-x-1' >
+                    <Image
+                        src="/icons/linkedin.svg"
+                        width={20}
+                        height={20}
+                        alt='Apple'
+                    />
+                    <Label className='text-gray-600 font-medium'>LinkedIn</Label>
+                </Button>
+                <Button variant='outline' className='space-x-1' >
+                    <Image
+                        src="/icons/github.svg"
+                        width={20}
+                        height={20}
+                        alt='Apple'
+                    />
+                    <Label className='text-gray-600 font-medium'>GitHub</Label>
+                </Button>
+            </div>
+            <div className='mt-[10px]'>
+                <p className='text-sm text-gray-600 text-center'>OR</p>
+            </div>
+            <div className='mt-[10px]'>
                 <Tabs defaultValue="email">
-                    <TabsList className="grid grid-cols-2 mx-6 mb-5">
+                    <TabsList className="grid grid-cols-2 mb-5">
                         <TabsTrigger value="email">Email</TabsTrigger>
                         <TabsTrigger value="phone">Phone</TabsTrigger>
                     </TabsList>
-                    <CardContent>
-                        <TabsContent value="email">
-                            <SignUpWithEmailComponent />
-                        </TabsContent>
-                        <TabsContent value="phone">
-                            <SignUpWithPhoneComponent />
-                        </TabsContent>
-                        <div className='flex items-center justify-center gap-3 mt-4'>
-                            <Button size="icon" variant='outline' >
-                                <Image
-                                    src="/icons/apple.svg"
-                                    width={20}
-                                    height={20}
-                                    alt='Apple'
-                                />
-                            </Button>
-                            <Button size="icon" variant='outline' >
-                                <Image
-                                    src="/icons/google.svg"
-                                    width={20}
-                                    height={20}
-                                    alt='Apple'
-                                />
-                            </Button>
-                            <Button size="icon" variant='outline' >
-                                <Image
-                                    src="/icons/linkedin.svg"
-                                    width={20}
-                                    height={20}
-                                    alt='Apple'
-                                />
-                            </Button>
-                        </div>
-                    </CardContent>
+
+                    <TabsContent value="email">
+                        <SignUpWithEmailComponent />
+                    </TabsContent>
+                    <TabsContent value="phone">
+                        <SignUpWithPhoneComponent />
+                    </TabsContent>
                 </Tabs>
-
-
-                <CardFooter className='flex items-center justify-center'>
-                    <p className='text-sm text-gray-500'>Already have account?</p>
-                    <Link className='text-sm font-medium text-primary ms-2' href="/authentication/sign-in">
-                        Sign In
-                    </Link>
-                </CardFooter>
-            </Card>
-        </div>
+            </div>
+        </Modal>
     )
 }
