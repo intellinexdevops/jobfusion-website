@@ -1,13 +1,13 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import Logo from './_components/logo'
+import Logo from './logo'
 import Link from 'next/link'
 import { ChevronRight, LinkIcon, Moon, Sun } from 'lucide-react'
 import AppleDownload from '@/public/icons/AppleDownload'
 import AndroidDownload from '@/public/icons/AndroidDownload'
 import Brand from '@/public/icons/Brand'
 import { useTheme } from 'next-themes'
-import { Button } from '../ui/button'
+import { Button } from './ui/button'
 
 export default function Footer() {
     const keywords = [

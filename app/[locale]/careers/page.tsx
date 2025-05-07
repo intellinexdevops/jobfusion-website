@@ -1,6 +1,6 @@
-import CareerHeaderBottom from '@/components/materials/career-header-bottom'
+import CareerHeaderBottom from '@/components/career-header-bottom'
 import React, { Suspense } from 'react'
-import CareerBodyComponent from "@/components/materials/career-body-component";
+import CareerBodyComponent from "@/components/career-body-component";
 import Loading from '../loading';
 import { Metadata } from 'next';
 

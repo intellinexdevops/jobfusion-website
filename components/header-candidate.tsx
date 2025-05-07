@@ -1,7 +1,7 @@
 "use client"
 import React from 'react'
-import { HeaderNavigationMenu } from './_components/header-navigation-menu'
-import { Button } from '../ui/button'
+import { HeaderNavigationMenu } from './header-navigation-menu'
+import { Button } from './ui/button'
 import { useRouter } from 'next/navigation'
 import {
     Popover,

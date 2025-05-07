@@ -1,13 +1,13 @@
 import { Menu } from '@/types/account'
 import React from 'react'
-import PersonalInforMenu from './_components/personal-infor-menu'
-import PortfolioMenu from './_components/portfolio-menu'
-import ContactMenu from './_components/contact-menu'
-import ApplyHistoryMenu from './_components/apply-history-menu'
-import CalendarMenu from './_components/calendar-menu'
-import NotificationMenu from './_components/notification-menu'
-import BillingMenu from './_components/billing-menu'
-import SettingMenu from './_components/setting-menu'
+import PersonalInforMenu from './personal-infor-menu'
+import PortfolioMenu from './portfolio-menu'
+import ContactMenu from './contact-menu'
+import ApplyHistoryMenu from './apply-history-menu'
+import CalendarMenu from './calendar-menu'
+import NotificationMenu from './notification-menu'
+import BillingMenu from './billing-menu'
+import SettingMenu from './setting-menu'
 
 export default function AccountDetailOption({ menu }: { menu: string }) {
     switch (menu) {

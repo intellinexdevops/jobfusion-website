@@ -4,11 +4,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import SwiperButton from '../ui/swiper-button';
+import SwiperButton from './ui/swiper-button';
 import { A11y, Autoplay, Navigation, Pagination } from "swiper/modules";
 import React from "react";
 import Image from "next/image";
-import CareerItems from "@/components/materials/career-item";
+import CareerItems from "@/components/career-item";
 import { Job } from "@/types/job";
 
 export default function CareerList({ data }: { data: Job[] }) {

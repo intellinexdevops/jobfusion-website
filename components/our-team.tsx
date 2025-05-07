@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import CardTeam from "./card-team";
-import SwiperButton from "../ui/swiper-button";
+import SwiperButton from "./ui/swiper-button";
 
 export default function OurTeam() {
   const testimonials = [

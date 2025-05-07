@@ -1,5 +1,5 @@
-import Footer from '@/components/materials/footer'
-import HeaderCandidate from '@/components/materials/header-candidate'
+import Footer from '@/components/footer'
+import HeaderCandidate from '@/components/header-candidate'
 import React, { Suspense } from 'react'
 
 export default function CandidateLayout({

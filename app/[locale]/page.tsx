@@ -1,8 +1,8 @@
-import Benefit from "@/components/materials/benefit";
-import Discoverable from "@/components/materials/discoverable";
-import Hero from "@/components/materials/Hero";
-import Portential from "@/components/materials/portential";
-import Testimonials from "@/components/materials/testimonials";
+import Benefit from "@/components/benefit";
+import Discoverable from "@/components/discoverable";
+import Hero from "@/components/Hero";
+import Portential from "@/components/portential";
+import Testimonials from "@/components/testimonials";
 
 export default function Home() {
   return (

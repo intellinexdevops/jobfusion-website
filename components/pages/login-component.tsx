@@ -2,7 +2,7 @@
 import React from 'react'
 
 import { Input } from '../ui/input'
-import Logo from '../materials/_components/logo'
+import Logo from '../logo'
 import Link from 'next/link'
 import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from '../ui/button'

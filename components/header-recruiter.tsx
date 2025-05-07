@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import { SidebarTrigger } from '../ui/sidebar'
+import { SidebarTrigger } from './ui/sidebar'
 import SidebarBreadcrumb from './sidebar-breadcrumb'
 import { ArrowLeftRight, Building2Icon, Search, BellIcon } from 'lucide-react'
 import {
