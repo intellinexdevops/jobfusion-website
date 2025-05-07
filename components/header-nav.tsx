@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import { Button } from '../ui/button'
-import Logo from './_components/logo'
+import { Button } from './ui/button'
+import Logo from './logo'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import HeaderNavigationMenu from './header-navigation-menu'

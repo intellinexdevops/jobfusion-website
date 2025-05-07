@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import Logo from '../materials/_components/logo'
+import Logo from '../logo'
 import { Button } from '../ui/button'
 import Image from 'next/image'
 

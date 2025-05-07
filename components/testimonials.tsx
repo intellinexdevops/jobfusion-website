@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import SwiperButton from '../ui/swiper-button';
+import SwiperButton from './ui/swiper-button';
 
 export default function Testimonials() {
 

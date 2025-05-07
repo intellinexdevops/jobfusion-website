@@ -1,6 +1,6 @@
-import BreadcrumbCom from '@/components/materials/breadcrumb-com';
-import Footer from '@/components/materials/footer';
-import HeaderNav from '@/components/materials/header-nav';
+import BreadcrumbCom from '@/components/breadcrumb-com';
+import Footer from '@/components/footer';
+import HeaderNav from '@/components/header-nav';
 import ScrollToTop from '@/components/ui/scroll-to-top';
 import React, { ReactNode } from 'react';
 

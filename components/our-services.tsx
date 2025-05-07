@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { Button } from "../ui/button";
+import { Button } from "./ui/button";
 export default function OurSevices() {
   const services = [
     {
@@ -57,7 +57,7 @@ export default function OurSevices() {
               </div>
             ))}
           </div>
-          
+
           <Button className="mt-10">Contact Us</Button>
         </div>
         <div className="relative w-[400px] h-[400px] rounded-lg overflow-hidden">
