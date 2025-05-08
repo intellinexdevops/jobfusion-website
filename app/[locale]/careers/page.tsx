@@ -1,4 +1,3 @@
-import CareerHeaderBottom from '@/components/career-header-bottom'
 import React, { Suspense } from 'react'
 import CareerBodyComponent from "@/components/career-body-component";
 import Loading from '../loading';
@@ -25,7 +24,6 @@ export default async function CareerPage() {
 
     return (
         <Suspense fallback={<Loading />} >
-            <CareerHeaderBottom />
             <CareerBodyComponent title="" data={await getCareer()} />
         </Suspense>
     )

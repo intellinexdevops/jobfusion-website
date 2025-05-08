@@ -1,5 +1,5 @@
 import CareerDetailComponrnt from '@/components/pages/career-detail-component'
-import { Job } from '@/types/job';
+import { Job } from '@/types/Job';
 import { Metadata } from 'next';
 import React from 'react'
 

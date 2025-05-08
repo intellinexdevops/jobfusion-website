@@ -121,4 +121,12 @@ body {
   .btn-inx {
     @apply text-sm text-white bg-primary py-2 px-4 rounded-xl border-2 border-white
   }
+
+  .nav-link {
+    @apply text-sm font-medium text-neutral-600 flex items-center gap-2 transition-all duration-200 ease-in-out hover:text-primary
+  }
+
+  .c_active {
+    @apply text-primary;
+  }
 }

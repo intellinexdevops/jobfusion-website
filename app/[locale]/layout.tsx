@@ -10,9 +10,11 @@ import { routing } from '@/i18n/routing';
 
 export default async function PublicLayout({
     children,
+    modal,
     params
 }: Readonly<{
     children: ReactNode;
+    modal: ReactNode;
     params: Promise<{ locale: string }>;
 }>) {
     const { locale } = await params;
@@ -25,6 +27,7 @@ export default async function PublicLayout({
                 <HeaderNav />
                 <BreadcrumbCom />
                 {children}
+                {modal}
                 <Footer />
                 <ScrollToTop />
             </section>

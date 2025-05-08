@@ -1,6 +1,5 @@
 "use client"
 import React from 'react'
-import { HeaderNavigationMenu } from './header-navigation-menu'
 import { Button } from './ui/button'
 import { useRouter } from 'next/navigation'
 import {
@@ -9,6 +8,7 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 import { User } from 'lucide-react'
+import HeaderNavigationMenu from './header-navigation-menu'
 
 
 export default function HeaderCandidate() {

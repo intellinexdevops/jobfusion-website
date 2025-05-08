@@ -9,7 +9,7 @@ export default function CandidateLayout({
         <Suspense>
             <HeaderCandidate />
             {children}
-            <Footer />
+            {/* <Footer /> */}
         </Suspense>
     )
 }
