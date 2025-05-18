@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { ChevronRight, LinkIcon, Moon, Sun } from 'lucide-react'
 import AppleDownload from '@/public/icons/AppleDownload'
 import AndroidDownload from '@/public/icons/AndroidDownload'
-import Brand from '@/public/icons/Brand'
 import { useTheme } from 'next-themes'
 import { Button } from './ui/button'
 
@@ -92,8 +91,9 @@ export default function Footer() {
             <div className='container' >
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5' >
                     <div>
-                        <Brand className='rounded mb-2' size={60} />
-                        <Logo className='mb-3' />
+                        <div className='mb-10'>
+                            <Logo />
+                        </div>
                         <div className='flex flex-col gap-2 mt-3' >
                             <AppleDownload />
                             <AndroidDownload />

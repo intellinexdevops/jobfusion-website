@@ -1,5 +1,6 @@
 "use client"
 import React from 'react'
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 import { Input } from '../ui/input'
 import Logo from '../logo'
@@ -24,6 +25,8 @@ import {
 } from "@/components/ui/form"
 import Modal from '../ui/modal'
 import { Label } from '../ui/label'
+import { auth } from '@/utils/firebase';
+import { createClient } from '@/utils/supabase/client';
 
 
 const formSchema = z.object({
@@ -33,7 +36,32 @@ const formSchema = z.object({
 
 export default function LoginComponent() {
 
+    const provider = new GoogleAuthProvider();
+
+    const supabase = createClient()
+
     const [showPassword, setShowPassword] = React.useState(false);
+    const handleGoogleSignIn = () => {
+
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential!.accessToken;
+                console.log("Access Token", token)
+                const user = result.user;
+                console.log(JSON.stringify(user, null, 2))
+            }).catch((error) => {
+                // Handle Errors here.
+                // const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                // const email = error.customData.email;
+                // The AuthCredential type that was used.
+                // const credential = GoogleAuthProvider.credentialFromError(error);
+                console.log(errorMessage)
+            });
+    }
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -43,8 +71,16 @@ export default function LoginComponent() {
         },
     })
 
-    const handleSubmit = (values: z.infer<typeof formSchema>) => {
-        console.log(values)
+    const handleSubmit = async (values: z.infer<typeof formSchema>) => {
+        // console.log(values)
+        const { data } = await supabase.auth.signInWithOtp({
+            email: values.identifier,
+            options: {
+                shouldCreateUser: false,
+            }
+        });
+
+        console.log(data)
     }
 
 
@@ -136,7 +172,7 @@ export default function LoginComponent() {
                     />
                     <Label className='text-gray-600 font-medium'>Apple</Label>
                 </Button>
-                <Button variant='outline' className='space-x-1' onClick={() => { }} >
+                <Button variant='outline' className='space-x-1' onClick={handleGoogleSignIn} >
                     <Image
                         src="/icons/google.svg"
                         width={20}

@@ -1,4 +1,4 @@
-import Footer from '@/components/footer'
+// import Footer from '@/components/footer'
 import HeaderCandidate from '@/components/header-candidate'
 import React, { Suspense } from 'react'
 

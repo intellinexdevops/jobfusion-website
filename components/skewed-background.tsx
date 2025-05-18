@@ -35,7 +35,7 @@ export default function SkewedBackground() {
     return (
         <canvas
             ref={canvasRef}
-            className="w-full h-[600px] block"
+            className="w-full h-[600px] block -z-30 absolute top-0 left-0 right-0"
         />
     )
 }

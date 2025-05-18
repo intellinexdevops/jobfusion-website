@@ -123,10 +123,13 @@ body {
   }
 
   .nav-link {
-    @apply text-sm font-medium text-neutral-600 flex items-center gap-2 transition-all duration-200 ease-in-out hover:text-primary
+    @apply text-sm font-medium text-neutral-900 flex items-center gap-2 transition-all duration-200 ease-in-out hover:text-primary
   }
 
   .c_active {
     @apply text-primary;
+  }
+  .title {
+    @apply md:text-3xl text-2xl font-semibold uppercase text-text
   }
 }
