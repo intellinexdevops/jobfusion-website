@@ -1,6 +1,6 @@
 
 import React from "react";
-import ClientCard from "./client-card";
+import ClientCard from "../../card/client-card";
 
 export default function OurClient() {
   const services = [

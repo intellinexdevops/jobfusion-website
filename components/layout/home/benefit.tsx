@@ -8,7 +8,7 @@ export default function Benefit() {
         "User-friendly interface for a smooth experience."
     ]
     return (
-        <section className='mt-28 bg-primary/5 py-5' >
+        <section className='mt-28 bg-primary/5 py-5 xl:rounded-xl lg:px-20' >
             <div className='grid grid-cols-1 md:grid-cols-2 container'>
                 <div className='flex flex-col justify-center' >
                     <p className='font-medium mb-3'>Why choose us?</p>

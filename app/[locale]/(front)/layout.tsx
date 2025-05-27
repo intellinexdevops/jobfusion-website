@@ -1,6 +1,6 @@
 import BreadcrumbCom from "@/components/breadcrumb-com";
-import Footer from "@/components/footer";
-import HeaderNav from "@/components/header-nav";
+import Footer from "@/components/layout/footer";
+import HeaderNav from "@/components/layout/header-nav";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 import React from "react";
 

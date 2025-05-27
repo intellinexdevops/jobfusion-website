@@ -1,8 +1,8 @@
-import AboutUs from '@/components/about-us'
+import AboutUs from '@/components/layout/abous-us/about-us'
 import OurTeam from '@/components/our-team'
 import OurSevices from '@/components/our-services'
 import React from 'react'
-import OurClient from '@/components/our-client'
+import OurClient from '@/components/layout/home/our-client'
 export default function AboutPage() {
     return (
         <div className='mt-20' >

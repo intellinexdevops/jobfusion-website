@@ -7,7 +7,7 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 import { Button } from "@/components/ui/button";
-import CareerList from "@/components/career-list";
+import CareerList from "@/components/layout/find-job/career-list";
 import { Job } from '@/types/job';
 
 

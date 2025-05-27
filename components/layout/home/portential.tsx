@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Portential() {
     return (
-        <section className='mt-40 mb-24 container' >
+        <section className='mt-48 mb-24 container' >
             <p className='text-left title'>brwose by category</p>
             <p className='text-left text-xs md:text-sm mt-4'>
                 Our Job Portal App simplifies the hiring process for recruiters and job seekers alike. Experience <br /> a user-friendly platform designed to meet your employment needs.

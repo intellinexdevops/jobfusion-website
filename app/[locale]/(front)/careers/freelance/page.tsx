@@ -1,4 +1,4 @@
-import CareerBodyComponent from '@/components/career-body-component';
+import CareerBodyComponent from '@/components/pages/career-body-component';
 import { Metadata } from 'next';
 import React from 'react'
 

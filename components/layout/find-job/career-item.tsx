@@ -8,7 +8,7 @@ import {
     PaginationNext,
     PaginationPrevious,
 } from "@/components/ui/pagination"
-import CareerCard from "@/components/career-card";
+import CareerCard from "@/components/card/career-card";
 import { Job } from "@/types/job";
 
 

@@ -1,4 +1,4 @@
-import ApplyComponent from '@/components/apply-component'
+import ApplyComponent from '@/components/pages/apply-component'
 import React from 'react'
 
 export default function ApplyPage() {

@@ -13,7 +13,7 @@ export default function SkewedBackground() {
 
         // Set canvas dimensions
         canvas.width = window.innerWidth
-        canvas.height = 400
+        canvas.height = 600
 
         // Create gradient
         const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height)
@@ -26,7 +26,7 @@ export default function SkewedBackground() {
         ctx.beginPath()
         ctx.moveTo(0, 0)
         ctx.lineTo(canvas.width, 0)
-        ctx.lineTo(canvas.width, canvas.height - 50)
+        ctx.lineTo(canvas.width, canvas.height - 100)
         ctx.lineTo(0, canvas.height)
         ctx.closePath()
         ctx.fill()

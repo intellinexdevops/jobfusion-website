@@ -130,6 +130,10 @@ body {
     @apply text-primary;
   }
   .title {
-    @apply md:text-3xl text-2xl font-semibold uppercase text-text
+    @apply md:text-3xl text-2xl font-bold uppercase text-gray-800
+  }
+
+  .container {
+    @apply max-w-screen-lg mx-auto px-6 lg:px-0
   }
 }

@@ -3,7 +3,7 @@ import React from "react";
 // import { Button } from "../ui/button";
 import Image from "next/image";
 // import { useRouter } from "next/navigation";
-import SkewedBackground from "./skewed-background";
+import SkewedBackground from "../../skewed-background";
 import { Building2, ChevronDown, Search } from "lucide-react";
 import AppleDownload from "@/public/icons/AppleDownload";
 import AndroidDownload from "@/public/icons/AndroidDownload";
@@ -14,8 +14,8 @@ export default function Hero() {
   return (
     <section className="relative">
       <SkewedBackground />
-      <div className="md:h-[480px] flex flex-col justify-center container z-30">
-        <div className="grid md:grid-cols-2 grid-cols-1 gap-10 items-center pt-14">
+      <div className="md:h-[480px] flex flex-col justify-center container mx-auto max-w-7xl z-30">
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-10 items-center pt-14 container mx-auto">
           <div className="md:mt-0 mt-10">
             <h1 className="text-text font-bold lg:text-4xl text-4xl md:text-2xl">The <span className="text-primary">Easiest Way</span>
               <br />to Get Your New Job</h1>
