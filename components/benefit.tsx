@@ -11,7 +11,7 @@ export default function Benefit() {
         <section className='mt-28 bg-primary/5 py-5' >
             <div className='grid grid-cols-1 md:grid-cols-2 container'>
                 <div className='flex flex-col justify-center' >
-                    <p className='font-medium mb-3'>Benefits</p>
+                    <p className='font-medium mb-3'>Why choose us?</p>
                     <p className='md:text-2xl font-semibold lg:text-3xl text-xl'>Unlock New Opportunities: <br /> Discover the Benefits of Our Job Portal App</p>
                     <p className='text-sm mt-4'>
                         Our Job Portal App streamlines the hiring process for recruiters while empowering candidates to find their ideal jobs. Experience a seamless connection between talent and opportunity, tailored to meet your needs.

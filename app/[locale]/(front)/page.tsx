@@ -1,6 +1,7 @@
 import Benefit from "@/components/benefit";
 import Discoverable from "@/components/discoverable";
 import Hero from "@/components/Hero";
+import JobOfTheDayCom from "@/components/job-of-the-day-com";
 import Portential from "@/components/portential";
 import Testimonials from "@/components/testimonials";
 
@@ -9,8 +10,9 @@ export default function Home() {
     <main >
       <Hero />
       <Portential />
-      <Benefit />
       <Discoverable />
+      <JobOfTheDayCom />
+      <Benefit />
       <Testimonials />
     </main>
   );
