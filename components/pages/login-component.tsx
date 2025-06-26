@@ -26,7 +26,6 @@ import {
 import Modal from '../ui/modal'
 import { Label } from '../ui/label'
 import { auth } from '@/utils/firebase';
-import { createClient } from '@/utils/supabase/client';
 
 
 const formSchema = z.object({
@@ -37,8 +36,6 @@ const formSchema = z.object({
 export default function LoginComponent() {
 
     const provider = new GoogleAuthProvider();
-
-    const supabase = createClient()
 
     const [showPassword, setShowPassword] = React.useState(false);
     const handleGoogleSignIn = () => {
@@ -72,15 +69,7 @@ export default function LoginComponent() {
     })
 
     const handleSubmit = async (values: z.infer<typeof formSchema>) => {
-        // console.log(values)
-        const { data } = await supabase.auth.signInWithOtp({
-            email: values.identifier,
-            options: {
-                shouldCreateUser: false,
-            }
-        });
-
-        console.log(data)
+        console.log(values)
     }
 
 
