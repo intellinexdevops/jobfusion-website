@@ -4,15 +4,29 @@ import { Button } from "../ui/button";
 import Image from "next/image";
 
 // ServiceCard component
-function ServiceCard({ title, description, icon, onClick }) {
+function ServiceCard({
+  title,
+  description,
+  icon,
+  onClick,
+}: {
+  title: string;
+  description: string;
+  icon: string;
+  onClick: () => void;
+}) {
   return (
-    <div className="bg-white rounded-xl shadow p-6 flex flex-col items-center w-full max-w-xs">
-      <div className=" p-4 rounded-full mb-4">
-        <Image src={icon} alt={title} width={50} height={50} />
+    <div className="bg-white rounded-xl p-6 flex flex-col w-full max-w-xs">
+      <div className="flex mb-4">
+        <div className="p-3 rounded-md bg-primary">
+          <Image src={icon} alt={title} width={30} height={30} />
+        </div>
       </div>
-      <h3 className="font-bold text-lg text-blue-900 mb-2">{title}</h3>
-      <p className="text-gray-600 text-sm mb-6 text-center">{description}</p>
-      <Button onClick={onClick}>Explore more</Button>
+      <h3 className="font-bold text-lg text-text mb-2">{title}</h3>
+      <p className="text-gray-600 text-sm mb-6 text-left">{description}</p>
+      <div className="flex">
+        <Button onClick={onClick}>Explore more</Button>
+      </div>
     </div>
   );
 }
@@ -44,20 +58,20 @@ function ExploreComponent() {
       </div>
 
       {/* Most People Visit Section */}
-      <div className="w-full flex flex-col items-center mb-6">
-        <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-8 text-center">
+      <div className="w-full flex flex-col">
+        <h2 className="text-xl md:text-2xl font-bold text-neutral-800 mb-8 text-left">
           Most People Visit
         </h2>
       </div>
 
       {/* Cards Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {[1, 2, 3, 4].map((i) => (
           <ServiceCard
             key={i}
             title="Resume Builder"
             description="Build your resume in a minute with our AI service."
-            icon="/images/placeholder_image.png" // Make sure this icon exists in /public/images/
+            icon="/icons/ai-brain.svg"
             onClick={() => alert("Explore more clicked!")}
           />
         ))}
