@@ -35,7 +35,7 @@ const HeaderNavigationMenu = () => {
       <li>
         <Link
           href="/business"
-          className={`nav-link ${pathname === "/recruiter" ? "c_active" : ""}`}
+          className={`nav-link ${pathname === "/business" ? "c_active" : ""}`}
         >
           Business
         </Link>
@@ -43,7 +43,7 @@ const HeaderNavigationMenu = () => {
       <li>
         <Link
           href="/explore"
-          className={`nav-link ${pathname === "/recruiter" ? "c_active" : ""}`}
+          className={`nav-link ${pathname === "/explore" ? "c_active" : ""}`}
         >
           Explore
         </Link>

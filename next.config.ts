@@ -2,9 +2,9 @@ import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
-    experimental: {
-        ppr: 'incremental'
-    }
+  experimental: {
+    ppr: "incremental",
+  },
 };
 
 const withNextIntl = createNextIntlPlugin();

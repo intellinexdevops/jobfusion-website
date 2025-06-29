@@ -1,14 +1,15 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
+import Image from "next/image";
 
 const BusinessComponent = () => {
   return (
-    <div className="container mx-auto my-16">
+    <div className="container mx-auto mt-20 mb-16">
       {/* Hero Section */}
-      <div className="w-full rounded-2xl bg-gradient-to-r from-primary/30 to-primary/50 flex flex-col md:flex-row items-center md:items-start px-16 py-28 mb-16">
+      <div className="w-full rounded-2xl bg-gradient-to-r from-primary/20 to-primary/50 flex flex-col md:flex-row items-center md:items-start px-16 mb-16 pt-16">
         <div className="flex-1">
-          <h1 className="text-4xl leading-10 font-bold mb-4 text-gray-900">
+          <h1 className="text-4xl leading-10 font-bold mb-4 text-neutral-800">
             Join thousands of professionals finding better careers.
           </h1>
           <p className="mb-6 text-gray-700">
@@ -16,11 +17,14 @@ const BusinessComponent = () => {
           </p>
           <Button size="lg">Join us Now</Button>
         </div>
-        <div className="flex-1 flex justify-center md:justify-end mt-8 md:mt-0">
-          <img
-            src="https://scontent.fbkk36-1.fna.fbcdn.net/v/t39.30808-6/500230857_713133934700185_2066800212445173440_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeExba7PJ2fCLD5vrlSy9xHo7zTrJGUrMD7vNOskZSswPsOOOOGUFg3FBXX8P6_-jLBRj7ZbxC7IE2g4hnR9skKp&_nc_ohc=zFhGaBe621wQ7kNvwFMqD3q&_nc_oc=AdlU8UHPBIWtEgPqbjTC5i2ZQvxyZtl3PE57XkYKSZHGWxaK037Gs9S00P4uvqq_hos&_nc_zt=23&_nc_ht=scontent.fbkk36-1.fna&_nc_gid=bLj8fzQ5tjSQBpGCjXYPHg&oh=00_AfPtkfPeo1S6gfk87UXddFrcyG650KtMQHjZ9cktnbWtnQ&oe=6866E30E"
+        <div className="flex-1 flex justify-center md:justify-end mt-8 max-h-96 overflow-hidden md:mt-0">
+          <Image
+            src="/images/p1.png"
             alt="Professional"
-            className="w-72 h-80 object-cover rounded-xl"
+            className="h-[540px] object-cover rounded-xl"
+            width={512}
+            height={512}
+            loading="lazy"
           />
         </div>
       </div>

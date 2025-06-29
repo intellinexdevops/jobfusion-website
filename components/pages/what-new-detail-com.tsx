@@ -16,6 +16,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../ui/dialog";
+import Image from "next/image";
 
 // Static types for our post and related items
 type Author = {
@@ -42,7 +43,7 @@ const post: Post = {
   date: "May 10 2025",
   author: {
     name: "JobFusion",
-    avatarUrl: "/images/logo.svg",
+    avatarUrl: "/icons/google.svg",
   },
   imageUrl: "/images/placeholder-image.webp",
   tags: ["Spider", "Marvel"],
@@ -71,13 +72,7 @@ const related: RelatedPost[] = [
 //==============================================================
 // FINAL DIALOG COMPONENT WITH BUG FIX
 //==============================================================
-const ShareDialogContent = ({
-  postUrl,
-  title,
-}: {
-  postUrl: string;
-  title: string;
-}) => {
+const ShareDialogContent = ({ postUrl }: { postUrl: string }) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
@@ -197,45 +192,51 @@ export default function WhatNewDetailCom({ id }: { id: string }) {
   // In a real app, you would get this from the router or window.location
   const baseUrl = "https://your-job-portal.com/news";
 
+  console.log(id);
+
   return (
-    <section className="mt-20">
-      <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <section className="mt-20 mb-10">
+      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Main Content */}
         <div className="lg:col-span-2 space-y-6">
           {/* Title + Meta + Share */}
-          <div className="relative flex justify-between">
-            <div>
-              <h1 className="text-3xl font-bold">{post.title}</h1>
-              <div className="flex items-center text-sm text-gray-500 mt-2 space-x-2">
-                <img
+          <div>
+            <h1 className="text-3xl text-neutral-800 font-bold">
+              {post.title}
+            </h1>
+            <div className="relative flex justify-between items-center mt-4">
+              <div className="flex items-center text-sm space-x-3">
+                <Image
                   src={post.author.avatarUrl}
                   alt={post.author.name}
-                  className="w-8 h-8 rounded-full"
+                  className="w-9 h-9 rounded-full"
+                  width={512}
+                  height={512}
                 />
-                <span>{post.author.name}</span>
-                <span>•</span>
-                <time>{post.date}</time>
+                <div className="flex flex-col">
+                  <span className="text-base text-neutral-800 font-medium">
+                    {post.author.name}
+                  </span>
+                  <span className="text-xs text-neutral-500">{post.date}</span>
+                </div>
               </div>
+              <Dialog>
+                <DialogTrigger>
+                  <Share2 size={16} className="text-neutral-800" />
+                </DialogTrigger>
+                <ShareDialogContent postUrl={`${baseUrl}/${post.id}`} />
+              </Dialog>
             </div>
-            <Dialog>
-              <DialogTrigger asChild>
-                <button className="p-2 rounded-full hover:bg-gray-100">
-                  <Share2 size={16} />
-                </button>
-              </DialogTrigger>
-              <ShareDialogContent
-                postUrl={`${baseUrl}/${post.id}`}
-                title={post.title}
-              />
-            </Dialog>
           </div>
 
           {/* Hero Image */}
           <div>
-            <img
+            <Image
               src={post.imageUrl}
               alt={post.title}
               className="w-full rounded-lg object-cover"
+              width={1024}
+              height={720}
             />
           </div>
 
@@ -244,7 +245,7 @@ export default function WhatNewDetailCom({ id }: { id: string }) {
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 text-sm bg-gray-200 rounded-full"
+                className="px-3 py-1 text-xs bg-neutral-100 text-neutral-600 rounded-full"
               >
                 {tag}
               </span>
@@ -259,22 +260,26 @@ export default function WhatNewDetailCom({ id }: { id: string }) {
 
         {/* Sidebar: Related Posts */}
         <aside className="lg:col-span-1 space-y-6">
+          <div className="mt-4">
+            <p className="text-neutral-800 font-semibold text-lg">
+              Related Article
+            </p>
+          </div>
           {related.map((item) => (
-            <div
-              key={item.id}
-              className="bg-white rounded-lg shadow overflow-hidden"
-            >
-              <img
+            <div key={item.id} className="bg-white rounded-lg overflow-hidden">
+              <Image
                 src={item.imageUrl}
                 alt={item.title}
                 className="w-full h-32 object-cover"
+                width={720}
+                height={480}
               />
               <div className="p-4 space-y-2 relative">
-                <div className="flex flex-wrap gap-1">
+                <div className="flex flex-wrap gap-1.5">
                   {item.tags.map((t) => (
                     <span
                       key={t}
-                      className="px-2 py-0.5 text-xs bg-gray-200 rounded-full"
+                      className="px-3.5 py-1 text-neutral-600 text-xs bg-neutral-100 rounded-full"
                     >
                       {t}
                     </span>
@@ -283,10 +288,12 @@ export default function WhatNewDetailCom({ id }: { id: string }) {
                 <h2 className="font-semibold text-base">{item.title}</h2>
                 <div className="flex items-start justify-between">
                   <div className="flex items-center text-xs text-gray-500">
-                    <img
+                    <Image
                       src={item.author.avatarUrl}
                       alt={item.author.name}
                       className="w-6 h-6 rounded-full mr-1"
+                      width={256}
+                      height={256}
                     />
                     <span>{item.author.name}</span>
                     <span className="mx-1">•</span>
@@ -299,10 +306,7 @@ export default function WhatNewDetailCom({ id }: { id: string }) {
                         <Share2 size={16} />
                       </button>
                     </DialogTrigger>
-                    <ShareDialogContent
-                      postUrl={`${baseUrl}/${item.id}`}
-                      title={item.title}
-                    />
+                    <ShareDialogContent postUrl={`${baseUrl}/${item.id}`} />
                   </Dialog>
                 </div>
               </div>
