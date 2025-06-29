@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import React from 'react'
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import React from "react";
 
 const HeaderNavigationMenu = () => {
-  const pathname = usePathname().slice(3)
+  const pathname = usePathname().slice(3);
   return (
     <ul className="lg:flex items-center gap-10 hidden">
       <li>
@@ -34,15 +34,22 @@ const HeaderNavigationMenu = () => {
       </li>
       <li>
         <Link
-          href="/recruiter"
-          className={`nav-link ${pathname === "/recruiter" ? "c_active" : ""
-            }`}
+          href="/business"
+          className={`nav-link ${pathname === "/recruiter" ? "c_active" : ""}`}
         >
-          Recruiter
+          Business
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/explore"
+          className={`nav-link ${pathname === "/recruiter" ? "c_active" : ""}`}
+        >
+          Explore
         </Link>
       </li>
     </ul>
   );
-}
+};
 
-export default HeaderNavigationMenu
+export default HeaderNavigationMenu;
