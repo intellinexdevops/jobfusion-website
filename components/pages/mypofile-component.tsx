@@ -58,28 +58,39 @@ function MyProfileComponent() {
         </div>
       </div>
 
-      {/* Tabs */}
-      <div className="flex items-center gap-5 mb-6 mt-20">
-        <button
-          className={`px-4 py-2 font-medium focus:outline-none ${
-            activeTab === "about"
-              ? "bg-primary px-3 py-2 rounded-full text-white"
-              : "text-neutral-500"
-          }`}
-          onClick={() => setActiveTab("about")}
-        >
-          About
-        </button>
-        <button
-          className={`px-4 py-2 font-medium focus:outline-none ${
-            activeTab === "background"
-              ? "bg-primary px-3 py-2 rounded-full text-white"
-              : "text-gray-500"
-          }`}
-          onClick={() => setActiveTab("background")}
-        >
-          Background
-        </button>
+      {/* Tabs and Buttons */}
+      <div className="flex justify-between items-center mb-6 mt-8">
+        <div className="flex items-center gap-6">
+          {/* Tabs (About | Background) */}
+          <button
+            className={`px-4 py-2 font-medium focus:outline-none ${
+              activeTab === "about"
+                ? "bg-primary px-3 py-2 rounded-full text-white"
+                : "text-neutral-500"
+            }`}
+            onClick={() => setActiveTab("about")}
+          >
+            About
+          </button>
+          <button
+            className={`px-4 py-2 font-medium focus:outline-none ${
+              activeTab === "background"
+                ? "bg-primary px-3 py-2 rounded-full text-white"
+                : "text-gray-500"
+            }`}
+            onClick={() => setActiveTab("background")}
+          >
+            Background
+          </button>
+        </div>
+        <div className="flex gap-4">
+          <button className="text-neutral-500 hover:text-neutral-700">
+            Edit Section
+          </button>
+          <button className="text-neutral-500 hover:text-neutral-700">
+            More
+          </button>
+        </div>
       </div>
 
       {/* Main Content */}
