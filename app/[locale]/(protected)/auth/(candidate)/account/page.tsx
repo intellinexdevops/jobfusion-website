@@ -1,6 +1,8 @@
-import AccountComponent from '@/components/account-component'
-import React from 'react'
+import MyProfileComponent from "@/components/pages/mypofile-component";
+import React from "react";
 
-export default function AccountPage() {
-    return <AccountComponent />
+export default function MyProfilePage() {
+    return <MyProfileComponent />
 }
+
+
