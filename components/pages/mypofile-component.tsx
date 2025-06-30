@@ -1,5 +1,9 @@
 "use client";
+import { Contact2, Pencil, User2, UserPlus2 } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
+import { Button } from "../ui/button";
 
 function MyProfileComponent() {
   const [activeTab, setActiveTab] = useState("about");
@@ -9,22 +13,24 @@ function MyProfileComponent() {
       {/* Profile Header */}
       <div className="relative bg-gradient-to-r from-green-400 to-teal-400 rounded-xl h-40 mb-16">
         {/* Edit Cover Button */}
-        <button className="absolute top-4 right-4 bg-white rounded-full p-2 shadow hover:bg-gray-100">
+        <button className="absolute top-4 right-4 bg-white rounded-full p-2 hover:bg-gray-100">
           <span role="img" aria-label="edit">
-            ✏️
+            <Pencil size={14} className="text-neutral-500" />
           </span>
         </button>
         {/* Avatar */}
         <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-16">
-          <img
+          <Image
             src="https://randomuser.me/api/portraits/men/1.jpg"
             alt="Avatar"
-            className="w-32 h-32 rounded-full border-4 border-white shadow-lg object-cover"
+            className="w-40 h-40 rounded-full border-4 border-white shadow-lg object-cover"
+            width={256}
+            height={256}
           />
           {/* Edit Avatar Button */}
-          <button className="absolute bottom-2 right-2 bg-white rounded-full p-1 shadow hover:bg-gray-100">
+          <button className="absolute bottom-2 right-2 bg-white rounded-full p-2 hover:bg-neutral-100">
             <span role="img" aria-label="edit">
-              ✏️
+              <Pencil size={14} className="text-neutral-500" />
             </span>
           </button>
         </div>
@@ -32,33 +38,42 @@ function MyProfileComponent() {
       {/* Profile Info */}
       <div className="flex flex-col items-center mt-20 mb-4">
         <h1 className="text-2xl font-bold">William Adam</h1>
-        <span className="text-gray-500">2.4K followers • 0 following</span>
-        <a
-          href="https://www.linkedin.com/"
-          className="text-blue-600 hover:underline mt-1"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LinkedIn Link
-        </a>
+        <span className="text-neutral-500">2.4K followers • 0 following</span>
+        <div className="flex items-center gap-2 mt-2">
+          <Image
+            src="/icons/linkedin.svg"
+            alt="LinkedIn Link"
+            width={256}
+            height={256}
+            className="w-4 h-4"
+          />
+          <Link
+            href="https://www.linkedin.com/"
+            className="text-sky-700 font-medium hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn Link
+          </Link>
+        </div>
       </div>
 
       {/* Tabs */}
-      <div className="flex items-center gap-6 border-b border-gray-200 mb-6 mt-8">
+      <div className="flex items-center gap-5 mb-6 mt-20">
         <button
-          className={`px-4 py-2 font-semibold focus:outline-none ${
+          className={`px-4 py-2 font-medium focus:outline-none ${
             activeTab === "about"
-              ? "border-b-4 border-green-400 text-green-600"
-              : "text-gray-500"
+              ? "bg-primary px-3 py-2 rounded-full text-white"
+              : "text-neutral-500"
           }`}
           onClick={() => setActiveTab("about")}
         >
           About
         </button>
         <button
-          className={`px-4 py-2 font-semibold focus:outline-none ${
+          className={`px-4 py-2 font-medium focus:outline-none ${
             activeTab === "background"
-              ? "border-b-4 border-green-400 text-green-600"
+              ? "bg-primary px-3 py-2 rounded-full text-white"
               : "text-gray-500"
           }`}
           onClick={() => setActiveTab("background")}
@@ -74,62 +89,62 @@ function MyProfileComponent() {
           {/* Left column */}
           <div className="flex-1 flex flex-col gap-6">
             {/* Personal Info */}
-            <div className="bg-white rounded-xl shadow p-6 relative">
+            <div className="bg-white rounded-xl p-6 relative">
               <div className="flex items-center mb-4">
-                <div className="bg-green-400 rounded-full p-2 text-white mr-2">
-                  <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM12 14c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5Z"
-                    ></path>
-                  </svg>
+                <div className="bg-primary rounded w-7 h-7 flex items-center justify-center mr-3">
+                  <User2 size={18} className="text-white" />
                 </div>
-                <h2 className="text-lg font-semibold">Personal Info</h2>
-                <button className="ml-auto text-green-500 font-medium hover:underline">
+                <p className="text-lg text-neutral-800 font-semibold">
+                  Personal Info
+                </p>
+                <button className="ml-auto text-primary font-medium hover:underline">
                   Edit
                 </button>
               </div>
-              <div className="grid grid-cols-2 gap-y-2 gap-x-4 text-gray-700">
-                <div>Username</div>
-                <div className="text-gray-600">@william_adam</div>
-                <div>First Name</div>
-                <div className="text-gray-600">Adman</div>
-                <div>Last Name</div>
-                <div className="text-gray-600">William</div>
-                <div>Gender</div>
-                <div className="text-gray-600">Male</div>
+              <div className="grid grid-cols-2 gap-y-5 gap-x-4 text-neutral-700 mt-10">
+                <div className="text-neutral-800 font-medium">Username</div>
+                <div className="text-neutral-600 text-right">@william_adam</div>
+                <div className="text-neutral-800 font-medium">First Name</div>
+                <div className="text-neutral-600 text-right">Adman</div>
+                <div className="text-neutral-800 font-medium">Last Name</div>
+                <div className="text-neutral-600 text-right">William</div>
+                <div className="text-neutral-800 font-medium">Gender</div>
+                <div className="text-neutral-600 text-right">Male</div>
               </div>
             </div>
             {/* Contact Info */}
-            <div className="bg-white rounded-xl shadow p-6 relative">
+            <div className="bg-white rounded-xl p-6 relative">
               <div className="flex items-center mb-4">
-                <div className="bg-green-400 rounded-full p-2 text-white mr-2">
-                  <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6Zm18 0H4v12h16V6ZM8 10v2h8v-2H8Zm0 4v2h5v-2H8Z"
-                    ></path>
-                  </svg>
+                <div className="bg-primary rounded w-7 h-7 flex items-center justify-center mr-3">
+                  <Contact2 size={18} className="text-white" />
                 </div>
-                <h2 className="text-lg font-semibold">Contact Info.</h2>
-                <button className="ml-auto text-green-500 font-medium hover:underline">
+                <p className="text-lg text-neutral-800 font-semibold">
+                  Contact Info.
+                </p>
+                <button className="ml-auto text-primary font-medium hover:underline">
                   Edit
                 </button>
               </div>
-              <div className="grid grid-cols-2 gap-y-2 gap-x-4 text-gray-700">
-                <div>Address</div>
-                <div className="text-gray-600">Siem Reap Provinces</div>
-                <div>Phone</div>
-                <div className="text-gray-600">(855) 964 903 404</div>
-                <div>Email</div>
-                <div className="text-gray-600">hellomotherfkr@gmail.com</div>
+              <div className="grid grid-cols-2 gap-y-5 gap-x-4 text-gray-700 mt-10">
+                <div className="text-neutral-800 font-medium">Address</div>
+                <div className="text-neutral-600 text-right">
+                  Siem Reap Provinces
+                </div>
+                <div className="text-neutral-800 font-medium">Phone</div>
+                <div className="text-neutral-600 text-right">
+                  (855) 964 903 404
+                </div>
+                <div className="text-neutral-800 font-medium">Email</div>
+                <div className="text-neutral-600 text-right">
+                  hellomotherfkr@gmail.com
+                </div>
               </div>
             </div>
           </div>
           {/* Right Sidebar */}
           <div className="w-full md:w-[340px] flex flex-col gap-6">
             {/* Improve Skills */}
-            <div className="bg-white rounded-xl shadow p-6 mb-2">
+            <div className="bg-white rounded-xl p-6 mb-2">
               <div className="flex items-center mb-2">
                 <div className="bg-blue-100 p-2 rounded-full mr-2">
                   <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
@@ -150,34 +165,34 @@ function MyProfileComponent() {
                 We are suggesting you to figure out more about{" "}
                 <b>Back-end Development</b> according we analyze ...
               </div>
-              <button className="bg-green-400 text-white px-4 py-1 rounded hover:bg-green-500 text-sm">
-                Explore
-              </button>
+              <Button size="sm">Explore</Button>
             </div>
             {/* People You May Know */}
-            <div className="bg-white rounded-xl shadow p-6">
-              <h3 className="font-semibold mb-4">People you may know</h3>
-              <div className="flex flex-col gap-3">
+            <div className="bg-white rounded-xl p-6">
+              <h3 className="font-medium mb-4">People you may know</h3>
+              <div className="flex flex-col gap-3 gap-y-6">
                 {[1, 2, 3, 4].map((v) => (
                   <div key={v} className="flex items-center gap-2">
-                    <img
+                    <Image
                       src="https://randomuser.me/api/portraits/men/1.jpg"
                       alt="Avatar"
                       className="w-10 h-10 rounded-full object-cover"
+                      width={256}
+                      height={256}
                     />
                     <div className="flex-1">
-                      <div className="font-medium">@william_adam</div>
+                      <div className="font-medium text-sm">@william_adam</div>
                       <div className="text-xs text-gray-500">
                         UX/UI Designer
                       </div>
                     </div>
-                    <button className="bg-green-400 hover:bg-green-500 text-white px-4 py-1 rounded">
-                      + Follow
-                    </button>
+                    <Button className="rounded-full" size="sm">
+                      <UserPlus2 size={13} /> Follow
+                    </Button>
                   </div>
                 ))}
               </div>
-              <button className="mt-4 w-full text-gray-500 text-sm font-medium hover:underline">
+              <button className="mt-6 pt-4 border-t border-t-neutral-200 w-full text-neutral-500 text-sm font-medium hover:underline">
                 See all
               </button>
             </div>
@@ -424,10 +439,12 @@ function MyProfileComponent() {
               <div className="flex flex-col gap-3">
                 {[1, 2, 3, 4].map((v) => (
                   <div key={v} className="flex items-center gap-2">
-                    <img
+                    <Image
                       src="https://randomuser.me/api/portraits/men/1.jpg"
                       alt="Avatar"
                       className="w-10 h-10 rounded-full object-cover"
+                      width={256}
+                      height={256}
                     />
                     <div className="flex-1">
                       <div className="font-medium">@william_adam</div>
