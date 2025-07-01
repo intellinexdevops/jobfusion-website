@@ -1,42 +1,41 @@
-"use client"
-import { MapPin, SearchIcon } from 'lucide-react'
-import React from 'react'
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-} from "@/components/ui/popover"
-import { Button } from "@/components/ui/button";
-import CareerList from "@/components/layout/find-job/career-list";
-import { Job } from '@/types/job';
+"use client";
+// import { MapPin, SearchIcon } from 'lucide-react'
+// import React from 'react'
+// import {
+//     Popover,
+//     PopoverContent,
+//     PopoverTrigger,
+// } from "@/components/ui/popover"
+// import { Button } from "@/components/ui/button";
+import { Job } from "@/types/job";
+import dynamic from "next/dynamic";
 
+const CareerList = dynamic(
+  () => import("@/components/layout/find-job/career-list"),
+  {
+    ssr: false,
+  }
+);
 
-export default function CareerBodyComponent({
-    title,
-    data
-}: {
-    title: string;
-    data?: Job[]
-}) {
+export default function CareerBodyComponent({ data }: { data?: Job[] }) {
+  // const [role, setRole] = React.useState<string>(title);
+  // const [location, setLocation] = React.useState<string | null>(null);
+  // const [isOpen, setIsOpen] = React.useState<boolean>(false);
+  // const [searchLocation, setSearchLocation] = React.useState<string | null>(location);
 
-    const [role, setRole] = React.useState<string>(title);
-    const [location, setLocation] = React.useState<string | null>(null);
-    const [isOpen, setIsOpen] = React.useState<boolean>(false);
-    const [searchLocation, setSearchLocation] = React.useState<string | null>(location);
+  // const handleOnChangeRole = (role: string) => {
+  //     setRole(role)
+  // }
+  // const handleOnChangeLocation = (location: string) => {
+  //     setLocation(location)
+  //     setIsOpen(false)
+  // }
 
-    const handleOnChangeRole = (role: string) => {
-        setRole(role)
-    }
-    const handleOnChangeLocation = (location: string) => {
-        setLocation(location)
-        setIsOpen(false)
-    }
+  // const locations = ["Siem Reap", "Phnom Penh", "Kampong Thom", "Svar Reing", "Battambang"]
 
-    const locations = ["Siem Reap", "Phnom Penh", "Kampong Thom", "Svar Reing", "Battambang"]
-
-    return (
-        <div className='container pt-5'>
-            <p className='text-4xl leading-snug'>Find your next jobs <br />at <span
+  return (
+    <div className="container pt-5">
+      {/* <p className='text-4xl leading-snug'>Find your next jobs <br />at <span
                 className='font-semibold'>JobFusion</span></p>
 
             <div className='flex md:flex-row flex-col md:items-center gap-4 mt-4'>
@@ -83,10 +82,9 @@ export default function CareerBodyComponent({
                     <span className='text-white dark:text-primary' >Search</span>
                 </Button>
 
-            </div>
+            </div> */}
 
-            <CareerList data={data!} />
-
-        </div>
-    )
+      <CareerList data={data!} />
+    </div>
+  );
 }
