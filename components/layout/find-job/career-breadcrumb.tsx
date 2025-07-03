@@ -48,6 +48,12 @@ const CareerBreadCrumb = () => {
     "Svar Reing",
     "Battambang",
   ];
+  const roles = [
+    "Web Developer",
+    "Mobile App Developer",
+    "Software Engineer",
+    "Graphic Designer",
+  ];
   return (
     <div className="pt-28 pb-16 bg-gradient-to-br from-primary/10 to-primary/30 flex flex-col items-center">
       <p className="md:text-4xl text-2xl font-bold text-center leading-tight">
@@ -66,32 +72,36 @@ const CareerBreadCrumb = () => {
           <PopoverTrigger asChild onClick={() => setIsRoleOpen(true)}>
             <div className="h-10 dark:border-gray-800 text-sm flex flex-row px-3 border-r border-neutral-200 items-center gap-2 md:w-48">
               <Briefcase size={14} className="text-gray-400" />
-              <p className={location ? "" : "text-gray-400"}>
-                {location ?? "Role/Position"}
+              <p
+                className={`${
+                  role ? "text-neutral-600" : "text-gray-400"
+                } flex-1 line-clamp-1`}
+              >
+                {role ?? "Role/Position"}
               </p>
             </div>
           </PopoverTrigger>
-          <PopoverContent align="center">
+          <PopoverContent align="center" className="mt-2">
             <div className="border rounded-lg h-10 flex flex-row items-center gap-2 px-3 mb-1">
               <div>
                 <SearchIcon size={14} className="text-gray-400" />
               </div>
               <input
                 type="text"
-                value={searchLocation ?? ""}
+                value={role ?? ""}
                 onChange={(text) => setSearchLocation(text.target.value)}
                 placeholder="Type a role/position"
                 className="outline-none bg-transparent text-sm"
               />
             </div>
 
-            {locations.map((location) => (
+            {roles.map((r) => (
               <div
-                key={location}
-                className="py-2 px-4 cursor-pointer text-xs hover:bg-gray-100 rounded transition-all duration-150 ease-linear"
-                onClick={() => handleOnChangeRole(location)}
+                key={r}
+                className="py-2.5 px-4 cursor-pointer text-sm text-neutral-800 hover:bg-gray-100 rounded transition-all duration-150 ease-linear"
+                onClick={() => handleOnChangeRole(r)}
               >
-                {role}
+                {r}
               </div>
             ))}
           </PopoverContent>
@@ -106,7 +116,7 @@ const CareerBreadCrumb = () => {
               </p>
             </div>
           </PopoverTrigger>
-          <PopoverContent align="center">
+          <PopoverContent align="center" className="mt-2">
             <div className="border rounded-lg h-10 flex flex-row items-center gap-2 px-3 mb-1">
               <div>
                 <SearchIcon size={14} className="text-gray-400" />
@@ -123,7 +133,7 @@ const CareerBreadCrumb = () => {
             {locations.map((location) => (
               <div
                 key={location}
-                className="py-2 px-4 cursor-pointer text-xs hover:bg-gray-100 rounded transition-all duration-150 ease-linear"
+                className="py-2.5 px-4 cursor-pointer text-sm text-neutral-800 hover:bg-gray-100 rounded transition-all duration-150 ease-linear"
                 onClick={() => handleOnChangeLocation(location)}
               >
                 {location}

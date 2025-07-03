@@ -16,8 +16,8 @@ export default function BreadcrumbCom() {
 
   if (pathParts!.length >= 3 && pathParts![2] !== "details") {
     return (
-      <div className="">
-        <div className="mt-20 container pt-10">
+      <div className="py-5 mt-4">
+        <div className="container">
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>

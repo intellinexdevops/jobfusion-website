@@ -3,7 +3,7 @@ import HeaderNav from "@/components/layout/header-nav";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 import React from "react";
 
-export default function FrontLayout({
+export default async function FrontLayout({
   children,
 }: {
   children: React.ReactNode;

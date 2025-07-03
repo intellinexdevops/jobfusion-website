@@ -57,9 +57,7 @@ export default function WhatNew() {
   ];
 
   // state manager ment
-  const [selectedCategory, setSelectedCategory] = useState(
-    categories[0].value
-  );
+  const [selectedCategory, setSelectedCategory] = useState(categories[0].value);
   // aray static
   const data = [
     {
@@ -176,7 +174,7 @@ export default function WhatNew() {
                 >
                   {value
                     ? categories.find((framework) => framework.value === value)
-                      ?.label
+                        ?.label
                     : "Select Categories..."}
                   <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
@@ -218,7 +216,7 @@ export default function WhatNew() {
         </div>
 
         {/* items */}
-        <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 xl:grid-cols-4 gap-6 mb-5">
+        <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 xl:grid-cols-4 gap-4 mb-5">
           {data.map((item, idx) => (
             <MediaCard data={item} key={idx} />
           ))}

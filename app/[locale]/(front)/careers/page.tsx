@@ -2,21 +2,22 @@ import React, { Suspense } from "react";
 import CareerBodyComponent from "@/components/pages/career-body-component";
 import { Metadata } from "next";
 import { data } from "@/public/data/jobs";
-import dynamic from "next/dynamic";
+import BreadcrumbCom from "@/components/breadcrumb-com";
 
 export const metadata: Metadata = {
   title: "Jobs",
   description: "Find your dream jobs",
 };
 
-const CareerBreadCrumb = dynamic(
+const CareerHero = React.lazy(
   () => import("@/components/layout/find-job/career-breadcrumb")
 );
 
 export default async function CareerPage() {
   return (
     <Suspense>
-      <CareerBreadCrumb />
+      <CareerHero />
+      <BreadcrumbCom />
       <CareerBodyComponent data={data} />
     </Suspense>
   );

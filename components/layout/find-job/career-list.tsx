@@ -37,7 +37,7 @@ export default function CareerList({ data }: { data: Job[] }) {
     setSort(sort);
   };
   return (
-    <div className="mt-10 grid grid-cols-3">
+    <div className="grid grid-cols-3">
       <div className="col-span-2">
         <div className="flex items-center justify-between">
           <p className="font-medium text-neutral-500">
