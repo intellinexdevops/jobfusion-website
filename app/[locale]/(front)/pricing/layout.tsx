@@ -1,4 +1,4 @@
-import Footer from '@/components/footer'
+import Footer from '@/components/layout/footer'
 import React, { PropsWithChildren } from 'react'
 
 export default function PricingLayout({ children }: PropsWithChildren) {

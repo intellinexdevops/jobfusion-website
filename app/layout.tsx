@@ -1,3 +1,4 @@
+export const experimental_ppr = true;
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
@@ -5,6 +6,7 @@ import ReactQueryProvider from "@/config/react-query/ReactQueryProvider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
+import { getLocale } from "next-intl/server";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -20,17 +22,18 @@ export const metadata: Metadata = {
   description: "Create, Build, Achieve",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body className={`${poppins.variable} ${poppins.className} antialiased`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >

@@ -1,15 +1,8 @@
-"use client"
-import React from 'react'
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import React from "react";
 export default function LoadingComponent() {
-    return (
-        <div className='h-screen w-full flex items-center justify-center'>
-            <DotLottieReact
-                src='/loading_anim.json'
-                loop
-                autoplay
-                className='w-72'
-            />
-        </div>
-    )
+  return (
+    <div className="h-screen w-full flex items-center justify-center">
+      <div>Loading...</div>
+    </div>
+  );
 }
