@@ -21,10 +21,12 @@ export const metadata: Metadata = {
   description: "Create, Build, Achieve",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -37,6 +39,7 @@ export default async function RootLayout({
         >
           <ReactQueryProvider>
             {children}
+            {modal}
             <Toaster />
           </ReactQueryProvider>
         </ThemeProvider>

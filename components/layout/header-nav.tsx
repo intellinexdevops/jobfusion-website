@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
 import Logo from "../logo";
 import HeaderNavigationMenu from "../header-navigation-menu";
 import { Button } from "../ui/button";
@@ -10,7 +9,6 @@ import { LanguagesIcon } from "lucide-react";
 import Image from "next/image";
 
 export default function HeaderNav() {
-  const t = useTranslations();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -49,11 +47,11 @@ export default function HeaderNav() {
                 variant={"outline"}
                 size={"default"}
               >
-                {t("signin")}
+                Sign In
               </Button>
             </Link>
             <Link href="/sign-up">
-              <Button size={"default"}>{t("register")}</Button>
+              <Button size={"default"}>Register</Button>
             </Link>
             <Popover>
               <PopoverTrigger>
