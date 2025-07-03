@@ -6,7 +6,6 @@ import ReactQueryProvider from "@/config/react-query/ReactQueryProvider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
-import { getLocale } from "next-intl/server";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -27,9 +26,8 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const locale = await getLocale();
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.variable} ${poppins.className} antialiased`}>
         <ThemeProvider
           attribute="class"
