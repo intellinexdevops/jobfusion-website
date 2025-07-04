@@ -1,0 +1,20 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Skip Commitizen during rebase
+if [ -f ".git/rebase-merge/interactive" ] || [ -f ".git/rebase-apply/rebasing" ]; then
+  exit 0
+fi
+
+# Skip Commitizen for commit amend
+if [ -n "$(git rev-parse -q --verify HEAD)" ] && [ "$(git log -1 --pretty=format:%s)" = "amend" ]; then
+  exit 0
+fi
+
+# Skip Commitizen for merge commits
+if [ -f ".git/MERGE_HEAD" ]; then
+  exit 0
+fi
+
+# Run Commitizen for normal commits
+exec < /dev/tty && npx cz --hook || true
