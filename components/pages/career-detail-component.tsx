@@ -23,6 +23,9 @@ import { useRouter } from "next/navigation";
 import QRCode from "react-qr-code";
 import { Job } from "@/types/job";
 import dynamic from "next/dynamic";
+import BreadcrumbCom from "../breadcrumb-com";
+import { toast } from "sonner";
+import JobCard from "../card/job-card";
 // import CareerBreadCrumb from "../layout/find-job/career-breadcrumb";
 
 const CareerBreadCrumb = dynamic(
@@ -33,13 +36,19 @@ export default function CareerDetailComponrnt({ data }: { data: Job }) {
   const [expend, setExpend] = useState(false);
   const router = useRouter();
   const handleApply = () => {
-    router.push("/auth/application/apply");
+    router.push("/apply");
   };
   const url = "http://localhost";
+
+  const handleAddToFavourite = () => {
+    // Logic to add the job to the user's favourites
+    toast.success("Job added to favourites!");
+  };
   return (
     <div>
       <CareerBreadCrumb />
-      <div className="container grid grid-cols-1 lg:grid-cols-12 my-10">
+      <BreadcrumbCom />
+      <div className="container grid grid-cols-1 lg:grid-cols-12 mb-10 mt-5">
         <div className="col-span-8">
           <p className="text-3xl font-semibold">{data.title}</p>
           <div className="flex flex-row items-center justify-between">
@@ -80,9 +89,13 @@ export default function CareerDetailComponrnt({ data }: { data: Job }) {
 
             <div className="flex flex-row items-center gap-3">
               <Button onClick={handleApply}>Apply Now</Button>
-              <button>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={handleAddToFavourite}
+              >
                 <Bookmark className="text-gray-500" />
-              </button>
+              </Button>
             </div>
           </div>
 
@@ -330,6 +343,17 @@ export default function CareerDetailComponrnt({ data }: { data: Job }) {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="mt-14 container mb-10">
+        <p className="font-semibold text-2xl text-neutral-800">
+          More related Jobs
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-3">
+          <JobCard />
+          <JobCard />
+          <JobCard />
         </div>
       </div>
     </div>

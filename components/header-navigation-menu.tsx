@@ -19,7 +19,9 @@ const HeaderNavigationMenu = () => {
       <li>
         <Link
           href="/careers"
-          className={`nav-link ${pathname === "/careers" ? "c_active" : ""}`}
+          className={`nav-link ${
+            pathname.startsWith("/careers") ? "c_active" : ""
+          }`}
         >
           Find Jobs
         </Link>
@@ -27,7 +29,9 @@ const HeaderNavigationMenu = () => {
       <li>
         <Link
           href="/what-new"
-          className={`nav-link ${pathname === "/what-new" ? "c_active" : ""}`}
+          className={`nav-link ${
+            pathname.startsWith("/what-new") ? "c_active" : ""
+          }`}
         >
           What&apos;s new?
         </Link>

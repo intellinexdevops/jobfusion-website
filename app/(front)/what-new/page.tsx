@@ -28,6 +28,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import RootLabel from "@/components/layout/root-label";
+import BreadcrumbCom from "@/components/breadcrumb-com";
 
 type Category = {
   label: string;
@@ -116,15 +118,17 @@ export default function WhatNew() {
         </div>
       </div>
       <div className="container">
-        <div className="flex flex-row items-center justify-center gap-6 my-20 flex-wrap">
+        <BreadcrumbCom />
+        <RootLabel value="What's new?" />
+        <div className="flex flex-row items-center gap-3 flex-wrap mb-5 mt-4">
           <div>
             <label
               htmlFor={categories[0].value}
               className={clsx(
                 selectedCategory === categories[0].value
-                  ? "text-primary font-medium bg-primary/5 "
-                  : "text-gray-600",
-                "cursor-pointer text-sm hover:bg-primary/5  py-2 px-4 rounded-lg transition-all duration-200 ease-linear"
+                  ? "text-primary font-medium bg-primary/10 "
+                  : "text-neutral-600 bg-neutral-100",
+                "cursor-pointer text-xs hover:bg-primary/10  py-1.5 px-3 rounded-lg transition-all duration-200 ease-linear"
               )}
             >
               {categories[0].label}
@@ -144,9 +148,9 @@ export default function WhatNew() {
                 htmlFor={cat.value}
                 className={clsx(
                   selectedCategory === cat.value
-                    ? "text-primary font-medium bg-primary/5 "
-                    : "text-gray-600",
-                  "cursor-pointer text-sm hover:bg-primary/5  py-2 px-4 rounded-lg transition-all duration-200 ease-linear"
+                    ? "text-primary font-medium bg-primary/10 "
+                    : "text-neutral-600 bg-neutral-100",
+                  "cursor-pointer text-xs hover:bg-primary/10  py-1.5 px-3 rounded-lg transition-all duration-200 ease-linear"
                 )}
               >
                 {cat.label}

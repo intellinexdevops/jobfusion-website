@@ -40,7 +40,7 @@ export default function RootLayout({
           <ReactQueryProvider>
             {children}
             {modal}
-            <Toaster />
+            <Toaster richColors />
           </ReactQueryProvider>
         </ThemeProvider>
         <Script src="https://www.google.com/recaptcha/api.js"></Script>

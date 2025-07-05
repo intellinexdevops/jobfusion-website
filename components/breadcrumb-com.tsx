@@ -30,8 +30,8 @@ export default function BreadcrumbCom() {
                   Home
                 </Link>
               </BreadcrumbLink>
-              <BreadcrumbSeparator />
             </BreadcrumbItem>
+            <BreadcrumbSeparator />
             {pathParts.map((path, idx) => {
               const pageDisplay = path.split("-").join(" ");
               const isLast = idx === pathParts.length - 1;
