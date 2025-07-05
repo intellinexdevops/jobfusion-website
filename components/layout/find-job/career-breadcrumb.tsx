@@ -63,7 +63,7 @@ const CareerBreadCrumb = () => {
         Browse thousands of job listings and connect with top employers in
         minutes.
       </p>
-      <div className="flex items-center gap-x-5 mt-10 bg-white p-2.5 rounded-2xl">
+      <div className="flex items-center gap-x-5 mt-10 bg-white p-2.5 rounded-md">
         <Popover
           modal
           onOpenChange={() => setIsRoleOpen(!isRoleOpen)}
@@ -142,7 +142,7 @@ const CareerBreadCrumb = () => {
           </PopoverContent>
         </Popover>
 
-        <Button className="h-10 rounded-xl text-sm px-5 justify-center flex flex-row items-center gap-2 dark:bg-primary/10">
+        <Button className="h-10 rounded text-sm px-5 justify-center flex flex-row items-center gap-2 dark:bg-primary/10">
           <SearchIcon size={14} className="text-white dark:text-primary" />
           <span className="text-white dark:text-primary">Search</span>
         </Button>

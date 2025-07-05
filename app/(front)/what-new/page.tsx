@@ -102,21 +102,20 @@ export default function WhatNew() {
   const [value, setValue] = React.useState("");
   // Dispay Ui and data
   return (
-    <section className="mt-20">
-      <div className="container">
-        {/* header */}
-        <div className="flex flex-col items-center">
-          <p className="font-medium mt-20">What’s new?</p>
-          <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold my-4">
-            Short heading goes here
-          </h1>
-          <p className="text-sm ">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
-          </p>
+    <section>
+      <div className="pt-28 pb-16 bg-gradient-to-br from-primary/10 to-primary/30 flex flex-col items-center">
+        <p className="md:text-4xl text-2xl font-bold text-center leading-tight">
+          Stay Updated on Job Portal <br />
+          with JobFusion
+        </p>
+        <p className="text-center mt-4 text-neutral-500">
+          Get the latest updated and information in job portal
+        </p>
+        <div className="mt-6">
+          <Button className="rounded">Subscribe Now</Button>
         </div>
-
-        {/* categories */}
-
+      </div>
+      <div className="container">
         <div className="flex flex-row items-center justify-center gap-6 my-20 flex-wrap">
           <div>
             <label

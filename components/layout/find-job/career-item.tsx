@@ -48,7 +48,7 @@ export default function CareerItems({ data }: { data: Job[] }) {
 
   return (
     <div>
-      <div className="mt-6 flex flex-col gap-4">
+      <div className="flex flex-col gap-4">
         {data && currentItems?.map((item, i) => <JobCard key={i} />)}
       </div>
 

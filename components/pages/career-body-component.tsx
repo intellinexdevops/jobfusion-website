@@ -1,6 +1,7 @@
 "use client";
 import { Job } from "@/types/job";
 import React from "react";
+import RootLabel from "../layout/root-label";
 
 const CareerList = React.lazy(
   () => import("@/components/layout/find-job/career-list")
@@ -9,6 +10,7 @@ const CareerList = React.lazy(
 export default function CareerBodyComponent({ data }: { data?: Job[] }) {
   return (
     <div className="container">
+      <RootLabel value="Find Job" />
       <CareerList data={data!} />
     </div>
   );

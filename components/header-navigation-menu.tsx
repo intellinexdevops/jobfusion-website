@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import React from "react";
 
 const HeaderNavigationMenu = () => {
-  const pathname = usePathname().slice(3);
+  const pathname = usePathname();
   return (
     <ul className="lg:flex items-center gap-10 hidden">
       <li>
