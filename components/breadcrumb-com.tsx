@@ -12,7 +12,11 @@ import {
 import { Home } from "lucide-react";
 import Link from "next/link";
 
-export default function BreadcrumbCom() {
+interface CustomEndPath {
+  value?: string;
+}
+
+export default function BreadcrumbCom({ value }: CustomEndPath) {
   const pathname = usePathname();
   const pathParts = pathname?.split("/").filter((part) => part);
 
@@ -33,9 +37,12 @@ export default function BreadcrumbCom() {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             {pathParts.map((path, idx) => {
-              const pageDisplay = path.split("-").join(" ");
               const isLast = idx === pathParts.length - 1;
               const href = `/${pathParts.slice(0, idx + 1).join("/")}`;
+
+              const pageDisplay = isLast
+                ? value || path.split("-").join(" ")
+                : path.split("-").join(" ");
               return (
                 <React.Fragment key={href}>
                   <BreadcrumbItem>

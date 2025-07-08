@@ -1,10 +1,10 @@
 "use client";
 import { Job } from "@/types/job";
 import React from "react";
-import RootLabel from "../layout/root-label";
+import RootLabel from "../com/root-label";
 
 const CareerList = React.lazy(
-  () => import("@/components/layout/find-job/career-list")
+  () => import("@/components/com/find-job/career-list")
 );
 
 export default function CareerBodyComponent({ data }: { data?: Job[] }) {

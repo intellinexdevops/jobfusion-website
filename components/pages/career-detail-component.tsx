@@ -2,7 +2,6 @@
 import {
   Bookmark,
   Building,
-  ChevronDown,
   ChevronRight,
   DownloadIcon,
   EarthIcon,
@@ -29,7 +28,7 @@ import JobCard from "../card/job-card";
 // import CareerBreadCrumb from "../layout/find-job/career-breadcrumb";
 
 const CareerBreadCrumb = dynamic(
-  () => import("../layout/find-job/career-breadcrumb")
+  () => import("../com/find-job/career-breadcrumb")
 );
 
 export default function CareerDetailComponrnt({ data }: { data: Job }) {
@@ -47,7 +46,7 @@ export default function CareerDetailComponrnt({ data }: { data: Job }) {
   return (
     <div>
       <CareerBreadCrumb />
-      <BreadcrumbCom />
+      <BreadcrumbCom value={data.title} />
       <div className="container grid grid-cols-1 lg:grid-cols-12 mb-10 mt-5">
         <div className="col-span-8">
           <p className="text-3xl font-semibold">{data.title}</p>
@@ -122,11 +121,19 @@ export default function CareerDetailComponrnt({ data }: { data: Job }) {
 
           <div className="mt-5">
             <button
-              className="flex flex-row items-center gap-5"
+              className="flex flex-row items-center gap-3"
               onClick={() => setExpend(!expend)}
             >
-              <p className="text-xs font-medium">Additional</p>
-              {expend ? <ChevronDown size={12} /> : <ChevronRight size={14} />}
+              <p className="text-xs font-medium text-neutral-500 underline">
+                More
+              </p>
+              <ChevronRight
+                color="#737373"
+                className={`${
+                  expend ? "rotate-90" : ""
+                } transition-all duration-200`}
+                size={14}
+              />
             </button>
             {expend && (
               <div className="grid grid-cols-4 mt-4">

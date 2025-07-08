@@ -28,7 +28,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import RootLabel from "@/components/layout/root-label";
+import RootLabel from "@/components/com/root-label";
 import BreadcrumbCom from "@/components/breadcrumb-com";
 
 type Category = {
