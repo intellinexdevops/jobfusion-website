@@ -13,12 +13,29 @@
 // limitations under the License.
 
 import { NextResponse, NextRequest } from "next/server";
+import { cookies } from "next/headers";
 
-// This function can be marked `async` if using `await` inside
-export function middleware(request: NextRequest) {
-  return NextResponse.redirect(new URL("/", request.url));
+const protectedRoutes = ["/channel", "/usr", "/apply"];
+
+export default async function middleware(request: NextRequest) {
+  const currentPath = request.nextUrl.pathname;
+  const cookieStore = await cookies();
+  const refreshToken = cookieStore.get("refresh_token")?.value;
+
+  // Check if the route is protected
+  const isProtectedRoute = protectedRoutes.some((route) =>
+    currentPath.startsWith(route)
+  );
+
+  if (isProtectedRoute && !refreshToken) {
+    const loginUrl = new URL("/sign-in", request.url);
+    loginUrl.searchParams.set("redirect", currentPath);
+    return NextResponse.redirect(loginUrl);
+  }
+
+  return NextResponse.next();
 }
 
 export const config = {
-  matcher: "/auth/:path*",
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };

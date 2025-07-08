@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { Button } from "../ui/button";
-import About from "@/components/layout/profile/about";
-import ProfileBackground from "@/components/layout/profile/background";
+import About from "@/components/com/profile/about";
+import ProfileBackground from "@/components/com/profile/background";
 
 function MyProfileComponent() {
   const [activeTab, setActiveTab] = useState("about");

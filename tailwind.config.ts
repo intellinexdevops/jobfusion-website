@@ -65,6 +65,7 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         text: "#0D1A59",
+        error: "#F05752",
       },
       borderRadius: {
         lg: "var(--radius)",

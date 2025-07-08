@@ -58,15 +58,16 @@ function ExploreComponent() {
       </div>
 
       {/* Most People Visit Section */}
-      <div className="w-full flex flex-col">
-        <h2 className="text-xl md:text-2xl font-bold text-neutral-800 mb-8 text-left">
+      <div className="w-full flex flex-col mb-8">
+        <h2 className="text-xl md:text-2xl font-bold text-neutral-800 text-left">
           Most People Visit
         </h2>
+        <div className="w-20 h-1 bg-primary mt-2" />
       </div>
 
       {/* Cards Section */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {[1, 2, 3, 4].map((i) => (
+        {[1].map((i) => (
           <ServiceCard
             key={i}
             title="Resume Builder"

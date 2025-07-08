@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 const CareerHero = React.lazy(
-  () => import("@/components/layout/find-job/career-breadcrumb")
+  () => import("@/components/com/find-job/career-breadcrumb")
 );
 
 export default async function CareerPage() {

@@ -5,7 +5,7 @@ import React from "react";
 
 const JobCard = () => {
   return (
-    <Link href="/careers/details/65f1b0f8e4b0f2a3c9a9b006">
+    <Link href="/careers/65f1b0f8e4b0f2a3c9a9b006">
       <div className="bg-white rounded-lg p-5 border border-neutral-100">
         <div className="flex items-center space-x-2">
           <div className="w-10 h-10">

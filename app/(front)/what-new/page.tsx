@@ -28,6 +28,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import RootLabel from "@/components/com/root-label";
+import BreadcrumbCom from "@/components/breadcrumb-com";
 
 type Category = {
   label: string;
@@ -102,30 +104,31 @@ export default function WhatNew() {
   const [value, setValue] = React.useState("");
   // Dispay Ui and data
   return (
-    <section className="mt-20">
-      <div className="container">
-        {/* header */}
-        <div className="flex flex-col items-center">
-          <p className="font-medium mt-20">What’s new?</p>
-          <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold my-4">
-            Short heading goes here
-          </h1>
-          <p className="text-sm ">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.{" "}
-          </p>
+    <section>
+      <div className="pt-28 pb-16 bg-gradient-to-br from-primary/10 to-primary/30 flex flex-col items-center">
+        <p className="md:text-4xl text-2xl font-bold text-center leading-tight">
+          Stay Updated on Job Portal <br />
+          with JobFusion
+        </p>
+        <p className="text-center mt-4 text-neutral-500">
+          Get the latest updated and information in job portal
+        </p>
+        <div className="mt-6">
+          <Button className="rounded">Subscribe Now</Button>
         </div>
-
-        {/* categories */}
-
-        <div className="flex flex-row items-center justify-center gap-6 my-20 flex-wrap">
+      </div>
+      <div className="container">
+        <BreadcrumbCom />
+        <RootLabel value="What's new?" />
+        <div className="flex flex-row items-center gap-3 flex-wrap mb-5 mt-4">
           <div>
             <label
               htmlFor={categories[0].value}
               className={clsx(
                 selectedCategory === categories[0].value
-                  ? "text-primary font-medium bg-primary/5 "
-                  : "text-gray-600",
-                "cursor-pointer text-sm hover:bg-primary/5  py-2 px-4 rounded-lg transition-all duration-200 ease-linear"
+                  ? "text-primary font-medium bg-primary/10 "
+                  : "text-neutral-600 bg-neutral-100",
+                "cursor-pointer text-xs hover:bg-primary/10  py-1.5 px-3 rounded-lg transition-all duration-200 ease-linear"
               )}
             >
               {categories[0].label}
@@ -145,9 +148,9 @@ export default function WhatNew() {
                 htmlFor={cat.value}
                 className={clsx(
                   selectedCategory === cat.value
-                    ? "text-primary font-medium bg-primary/5 "
-                    : "text-gray-600",
-                  "cursor-pointer text-sm hover:bg-primary/5  py-2 px-4 rounded-lg transition-all duration-200 ease-linear"
+                    ? "text-primary font-medium bg-primary/10 "
+                    : "text-neutral-600 bg-neutral-100",
+                  "cursor-pointer text-xs hover:bg-primary/10  py-1.5 px-3 rounded-lg transition-all duration-200 ease-linear"
                 )}
               >
                 {cat.label}

@@ -31,13 +31,15 @@ const BusinessComponent = () => {
 
       {/* Waitlist Section */}
       <div className="w-full flex flex-col items-center mb-6">
-        <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-8 text-center">
-          Join business waitlist
-        </h2>
-        <div className="flex flex-col md:flex-row w-full gap-12 max-w-5xl">
-          {/* Left Text Block */}
+        <div className="mb-10">
+          <h2 className="text-xl md:text-2xl font-semibold text-neutral-800 text-center">
+            Join business waitlist
+          </h2>
+          <div className="w-20 h-1 bg-primary mt-2 mx-auto" />
+        </div>
+        <div className="flex flex-col md:flex-row w-full gap-12 max-w-5xl mt-10">
           <div className="flex-1">
-            <h3 className="text-3xl font-bold mb-2 text-gray-900">
+            <h3 className="text-3xl lg:text-4xl font-bold mb-2 text-neutral-900">
               Join thousands of professionals finding better careers.
             </h3>
             <p className="text-gray-600">
@@ -47,8 +49,7 @@ const BusinessComponent = () => {
               starts here.
             </p>
           </div>
-          {/* Waitlist Form */}
-          <form className="flex-1 bg-white p-8 rounded-xl flex flex-col gap-4 min-w-[320px]">
+          <form className="flex-1 px-8 rounded-xl flex flex-col gap-4 min-w-[320px]">
             <Input type="text" placeholder="Business name *" required />
             <Input type="text" placeholder="Industry *" required />
             <Input type="text" placeholder="Register Number *" required />

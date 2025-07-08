@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import React from "react";
 
 const HeaderNavigationMenu = () => {
-  const pathname = usePathname().slice(3);
+  const pathname = usePathname();
   return (
     <ul className="lg:flex items-center gap-10 hidden">
       <li>
@@ -19,7 +19,9 @@ const HeaderNavigationMenu = () => {
       <li>
         <Link
           href="/careers"
-          className={`nav-link ${pathname === "/careers" ? "c_active" : ""}`}
+          className={`nav-link ${
+            pathname.startsWith("/careers") ? "c_active" : ""
+          }`}
         >
           Find Jobs
         </Link>
@@ -27,7 +29,9 @@ const HeaderNavigationMenu = () => {
       <li>
         <Link
           href="/what-new"
-          className={`nav-link ${pathname === "/what-new" ? "c_active" : ""}`}
+          className={`nav-link ${
+            pathname.startsWith("/what-new") ? "c_active" : ""
+          }`}
         >
           What&apos;s new?
         </Link>

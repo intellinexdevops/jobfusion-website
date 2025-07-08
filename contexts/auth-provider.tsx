@@ -1,27 +1,33 @@
-"use client"
+"use client";
 
-import {
-    createContext,
-    PropsWithChildren,
-    useContext,
-    useState,
-} from "react";
+import { AuthService } from "@/services/auth-service";
+import { createContext, PropsWithChildren, useContext, useState } from "react";
 
 interface AuthProps {
-    token: string
+  token: string;
 }
 
 const AuthContext = createContext<AuthProps>({
-    token: ""
+  token: "",
 });
 
 export const useAuth = () => useContext(AuthContext);
 
 export default function AuthProvider({ children }: PropsWithChildren) {
+  const [token, setToken] = useState<string>("");
 
-    const [token, setToken] = useState<string>("");
+  const authService = new AuthService();
 
-    return <AuthContext.Provider value={{ token }}>
-        {children}
-    </AuthContext.Provider>
+  const login = async () => {
+    try {
+      const token = await authService.login();
+      setToken(token as string);
+    } catch (error) {
+      console.error("Login failed", error);
+    }
+  };
+
+  return (
+    <AuthContext.Provider value={{ token }}>{children}</AuthContext.Provider>
+  );
 }
