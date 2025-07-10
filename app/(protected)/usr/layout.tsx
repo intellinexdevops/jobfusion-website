@@ -1,5 +1,6 @@
-import Footer from "@/components/com/footer";
-import HeaderCandidate from "@/components/header-candidate";
+import AppSidebar from "@/components/base/app-sidebar";
+import Footer from "@/components/base/footer";
+import HeaderCandidate from "@/components/base/header-candidate";
 import React, { Suspense } from "react";
 
 export default function CandidateLayout({
@@ -10,7 +11,10 @@ export default function CandidateLayout({
   return (
     <Suspense>
       <HeaderCandidate />
-      {children}
+      <div className="grid grid-cols-8 items-start gap-6 container mt-24 mb-10">
+        <AppSidebar />
+        <div className="col-span-6">{children}</div>
+      </div>
       <Footer />
     </Suspense>
   );

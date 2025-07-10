@@ -1,5 +1,6 @@
-import Footer from "@/components/com/footer";
-import HeaderNav from "@/components/com/header-nav";
+import Footer from "@/components/base/footer";
+import FooterCTA from "@/components/base/footer-cta";
+import HeaderNav from "@/components/base/header-nav";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 import React from "react";
 
@@ -12,6 +13,7 @@ export default async function FrontLayout({
     <section>
       <HeaderNav />
       {children}
+      <FooterCTA />
       <Footer />
       <ScrollToTop />
     </section>

@@ -2,7 +2,7 @@ export const experimental_ppr = true;
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import ReactQueryProvider from "@/config/react-query/ReactQueryProvider";
+import ReactQueryProvider from "@/lib/react-query/ReactQueryProvider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
