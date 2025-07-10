@@ -1,7 +1,7 @@
 import React from "react";
 import { SidebarProvider } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/com/app-sidebar";
 import HeaderRecruiter from "@/components/header-recruiter";
+import AppSidebar from "@/components/base/app-sidebar";
 
 export default function RecruiterLayout({
   children,
