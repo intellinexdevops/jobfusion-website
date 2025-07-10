@@ -3,9 +3,10 @@ import { Component, MoreHorizontal, Pencil, UserPlus2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { Button } from "../ui/button";
+
 import About from "@/components/com/profile/about";
 import ProfileBackground from "@/components/com/profile/background";
+import { Button } from "@/components/ui/button";
 
 function MyProfileComponent() {
   const [activeTab, setActiveTab] = useState("about");
