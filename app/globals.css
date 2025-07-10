@@ -140,4 +140,9 @@ body {
   .profile-label {
     @apply text-sm text-neutral-800
   }
+
+  .s-label {
+    @apply text-xs text-neutral-700 font-medium
+  }
+
 }

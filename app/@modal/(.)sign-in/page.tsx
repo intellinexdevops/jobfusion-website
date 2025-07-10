@@ -1,4 +1,4 @@
-import LoginComponent from "@/components/com/auth/login-component";
+import LoginComponent from "@/components/pages/auth/login-component";
 import React from "react";
 
 export default function SiginIn() {

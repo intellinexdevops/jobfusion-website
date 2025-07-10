@@ -1,4 +1,4 @@
-import ExploreComponent from "@/components/pages/explore-component";
+import ExploreComponent from "@/components/pages/explore/explore-component";
 import React from "react";
 
 const Page = () => {
