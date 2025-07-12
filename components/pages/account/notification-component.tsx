@@ -15,7 +15,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Star, Trash2 } from "lucide-react";
 import SearchInput from "@/components/ui/search-input";
 import Image from "next/image";
@@ -114,62 +114,63 @@ const NotificationComponent = () => {
               Favourite
             </TabsTrigger>
           </TabsList>
+          <TabsContent value="all">
+            <div className="space-y-3">
+              {notifications.map((n, index) => (
+                <Card
+                  key={index}
+                  className={`flex items-center p-4 space-x-4 transition-colors duration-200 cursor-pointer ${
+                    !n.read ? "bg-primary/10" : "bg-white"
+                  } hover:bg-[rgba(0,191,99,0.1)] hover:text-black`}
+                >
+                  <CardContent className="p-0 flex-1 flex items-center gap-6">
+                    <div className="flex items-center gap-2">
+                      <div
+                        className={`${
+                          !n.read ? "border border-neutral-700" : ""
+                        } w-2 h-2 rounded-full `}
+                      />
+                      <Star size={12} />
+                    </div>
+                    <div className="flex flex-1 items-start gap-3">
+                      <div className="w-8 h-8 rounded-full relative flex items-center justify-center font-bold text-xl">
+                        <Image src="/icons/google.svg" fill alt="Logo" />
+                      </div>
+                      <div className="flex w-full justify-between">
+                        <div>
+                          <p className="font-medium text-neutral-600 text-sm line-clamp-1">
+                            {n.title}
+                          </p>
+                          <p className="text-xs text-muted-foreground line-clamp-1">
+                            {n.message}{" "}
+                            <span className="text-primary cursor-pointer">
+                              Read more.
+                            </span>
+                          </p>
+                          {n.button && (
+                            <Button size="sm" className="mt-2">
+                              {n.button}
+                            </Button>
+                          )}
+                        </div>
+                        <div className="flex items-start gap-3">
+                          <span className="text-xs text-muted-foreground">
+                            {n.time}
+                          </span>
+                          <Trash2 size={16} className="text-error" />
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
         </Tabs>
       </div>
 
       <div className="mb-4 relative w-full">
         <SearchInput />
-      </div>
-
-      <div className="space-y-3">
-        {notifications.map((n, index) => (
-          <Card
-            key={index}
-            className={`flex items-center p-4 space-x-4 transition-colors duration-200 cursor-pointer ${
-              !n.read ? "bg-primary/10" : "bg-white"
-            } hover:bg-[rgba(0,191,99,0.1)] hover:text-black`}
-          >
-            <CardContent className="p-0 flex-1 flex items-center gap-6">
-              <div className="flex items-center gap-2">
-                <div
-                  className={`${
-                    !n.read ? "border border-neutral-700" : ""
-                  } w-2 h-2 rounded-full `}
-                />
-                <Star size={12} />
-              </div>
-              <div className="flex flex-1 items-start gap-3">
-                <div className="w-8 h-8 rounded-full relative flex items-center justify-center font-bold text-xl">
-                  <Image src="/icons/google.svg" fill alt="Logo" />
-                </div>
-                <div className="flex w-full justify-between">
-                  <div>
-                    <p className="font-medium text-neutral-600 text-sm line-clamp-1">
-                      {n.title}
-                    </p>
-                    <p className="text-xs text-muted-foreground line-clamp-1">
-                      {n.message}{" "}
-                      <span className="text-primary cursor-pointer">
-                        Read more.
-                      </span>
-                    </p>
-                    {n.button && (
-                      <Button size="sm" className="mt-2">
-                        {n.button}
-                      </Button>
-                    )}
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="text-xs text-muted-foreground">
-                      {n.time}
-                    </span>
-                    <Trash2 size={16} className="text-error" />
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
       </div>
     </div>
   );

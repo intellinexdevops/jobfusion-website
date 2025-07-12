@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import Image from "next/image";
 import React from "react";
 
 const ChevronRight: React.FC = () => (
@@ -21,7 +22,12 @@ const ChevronRight: React.FC = () => (
     stroke="currentColor"
     viewBox="0 0 24 24"
   >
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M9 5l7 7-7 7"
+    />
   </svg>
 );
 
@@ -41,10 +47,8 @@ const Item: React.FC<ItemProps> = ({
   noBorder,
 }) => {
   const baseClasses =
-    "flex items-center h-[54px] cursor-pointer px-[36px] transition-colors";
-  const bgHoverClass = noBackground
-    ? ""
-    : "bg-[#F0F0F0] hover:bg-[#E0E0E0]";
+    "flex items-center h-[54px] cursor-pointer px-[16px] transition-colors";
+  const bgHoverClass = noBackground ? "" : "bg-50 hover:bg-100";
   const borderClass = noBorder ? "" : "border-t border-gray-200";
   const textHoverUnderline = noBackground ? "hover:underline" : "";
 
@@ -52,9 +56,15 @@ const Item: React.FC<ItemProps> = ({
     <li className={`${baseClasses} ${bgHoverClass} ${borderClass}`}>
       <div className="flex items-center gap-3 flex-1">
         {!noIcon && iconSrc && (
-          <img src={iconSrc} alt={label} className="w-5 h-5" />
+          <Image
+            width={24}
+            height={24}
+            src={iconSrc}
+            alt={label}
+            className="w-5 h-5"
+          />
         )}
-        <span className={`text-gray-700 text-[15px] ${textHoverUnderline}`}>
+        <span className={`text-700 text-sm ${textHoverUnderline}`}>
           {label}
         </span>
       </div>
@@ -71,7 +81,10 @@ const SettingComponent: React.FC = () => {
       title: "Account",
       items: [
         { icon: "/icons/id.svg", label: "Personal", noBorder: true },
-        { icon: "/icons/lock-keyhole-minimalistic.svg", label: "Security & Password" },
+        {
+          icon: "/icons/lock-keyhole-minimalistic.svg",
+          label: "Security & Password",
+        },
         { icon: "/icons/contact-book.svg", label: "Contact Info" },
         { icon: "/icons/language-square.svg", label: "Language" },
       ],
@@ -79,39 +92,50 @@ const SettingComponent: React.FC = () => {
     {
       title: "Payment",
       items: [
-        { icon: "/icons/card.svg", label: "Billing & Payment", noBorder: true},
+        { icon: "/icons/card.svg", label: "Billing & Payment", noBorder: true },
       ],
     },
     {
       title: "Notification",
       items: [
-        { icon: "/icons/bell-bing.svg", label: "Notification setting", noBorder: true },
+        {
+          icon: "/icons/bell-bing.svg",
+          label: "Notification setting",
+          noBorder: true,
+        },
       ],
     },
     {
       title: "Account Management",
       items: [
-        { icon: "/icons/wrong-access.svg", label: "Close Account", noBorder: true },
+        {
+          icon: "/icons/wrong-access.svg",
+          label: "Close Account",
+          noBorder: true,
+        },
         { icon: "/icons/bin.svg", label: "Delete your account" },
       ],
     },
   ];
 
   const legalItems = [
-    { label: "Privacy & Policy", noIcon: true, noBackground: true, noBorder: true },
+    {
+      label: "Privacy & Policy",
+      noIcon: true,
+      noBackground: true,
+      noBorder: true,
+    },
     { label: "Term of uses", noIcon: true, noBackground: true, noBorder: true },
   ];
 
   return (
-    <div className="bg-white min-h-screen py-8 px-4">
-      {/* Main Title */}
-      <h1 className="text-[20px] font-semibold mb-8 text-gray-800">Setting</h1>
+    <div className="bg-white min-h-screen p-5 rounded-lg">
+      <h1 className="text-xl font-semibold mb-6 text-neutral-700">Settings</h1>
 
-      {/* Other Sections */}
       <div className="w-full space-y-6">
         {sections.map(({ title, items }, idx) => (
           <section key={idx}>
-            <h2 className="text-[17px] font-medium text-gray-500 mb-1">{title}</h2>
+            <p className="text-sm font-medium text-800 mb-4">{title}</p>
             <ul className="rounded-[12px] overflow-hidden divide-y divide-gray-200 border border-gray-100">
               {items.map(({ icon, label, noBorder }, itemIdx) => (
                 <Item
@@ -127,17 +151,19 @@ const SettingComponent: React.FC = () => {
 
         {/* Legal Section */}
         <section>
-          <h2 className="text-[17px] font-medium text-gray-500 mb-1">Legal</h2>
+          <p className="text-sm font-medium text-800 mb-4">Legal</p>
           <ul className="rounded-[12px] ">
-            {legalItems.map(({ label, noIcon, noBackground, noBorder }, idx) => (
-              <Item
-                key={idx}
-                label={label}
-                noIcon={noIcon}
-                noBackground={noBackground}
-                noBorder={noBorder}
-              />
-            ))}
+            {legalItems.map(
+              ({ label, noIcon, noBackground, noBorder }, idx) => (
+                <Item
+                  key={idx}
+                  label={label}
+                  noIcon={noIcon}
+                  noBackground={noBackground}
+                  noBorder={noBorder}
+                />
+              )
+            )}
           </ul>
         </section>
       </div>

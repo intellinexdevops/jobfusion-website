@@ -66,7 +66,7 @@ function OrganizationComponent() {
               </div>
               <div className="relative">
                 <Popover>
-                  <PopoverTrigger>
+                  <PopoverTrigger asChild>
                     <Button
                       variant="link"
                       size="icon"
