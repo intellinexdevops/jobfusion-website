@@ -13,12 +13,12 @@
 // limitations under the License.
 
 import React from "react";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Search } from "lucide-react";
-import { Star } from "lucide-react";
+import { Star, Trash2 } from "lucide-react";
+import SearchInput from "@/components/ui/search-input";
+import Image from "next/image";
 
 const notifications = [
   {
@@ -28,7 +28,7 @@ const notifications = [
       "A problem isn't truly solved until it's solved for all. Googlers build products",
     time: "2 days ago",
     button: "View Jobs",
-    read: false,
+    read: true,
   },
   {
     icon: "G",
@@ -63,51 +63,53 @@ const notifications = [
       "A problem isn't truly solved until it's solved for all. Googlers build products",
     time: "2 days ago",
     button: "Upgrade",
-    read: false,
+    read: true,
   },
 ];
 
 const NotificationComponent = () => {
   return (
-    <div className="p-6">
-      <h2 className="text-xl font-bold mb-2">List Notification</h2>
-      <p className="mb-4 text-muted-foreground">168 Notification</p>
+    <div className="p-5 bg-white rounded-lg">
+      <h2 className="text-xl font-semibold text-neutral-800">
+        List Notification
+      </h2>
+      <p className="mb-4 text-sm text-muted-foreground">168 Notification</p>
       <div className="mb-6">
         <Tabs defaultValue="all" className="bg-transparent">
-          <TabsList className="flex gap-4 justify-start bg-transparent border-none p-0">
+          <TabsList className="flex gap-4 justify-start bg-transparent border-none p-0 transition-all duration-300">
             <TabsTrigger
               value="all"
-              className="flex items-center gap-2 rounded-full px-4 py-1 border bg-green-500 text-white data-[state=inactive]:bg-green-100 data-[state=inactive]:text-gray-700"
+              className="flex items-center gap-1 rounded-full h-8 text-gray-700 data-[state=active]:bg-primary data-[state=active]:text-white"
             >
-              <span className="bg-white text-green-600 font-bold rounded-full w-6 h-6 flex items-center justify-center text-xs">
-                40
+              <span className="data-[state=active]:bg-transparent px-1.5 py-0.5 text-white bg-primary text-[10px] rounded-full">
+                50
               </span>
               All
             </TabsTrigger>
             <TabsTrigger
               value="personal"
-              className="flex items-center gap-2 rounded-full px-4 py-1 border bg-green-100 text-gray-700 data-[state=active]:bg-green-500 data-[state=active]:text-white"
+              className="flex items-center gap-1 rounded-full h-8 text-gray-700 data-[state=active]:bg-primary data-[state=active]:text-white"
             >
-              <span className="bg-white text-green-600 font-bold rounded-full w-6 h-6 flex items-center justify-center text-xs">
+              <span className="data-[state=active]:bg-transparent px-1.5 py-0.5 text-white bg-primary text-[10px] rounded-full">
                 30
               </span>
               Personal
             </TabsTrigger>
             <TabsTrigger
               value="jobfusion"
-              className="flex items-center gap-2 rounded-full px-4 py-1 border bg-green-100 text-gray-700 data-[state=active]:bg-green-500 data-[state=active]:text-white"
+              className="flex items-center gap-1 rounded-full h-8 text-gray-700 data-[state=active]:bg-primary data-[state=active]:text-white"
             >
-              <span className="bg-white text-green-600 font-bold rounded-full w-6 h-6 flex items-center justify-center text-xs">
-                10
+              <span className="data-[state=active]:bg-transparent px-1.5 py-0.5 text-white bg-primary text-[10px] rounded-full">
+                30
               </span>
               JobFusion
             </TabsTrigger>
             <TabsTrigger
               value="favourite"
-              className="flex items-center gap-2 rounded-full px-4 py-1 border bg-green-100 text-gray-700 data-[state=active]:bg-green-500 data-[state=active]:text-white"
+              className="flex items-center gap-1 rounded-full h-8 text-gray-700 data-[state=active]:bg-primary data-[state=active]:text-white"
             >
-              <span className="bg-white text-green-600 font-bold rounded-full w-6 h-6 flex items-center justify-center text-xs">
-                5
+              <span className="data-[state=active]:bg-transparent px-1.5 py-0.5 text-white bg-primary text-[10px] rounded-full">
+                3
               </span>
               Favourite
             </TabsTrigger>
@@ -116,44 +118,56 @@ const NotificationComponent = () => {
       </div>
 
       <div className="mb-4 relative w-full">
-        <Search className="absolute left-3 top-2.5 text-muted-foreground w-4 h-4" />
-        <Input placeholder="Search something..." className="pl-10" />
+        <SearchInput />
       </div>
 
       <div className="space-y-3">
         {notifications.map((n, index) => (
           <Card
             key={index}
-            className={`flex items-start p-4 space-x-4 transition-colors duration-200 cursor-pointer ${
-              n.read ? "bg-green-50" : "bg-white"
+            className={`flex items-center p-4 space-x-4 transition-colors duration-200 cursor-pointer ${
+              !n.read ? "bg-primary/10" : "bg-white"
             } hover:bg-[rgba(0,191,99,0.1)] hover:text-black`}
           >
-            <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center font-bold text-xl">
-              {n.icon}
-            </div>
-            <CardContent className="p-0 flex-1">
-              <div className="flex justify-between">
-                <h3 className="font-semibold text-sm line-clamp-1">
-                  {n.title}
-                </h3>
-                <span className="text-xs text-muted-foreground">{n.time}</span>
+            <CardContent className="p-0 flex-1 flex items-center gap-6">
+              <div className="flex items-center gap-2">
+                <div
+                  className={`${
+                    !n.read ? "border border-neutral-700" : ""
+                  } w-2 h-2 rounded-full `}
+                />
+                <Star size={12} />
               </div>
-              <p className="text-xs text-muted-foreground line-clamp-1">
-                {n.message}{" "}
-                <span className="text-[#00BF63] cursor-pointer">
-                  Read more.
-                </span>
-              </p>
-              {n.button && (
-                <Button size="sm" className="mt-2">
-                  {n.button}
-                </Button>
-              )}
+              <div className="flex flex-1 items-start gap-3">
+                <div className="w-8 h-8 rounded-full relative flex items-center justify-center font-bold text-xl">
+                  <Image src="/icons/google.svg" fill alt="Logo" />
+                </div>
+                <div className="flex w-full justify-between">
+                  <div>
+                    <p className="font-medium text-neutral-600 text-sm line-clamp-1">
+                      {n.title}
+                    </p>
+                    <p className="text-xs text-muted-foreground line-clamp-1">
+                      {n.message}{" "}
+                      <span className="text-primary cursor-pointer">
+                        Read more.
+                      </span>
+                    </p>
+                    {n.button && (
+                      <Button size="sm" className="mt-2">
+                        {n.button}
+                      </Button>
+                    )}
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="text-xs text-muted-foreground">
+                      {n.time}
+                    </span>
+                    <Trash2 size={16} className="text-error" />
+                  </div>
+                </div>
+              </div>
             </CardContent>
-            <div className="flex flex-col items-center justify-between h-full">
-              <Star className="w-4 h-4 text-muted-foreground mb-2 cursor-pointer" />
-              <button className="text-muted-foreground text-xs">🗑</button>
-            </div>
           </Card>
         ))}
       </div>
