@@ -18,9 +18,18 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Star, Trash2 } from "lucide-react";
 import SearchInput from "@/components/ui/search-input";
-import Image from "next/image";
+import { NotificationCard } from "./ui/notification-card";
 
-const notifications = [
+export interface NotificationProps {
+  icon: string;
+  title: string;
+  message: string;
+  time: string;
+  button?: string;
+  read: boolean;
+}
+
+const notifications: NotificationProps[] = [
   {
     icon: "G",
     title: "Congratulations! You have successfully invited ...",
@@ -67,6 +76,67 @@ const notifications = [
   },
 ];
 
+const personalnoti: NotificationProps[] = [
+  {
+    icon: "G",
+    title: "Congratulations! You have successfully invited ...",
+    message:
+      "A problem isn't truly solved until it's solved for all. Googlers build products",
+    time: "2 days ago",
+    read: false,
+  },
+  {
+    icon: "J",
+    title: "Successfully paid for basic plans.",
+    message:
+      "A problem isn't truly solved until it's solved for all. Googlers build products",
+    time: "2 days ago",
+    button: "View Details",
+    read: false,
+  },
+  {
+    icon: "J",
+    title: "Upgrade your account!",
+    message:
+      "A problem isn't truly solved until it's solved for all. Googlers build products",
+    time: "2 days ago",
+    button: "Upgrade",
+    read: true,
+  },
+];
+
+const jobfusionnoti: NotificationProps[] = [
+  {
+    icon: "G",
+    title: "Congratulations! You have successfully invited ...",
+    message:
+      "A problem isn't truly solved until it's solved for all. Googlers build products",
+    time: "2 days ago",
+    read: false,
+  },
+  {
+    icon: "J",
+    title: "Successfully paid for basic plans.",
+    message:
+      "A problem isn't truly solved until it's solved for all. Googlers build products",
+    time: "2 days ago",
+    button: "View Details",
+    read: false,
+  },
+
+];
+
+const favouritenoti: NotificationProps[] = [
+  {
+    icon: "G",
+    title: "Congratulations! You have successfully invited ...",
+    message:
+      "A problem isn't truly solved until it's solved for all. Googlers build products",
+    time: "2 days ago",
+    read: false,
+  },
+];
+
 const NotificationComponent = () => {
   return (
     <div className="p-5 bg-white rounded-lg">
@@ -74,6 +144,9 @@ const NotificationComponent = () => {
         List Notification
       </h2>
       <p className="mb-4 text-sm text-muted-foreground">168 Notification</p>
+      <div className="mb-4 relative w-full">
+        <SearchInput />
+      </div>
       <div className="mb-6">
         <Tabs defaultValue="all" className="bg-transparent">
           <TabsList className="flex gap-4 justify-start bg-transparent border-none p-0 transition-all duration-300">
@@ -117,61 +190,38 @@ const NotificationComponent = () => {
           <TabsContent value="all">
             <div className="space-y-3">
               {notifications.map((n, index) => (
-                <Card
-                  key={index}
-                  className={`flex items-center p-4 space-x-4 transition-colors duration-200 cursor-pointer ${
-                    !n.read ? "bg-primary/10" : "bg-white"
-                  } hover:bg-[rgba(0,191,99,0.1)] hover:text-black`}
-                >
-                  <CardContent className="p-0 flex-1 flex items-center gap-6">
-                    <div className="flex items-center gap-2">
-                      <div
-                        className={`${
-                          !n.read ? "border border-neutral-700" : ""
-                        } w-2 h-2 rounded-full `}
-                      />
-                      <Star size={12} />
-                    </div>
-                    <div className="flex flex-1 items-start gap-3">
-                      <div className="w-8 h-8 rounded-full relative flex items-center justify-center font-bold text-xl">
-                        <Image src="/icons/google.svg" fill alt="Logo" />
-                      </div>
-                      <div className="flex w-full justify-between">
-                        <div>
-                          <p className="font-medium text-neutral-600 text-sm line-clamp-1">
-                            {n.title}
-                          </p>
-                          <p className="text-xs text-muted-foreground line-clamp-1">
-                            {n.message}{" "}
-                            <span className="text-primary cursor-pointer">
-                              Read more.
-                            </span>
-                          </p>
-                          {n.button && (
-                            <Button size="sm" className="mt-2">
-                              {n.button}
-                            </Button>
-                          )}
-                        </div>
-                        <div className="flex items-start gap-3">
-                          <span className="text-xs text-muted-foreground">
-                            {n.time}
-                          </span>
-                          <Trash2 size={16} className="text-error" />
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                <NotificationCard n={n} key={index} />
               ))}
             </div>
           </TabsContent>
+          <TabsContent value="personal">
+            <div className="space-y-3">
+              {personalnoti.map((n, index) => (
+                <NotificationCard n={n} key={index} />
+              ))}
+            </div>
+          </TabsContent>
+          <TabsContent value="jobfusion">
+            <div className="space-y-3">
+              {jobfusionnoti.map((n, index) => (
+                <NotificationCard n={n} key={index} />
+              ))}
+            </div>
+          </TabsContent>
+
+          <TabsContent value="favourite">
+            <div className="space-y-3">
+              {favouritenoti.map((n, index) => (
+                <NotificationCard n={n} key={index} />
+              ))}
+            </div>
+          </TabsContent>
+
+
         </Tabs>
       </div>
 
-      <div className="mb-4 relative w-full">
-        <SearchInput />
-      </div>
+
     </div>
   );
 };
