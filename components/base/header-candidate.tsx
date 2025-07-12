@@ -6,7 +6,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Search, User } from "lucide-react";
+import { Search } from "lucide-react";
 
 import Image from "next/image";
 import Logo from "../logo";
@@ -48,8 +48,11 @@ export default function HeaderCandidate() {
           </div>
           <Popover>
             <PopoverTrigger asChild>
-              <Button size={"icon"} className="rounded-full">
-                <User />
+              <Button
+                size={"icon"}
+                className="rounded-full relative overflow-hidden"
+              >
+                <Image src="/images/Avatar.png" fill alt="Avatar" />
               </Button>
             </PopoverTrigger>
             <PopoverContent

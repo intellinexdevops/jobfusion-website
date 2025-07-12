@@ -25,9 +25,12 @@ import Certificate from "./ui/certificate";
 import Course from "./ui/course";
 import EditProfileModal from "./modal/edit-profile-modal";
 import SetProfileStatusPopover from "./popover/set-profile-status";
+import EditBackgroundModal from "./modal/edit-background-modal";
 
 const AccountComponent = () => {
   const [open, setOpen] = React.useState<boolean>(false);
+  const [editBackgroundOpen, setEditBackgroundOpen] =
+    React.useState<boolean>(false);
   return (
     <div>
       <div className="p-5 bg-white rounded-lg">
@@ -63,7 +66,9 @@ const AccountComponent = () => {
       <div className="p-5 bg-white rounded-lg mt-6 pb-8">
         <div className="flex items-center justify-between">
           <span className="text-lg text-800 font-semibold">Background</span>
-          <Button variant="link">Edit Background</Button>
+          <Button onClick={() => setEditBackgroundOpen(true)} variant="link">
+            Edit Background
+          </Button>
         </div>
         <Education />
         <Experience />
@@ -73,6 +78,10 @@ const AccountComponent = () => {
         <Course />
       </div>
       <EditProfileModal open={open} onOpenChange={setOpen} />
+      <EditBackgroundModal
+        open={editBackgroundOpen}
+        onOpenChange={setEditBackgroundOpen}
+      />
     </div>
   );
 };
