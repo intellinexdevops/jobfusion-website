@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <main className="relative overflow-hidden">
       <Hero />
-      <div className="xl:max-w-7xl mx-auto">
+      <div className="container mx-auto">
         <Portential />
         <Discoverable />
         <CampaignOfTheDay />

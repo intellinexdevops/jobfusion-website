@@ -17,13 +17,13 @@ export default function HeaderCandidate() {
   return (
     <header className="fixed top-0 z-50 w-full bg-white">
       <div className="container flex flex-row items-center justify-between py-4">
-        <div className="lg:flex items-center gap-10 hidden">
+        <div className="flex items-center gap-10">
           <Logo />
           <HeaderBreadcrumb />
         </div>
 
         <div className="flex flex-1 flex-row justify-end items-center gap-x-4 ">
-          <div>
+          <div className="md:flex hidden">
             <div className="h-9 px-3 gap-x-2 border bg-neutral-50 flex items-center rounded-md">
               <Search size={16} className="text-neutral-500" />
               <input
@@ -32,6 +32,11 @@ export default function HeaderCandidate() {
                 className="h-full text-neutral-700 flex-1 text-xs bg-transparent outline-none"
               />
             </div>
+          </div>
+          <div className="flex md:hidden">
+            <Button variant="outline" size="icon">
+              <Search size={16} className="text-neutral-500" />
+            </Button>
           </div>
           <div>
             <p className="text-neutral-800 font-semibold text-sm text-right">

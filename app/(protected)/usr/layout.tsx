@@ -13,7 +13,7 @@ export default function CandidateLayout({
       <HeaderCandidate />
       <div className="grid grid-cols-8 items-start gap-6 container mt-24 mb-10">
         <AppSidebar />
-        <div className="col-span-6">{children}</div>
+        <div className="col-span-6 max-lg:col-span-8">{children}</div>
       </div>
       <Footer />
     </Suspense>
