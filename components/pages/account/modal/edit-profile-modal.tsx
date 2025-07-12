@@ -54,6 +54,8 @@ const EditProfileModal = ({ open, onOpenChange }: DialogProps) => {
     }
   };
 
+  console.log(fileAvatar);
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
@@ -120,7 +122,7 @@ const EditProfileModal = ({ open, onOpenChange }: DialogProps) => {
 
             <div className="flex flex-col flex-1 gap-2 items-end justify-end">
               <div className="flex items-center gap-4">
-                <DialogClose>
+                <DialogClose asChild>
                   <Button variant="outline">Discard</Button>
                 </DialogClose>
                 <Button>Save Change</Button>
