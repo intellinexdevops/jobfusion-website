@@ -67,7 +67,7 @@ const NavSidebar = () => {
           );
         })}
         <Link
-          href={"/boards/3433"}
+          href={"/boards/3433/applications"}
           className="flex items-center justify-between pe-5"
           target="_blank"
         >
@@ -75,7 +75,7 @@ const NavSidebar = () => {
             <div className={`h-6 bg-white w-[2.5px]`} />
             <span
               className={`${
-                path === "/my-application"
+                path === "/applications"
                   ? "text-primary font-medium"
                   : "text-neutral-500"
               } text-sm`}
