@@ -14,8 +14,22 @@
 
 import React from "react";
 
-const MyProfileComponent = () => {
-  return <div>MyProfileComponent</div>;
+import { Archive } from "lucide-react";
+import WorkCard from "./work-card";
+
+const Work = () => {
+  return (
+    <div className="mt-10">
+      <div className="flex items-center gap-2">
+        <Archive size={16} className="text-700" />
+        <span className="text-700 font-medium">Work</span>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-3">
+        <WorkCard />
+        <WorkCard />
+      </div>
+    </div>
+  );
 };
 
-export default MyProfileComponent;
+export default Work;

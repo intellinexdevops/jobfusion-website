@@ -34,7 +34,7 @@ export default function HeaderBreadcrumb({ value }: CustomEndPath) {
   const pathParts = pathname?.split("/").filter((part) => part);
 
   return (
-    <div className="container">
+    <div className="container lg:flex hidden">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>

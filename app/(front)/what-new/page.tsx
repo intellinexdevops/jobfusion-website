@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import MediaCard from "@/components/media-card";
+import MediaCard from "@/components/card/media-card";
 import {
   Pagination,
   PaginationContent,

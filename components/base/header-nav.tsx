@@ -33,7 +33,7 @@ export default function HeaderNav() {
         scrolled ? " bg-white/80 backdrop-blur-md border-b border-gray-100" : ""
       }`}
     >
-      <div className="container mx-auto flex flex-row items-center justify-between py-4">
+      <div className="container flex flex-row items-center justify-between py-4">
         <div className="flex-1">
           <Logo />
         </div>
