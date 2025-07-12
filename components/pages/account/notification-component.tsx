@@ -216,14 +216,9 @@ const NotificationComponent = () => {
               ))}
             </div>
           </TabsContent>
-
-
         </Tabs>
       </div>
-
-
     </div>
   );
 };
-
 export default NotificationComponent;
