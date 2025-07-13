@@ -1,5 +1,11 @@
+"use client"
 import BoardHeader from "@/components/base/board-header";
 import { Button } from "@/components/ui/button";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import {
   Archive,
   RefreshCcw,
@@ -11,10 +17,8 @@ import {
   UserPlus2,
   ArrowRight,
 } from "lucide-react";
+import Image from "next/image";
 import React from "react";
-
-// Sample data arrays
-
 
 // Sample data arrays
 const jobApplications = [
@@ -120,7 +124,35 @@ const pages = [
   },
 ];
 
+const sorts = [
+  {
+    name: "Most Recent",
+    value: "most-recent",
+  },
+  {
+    name: "Most Popular",
+    value: "most-popular",
+  },
+  {
+    name: "Highest Salary 🤩",
+    value: "highest-salary",
+  },
+  {
+    name: "Lowest Salary",
+    value: "lowest-salary",
+  },
+];
+
 const ApplicationComponent = () => {
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
+  const [sort, setSort] = React.useState<{ name: string; value: string }>({
+    name: "Most Recent",
+    value: "most-recent",
+  });
+  const handleOnChangeSort = (sort: { name: string; value: string }) => {
+    setIsOpen(false);
+    setSort(sort);
+  };
   return (
     <div className="container mt-24">
       <BoardHeader title="My Applications">
@@ -147,14 +179,26 @@ const ApplicationComponent = () => {
           Showing Results ({jobApplications.length})
         </div>
         <div className="flex justify-end">
-          <Button
-            variant="outline"
-            className="rounded-full flex items-center gap-1 px-3 py-1 text-sm"
-          >
-            Sort: Newest
-            <Star size={14} className="text-green-500" />
-            <ChevronDown size={14} className="text-neutral-500" />
-          </Button>
+          <Popover modal onOpenChange={() => setIsOpen(!isOpen)} open={isOpen}>
+            <PopoverTrigger asChild onClick={() => setIsOpen(true)}>
+              <div className="dark:border-gray-800 text-xs flex flex-row px-3 border border-gray-200 items-center rounded py-2 gap-2">
+                <p className="text-neutral-400">Sort by: </p>
+                <span className="text-neutral-500">{sort.name}</span>
+                <ChevronDown size={12} className="text-neutral-400" />
+              </div>
+            </PopoverTrigger>
+            <PopoverContent align="end" className="p-0 py-1">
+              {sorts.map((item, index) => (
+                <div
+                  key={index}
+                  className="cursor-pointer hover:bg-gray-100 px-3 rounded transition-all py-2 text-xs duration-150 ease-linear"
+                  onClick={() => handleOnChangeSort(item)}
+                >
+                  {item.name}
+                </div>
+              ))}
+            </PopoverContent>
+          </Popover>
         </div>
         <div className="flex justify-start">
           <h2 className="text-xl font-semibold">More Jobs</h2>
@@ -170,9 +214,11 @@ const ApplicationComponent = () => {
               {/* Company + status */}
               <div className="flex justify-between items-center">
                 <div className="flex items-center gap-3">
-                  <img
+                  <Image
                     src={job.logo}
                     alt={job.company}
+                    width={512}
+                    height={512}
                     className="w-8 h-8 rounded"
                   />
                   <div>
@@ -182,7 +228,7 @@ const ApplicationComponent = () => {
                     </div>
                   </div>
                 </div>
-                <span className="px-3 py-1 text-sm font-medium bg-green-100 text-green-700 rounded-full">
+                <span className="px-3 py-1 text-sm font-medium bg-primary-100 text-primary-700 rounded-full">
                   {job.status}
                 </span>
               </div>
@@ -213,12 +259,12 @@ const ApplicationComponent = () => {
 
               {/* Salary + link */}
               <div className="mt-6 flex justify-between items-center">
-                <span className="text-lg font-semibold text-green-600">
+                <span className="text-lg font-semibold text-primary">
                   {job.salary}
                 </span>
                 <a
                   href="#"
-                  className="text-green-600 font-medium flex items-center gap-1"
+                  className="text-primary-600 font-medium flex items-center gap-1"
                 >
                   Learn more <ArrowRight size={16} />
                 </a>
@@ -238,11 +284,12 @@ const ApplicationComponent = () => {
               >
                 {/* Company & meta */}
                 <div className="flex items-center gap-3">
-                  <img
+                  <Image
                     src={job.logo}
                     alt={job.company}
-                    className="w-8 h-8 rounded"
-                  />
+                    width={512}
+                    height={512}
+                    className="w-8 h-8 rounded"/>
                   <div>
                     <div className="font-semibold">{job.company}</div>
                     <div className="text-sm text-neutral-500">
@@ -285,12 +332,12 @@ const ApplicationComponent = () => {
 
                 {/* Salary & link */}
                 <div className="mt-6 flex justify-between items-center">
-                  <span className="text-lg font-semibold text-green-600">
+                  <span className="text-lg font-semibold text-primary-600">
                     {job.salary}
                   </span>
                   <a
                     href="#"
-                    className="text-green-600 font-medium flex items-center gap-1"
+                    className="text-primary-600 font-medium flex items-center gap-1"
                   >
                     Learn more <ArrowRight size={16} />
                   </a>
@@ -307,9 +354,11 @@ const ApplicationComponent = () => {
                 className="bg-white p-4 rounded-lg shadow-sm flex items-center justify-between"
               >
                 <div className="flex items-center gap-3">
-                  <img
+                  <Image
                     src={page.logo}
                     alt={page.name}
+                    width={512}
+                    height={512}
                     className="w-8 h-8 rounded"
                   />
                   <div>

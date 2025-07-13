@@ -31,6 +31,10 @@ const navLinks = [
     label: "Notification",
     href: "/notification",
   },
+  {
+    label: "My Application",
+    href: "/application",
+  },
 ];
 
 const NavSidebar = () => {
@@ -66,7 +70,7 @@ const NavSidebar = () => {
             </Link>
           );
         })}
-        <Link
+        {/* <Link
           href={"/boards/3433/applications"}
           className="flex items-center justify-between pe-5"
           target="_blank"
@@ -89,7 +93,7 @@ const NavSidebar = () => {
             width={14}
             height={14}
           />
-        </Link>
+        </Link> */}
       </div>
 
       <div className="mt-4 flex flex-col gap-y-4 border-t pt-4 border-t-neutral-100">
