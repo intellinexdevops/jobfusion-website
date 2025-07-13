@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { Pencil, MessageCircle } from "lucide-react";
 import Image from "next/image";
 
@@ -38,7 +38,8 @@ export default function AnalyticsComponent() {
     period: "Jun 30–Jul 6",
     done: 0,
     goal: 3,
-    prompt: "No actions yet. Take 3 actions to achieve the weekly sharing goal.",
+    prompt:
+      "No actions yet. Take 3 actions to achieve the weekly sharing goal.",
   };
 
   // Actions cards data
@@ -90,10 +91,10 @@ export default function AnalyticsComponent() {
               className="border border-gray-200 rounded-lg p-4 flex flex-col"
             >
               <span className="text-2xl font-bold">{item.value}</span>
-              <span className="text-sm text-neutral-600 mt-1">{item.label}</span>
-              <span
-                className={`text-xs mt-2 font-medium ${item.detailColor}`}
-              >
+              <span className="text-sm text-neutral-600 mt-1">
+                {item.label}
+              </span>
+              <span className={`text-xs mt-2 font-medium ${item.detailColor}`}>
                 {item.detail}
               </span>
             </div>
@@ -119,7 +120,9 @@ export default function AnalyticsComponent() {
         {/* Progress Card */}
         <div className="border border-gray-200 rounded-lg p-4">
           <div className="flex justify-between items-center">
-            <span className="text-sm text-neutral-600">{shareTracker.period}</span>
+            <span className="text-sm text-neutral-600">
+              {shareTracker.period}
+            </span>
             <span className="text-sm font-medium">
               {shareTracker.done} of {shareTracker.goal} actions
             </span>
@@ -129,7 +132,7 @@ export default function AnalyticsComponent() {
 
         {/* Action Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {actions.map(({ label, count, description, linkText, linkHref, Icon }) => (
+          {actions.map(({ label, count, description, linkText, linkHref }) => (
             <div
               key={label}
               className="border border-gray-200 rounded-lg p-4 flex flex-col justify-between"

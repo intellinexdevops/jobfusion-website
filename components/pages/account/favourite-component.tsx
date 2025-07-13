@@ -7,136 +7,84 @@ import {
   PopoverTrigger,
   PopoverContent,
 } from "@/components/ui/popover";
-import Image from "next/image";
-import Link from "next/link";
-import {
-  Tag,
-  Archive,
-  Clock,
-  ChevronDown,
-  ArrowRight,
-} from "lucide-react";
+import { Tag, Archive, ChevronDown, RefreshCcw } from "lucide-react";
+import FavouriteCampaignCard from "./ui/favourite-campaign-card";
+import BoardHeader from "@/components/base/board-header";
+import { data } from "@/public/data/jobs";
 
-// Sample data
-const favouriteJobs = [
-  {
-    id: 1,
-    company: "Google Inc.",
-    logo: "/icons/google_logo.svg",
-    category: "Technology",
-    location: "New York, USA",
-    title: "Product Manager",
-    type: "Full time",
-    mode: "On-site",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit. Consectetur adipiscing elit quisque faucibus ex sapien vitae.",
-    tags: ["Management", "Sales", "Marketing"],
-    salary: "$2000/month",
-    status: "Applied",
-  },
-  {
-    id: 2,
-    company: "Google Inc.",
-    logo: "/icons/google_logo.svg",
-    category: "Technology",
-    location: "New York, USA",
-    title: "Product Manager",
-    type: "Full time",
-    mode: "On-site",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit. Consectetur adipiscing elit quisque faucibus ex sapien vitae.",
-    tags: ["Management", "Sales", "Marketing"],
-    salary: "$2000/month",
-    status: "Published",
-  },
-  {
-    id: 3,
-    company: "Google Inc.",
-    logo: "/icons/google_logo.svg",
-    category: "Technology",
-    location: "New York, USA",
-    title: "Product Manager",
-    type: "Full time",
-    mode: "On-site",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipiscing elit. Consectetur adipiscing elit quisque faucibus ex sapien vitae.",
-    tags: ["Management", "Sales", "Marketing"],
-    salary: "$2000/month",
-    status: "Closed",
-  },
-  // ...more
-];
-
-const filters = [
-  { label: "All", value: "All" },
-  { label: "Applied", value: "Applied", Icon: Tag },
-  { label: "Published", value: "Published", Icon: Archive },
-  { label: "Closed", value: "Closed", Icon: Clock },
-];
-
-const sorts = [
-  { name: "Newest", value: "newest" },
-  { name: "Oldest", value: "oldest" },
-];
+type filterStatus = "All" | "Applied" | "In Progress" | "Archived";
 
 export default function FavouriteComponent() {
-  const [filter, setFilter] = useState<string>("All");
-  const [sort, setSort] = useState(sorts[0]);
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  // filtered and sorted list
-  const visible = favouriteJobs
-    .filter(job => filter === "All" || job.status === filter)
-    .sort((a, b) => (sort.value === "newest" ? b.id - a.id : a.id - b.id));
+  const [filterStatus, setFilterStatus] = useState<string>("All");
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
+  const [sort, setSort] = React.useState<{ name: string; value: string }>({
+    name: "Most Recent",
+    value: "most-recent",
+  });
+  const sorts = [
+    {
+      name: "Most Recent",
+      value: "most-recent",
+    },
+    {
+      name: "Most Popular",
+      value: "most-popular",
+    },
+    {
+      name: "Highest Salary 🤩",
+      value: "highest-salary",
+    },
+    {
+      name: "Lowest Salary",
+      value: "lowest-salary",
+    },
+  ];
+  const handleOnChangeSort = (sort: { name: string; value: string }) => {
+    setIsOpen(false);
+    setSort(sort);
+  };
 
   return (
-    <div className="p-6 bg-gray-50 min-h-screen">
-      <h2 className="text-2xl font-semibold mb-4">My Favourite Jobs</h2>
+    <div className="p-5 rounded-lg bg-white">
+      <BoardHeader title="Favourite Jobs">
+        <div className="flex items-center gap-3 mt-5">
+          {["All", "Applied", "In Progress", "Archived"].map((status) => (
+            <Button
+              key={status}
+              variant={filterStatus === status ? "default" : "outline"}
+              className="rounded-full flex items-center gap-1"
+              onClick={() => setFilterStatus(status as filterStatus)}
+            >
+              {status === "Applied" && <Tag size={14} />}
+              {status === "In Progress" && <RefreshCcw size={14} />}
+              {status === "Archived" && <Archive size={14} />}
+              {status}
+            </Button>
+          ))}
+        </div>
+      </BoardHeader>
 
-      {/* Filters */}
-      <div className="flex items-center gap-2 mb-6">
-        {filters.map(({ label, value, Icon }) => (
-          <Button
-            key={value}
-            variant={filter === value ? "default" : "outline"}
-            className="rounded-full flex items-center gap-1"
-            onClick={() => setFilter(value)}
-          >
-            {Icon && <Icon size={14} className="text-neutral-600" />}
-            {label}
-          </Button>
-        ))}
-      </div>
-
-      {/* Results & Sort Popover */}
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex justify-between items-center mb-4 mt-8">
         <span className="text-sm text-neutral-600">
-          Showing Results ({visible.length})
+          Showing Results ({data.length})
         </span>
         <div className="relative">
-          <Popover open={menuOpen} onOpenChange={setMenuOpen}>
-            <PopoverTrigger asChild>
-              <button
-                className="flex items-center gap-1 px-3 py-1 border border-gray-200 bg-white rounded text-sm"
-              >
-                <span>Sort: {sort.name}</span>
-                <ChevronDown size={14} className="text-neutral-600" />
-              </button>
+          <Popover modal onOpenChange={() => setIsOpen(!isOpen)} open={isOpen}>
+            <PopoverTrigger asChild onClick={() => setIsOpen(true)}>
+              <div className="dark:border-gray-800 text-xs flex flex-row px-3 border border-gray-200 items-center rounded py-2 gap-2">
+                <p className="text-neutral-400">Sort by: </p>
+                <span className="text-neutral-500">{sort.name}</span>
+                <ChevronDown size={12} className="text-neutral-400" />
+              </div>
             </PopoverTrigger>
-            <PopoverContent
-              align="end"
-              className="w-40 p-0 mt-2 bg-white border border-neutral-100 rounded-md shadow-lg"
-            >
-              {sorts.map(option => (
+            <PopoverContent align="end" className="p-0 py-1">
+              {sorts.map((item, index) => (
                 <div
-                  key={option.value}
-                  className="px-4 py-2 text-sm text-neutral-800 hover:bg-gray-100 cursor-pointer"
-                  onClick={() => {
-                    setSort(option);
-                    setMenuOpen(false);
-                  }}
+                  key={index}
+                  className="cursor-pointer hover:bg-gray-100 px-3 rounded transition-all py-2 text-xs duration-150 ease-linear"
+                  onClick={() => handleOnChangeSort(item)}
                 >
-                  {option.name}
+                  {item.name}
                 </div>
               ))}
             </PopoverContent>
@@ -146,56 +94,8 @@ export default function FavouriteComponent() {
 
       {/* Job Cards: 1 col xs, 2 cols sm+ */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {visible.map(job => (
-          <div key={job.id} className="bg-white p-6 rounded-lg shadow-sm">
-            <div className="flex justify-between items-center mb-4">
-              <div className="flex items-center gap-3">
-                <Image
-                  src={job.logo}
-                  alt={job.company}
-                  width={32}
-                  height={32}
-                  className="rounded"
-                />
-                <div>
-                  <div className="font-semibold">{job.company}</div>
-                  <div className="text-sm text-neutral-500">
-                    {job.category} • {job.location}
-                  </div>
-                </div>
-              </div>
-              {job.status === "Applied" && (
-                <span className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm">
-                  Applied
-                </span>
-              )}
-              {job.status === "Published" && (
-                <Button size="sm">Apply</Button>
-              )}
-              {job.status === "Closed" && (
-                <span className="px-3 py-1 bg-gray-100 text-gray-400 rounded-full text-sm">
-                  Closed
-                </span>
-              )}
-            </div>
-            <h3 className="text-xl font-bold mb-2">{job.title}</h3>
-            <p className="text-sm text-neutral-600 mb-4">{job.description}</p>
-            <div className="flex flex-wrap gap-2 mb-4">
-              {job.tags.map(tag => (
-                <span key={tag} className="px-2 py-1 bg-gray-100 text-sm rounded">
-                  {tag}
-                </span>
-              ))}
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-lg font-semibold text-primary">
-                {job.salary}
-              </span>
-              <Link href="#" className="flex items-center text-primary-600 font-medium">
-                Learn more <ArrowRight size={16} className="ml-1" />
-              </Link>
-            </div>
-          </div>
+        {data.slice(data.length - 2).map((job, index) => (
+          <FavouriteCampaignCard job={job} key={index} />
         ))}
       </div>
     </div>

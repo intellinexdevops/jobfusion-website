@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import BoardHeader from "@/components/base/board-header";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,7 +12,6 @@ import {
   Tag,
   Clock,
   MapPin,
-  Star,
   ChevronDown,
   UserPlus2,
   ArrowRight,
@@ -289,7 +288,8 @@ const ApplicationComponent = () => {
                     alt={job.company}
                     width={512}
                     height={512}
-                    className="w-8 h-8 rounded"/>
+                    className="w-8 h-8 rounded"
+                  />
                   <div>
                     <div className="font-semibold">{job.company}</div>
                     <div className="text-sm text-neutral-500">
