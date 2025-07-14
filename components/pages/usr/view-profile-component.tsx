@@ -1,5 +1,5 @@
 "use client";
-import { Component, MoreHorizontal, Pencil, UserPlus2 } from "lucide-react";
+import { UserPlus2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -15,11 +15,7 @@ function ViewAsProfile() {
       <div className="bg-white pt-20 pb-16">
         <div className="container mx-auto">
           <div className="relative bg-gradient-to-r from-green-400 to-teal-400 rounded-xl h-48 mb-16">
-            <button className="absolute top-4 right-4 bg-white rounded-full p-2 hover:bg-gray-100">
-              <span role="img" aria-label="edit">
-                <Pencil size={14} className="text-neutral-500" />
-              </span>
-            </button>
+            {/* Removed top-right edit button */}
             <div className="absolute left-1/2 transform -translate-x-1/2 -bottom-16">
               <Image
                 src="https://randomuser.me/api/portraits/men/1.jpg"
@@ -28,11 +24,7 @@ function ViewAsProfile() {
                 width={256}
                 height={256}
               />
-              <button className="absolute bottom-2 right-2 bg-white rounded-full p-2 hover:bg-neutral-100">
-                <span role="img" aria-label="edit">
-                  <Pencil size={14} className="text-neutral-500" />
-                </span>
-              </button>
+              {/* Removed avatar edit button */}
             </div>
           </div>
           <div className="flex flex-col items-center mt-20 mb-4">
@@ -60,40 +52,31 @@ function ViewAsProfile() {
           </div>
         </div>
       </div>
+
       <div className="container mx-auto mb-16">
         <div className="flex justify-between items-center mb-6 mt-8">
           <div className="flex items-center gap-4">
             <button
-              className={`px-4 py-2 text-sm font-medium focus:outline-none ${
-                activeTab === "about"
-                  ? "bg-primary px-3 py-2 rounded-lg text-white"
-                  : "text-neutral-500"
-              }`}
+              className={`px-4 py-2 text-sm font-medium focus:outline-none ${activeTab === "about"
+                ? "bg-primary px-3 py-2 rounded-lg text-white"
+                : "text-neutral-500"
+                }`}
               onClick={() => setActiveTab("about")}
             >
               About
             </button>
             <button
-              className={`px-4 py-2 text-sm font-medium focus:outline-none ${
-                activeTab === "background"
-                  ? "bg-primary px-3 py-2 rounded-lg text-white"
-                  : "text-gray-500"
-              }`}
+              className={`px-4 py-2 text-sm font-medium focus:outline-none ${activeTab === "background"
+                ? "bg-primary px-3 py-2 rounded-lg text-white"
+                : "text-gray-500"
+                }`}
               onClick={() => setActiveTab("background")}
             >
               Background
             </button>
           </div>
-          <div className="flex gap-4">
-            <Button variant="outline" className="text-neutral-700 text-sm">
-              <Component size={14} />
-              Edit Section
-            </Button>
-            <Button variant="outline" className="text-neutral-700 text-sm">
-              <MoreHorizontal size={14} />
-              More
-            </Button>
-          </div>
+
+          {/* Removed Edit Section and More buttons */}
         </div>
 
         <div className="flex flex-col md:flex-row gap-8">
@@ -123,6 +106,7 @@ function ViewAsProfile() {
               </div>
               <Button size="sm">Explore</Button>
             </div>
+
             {/* People You May Know */}
             <div className="bg-white rounded-xl p-6">
               <h3 className="font-medium mb-4">People you may know</h3>
