@@ -8,7 +8,7 @@ import About from "@/components/com/profile/about";
 import ProfileBackground from "@/components/com/profile/background";
 import { Button } from "@/components/ui/button";
 
-function MyProfileComponent() {
+function ViewAsProfile() {
   const [activeTab, setActiveTab] = useState("about");
   return (
     <div>
@@ -159,4 +159,4 @@ function MyProfileComponent() {
   );
 }
 
-export default MyProfileComponent;
+export default ViewAsProfile;
