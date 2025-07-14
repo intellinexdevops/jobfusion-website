@@ -4,7 +4,7 @@ import OurSevices from "@/components/our-services";
 import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import BreadcrumbCom from "@/components/breadcrumb-com";
+import BreadcrumbCom from "@/components/base/breadcrumb-com";
 export default function AboutPage() {
   return (
     <div className="">

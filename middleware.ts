@@ -14,6 +14,7 @@
 
 import { NextResponse, NextRequest } from "next/server";
 import { cookies } from "next/headers";
+import baseConfig from "./config";
 
 const protectedRoutes = ["/channel", "/usr", "/apply"];
 
@@ -27,7 +28,11 @@ export default async function middleware(request: NextRequest) {
     currentPath.startsWith(route)
   );
 
-  if (isProtectedRoute && !refreshToken) {
+  if (
+    isProtectedRoute &&
+    !refreshToken &&
+    baseConfig.NODE_ENV === "production"
+  ) {
     const loginUrl = new URL("/sign-in", request.url);
     loginUrl.searchParams.set("redirect", currentPath);
     return NextResponse.redirect(loginUrl);

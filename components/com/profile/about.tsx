@@ -26,9 +26,7 @@ const About = () => {
           <p className="text-lg text-neutral-800 font-semibold">
             Personal Info
           </p>
-          <button className="ml-auto text-primary font-medium hover:underline">
-            Edit
-          </button>
+
         </div>
         <div className="grid grid-cols-2 gap-y-5 gap-x-4 text-neutral-700 mt-10">
           <div className="profile-label font-medium">Username</div>
@@ -52,9 +50,7 @@ const About = () => {
           <p className="text-lg text-neutral-800 font-semibold">
             Contact Info.
           </p>
-          <button className="ml-auto text-primary font-medium hover:underline">
-            Edit
-          </button>
+
         </div>
         <div className="grid grid-cols-2 gap-y-5 gap-x-4 text-gray-700 mt-5">
           <div className="text-neutral-800 text-sm font-medium">Address</div>
