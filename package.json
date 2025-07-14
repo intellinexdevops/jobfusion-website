@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "ngrok": "ngrok http 3000"
+    "ngrok": "ngrok http 3000",
+    "pm2:delete": "pm2 delete jobfusion",
+    "pm2:start": "bun run build && pm2 start bun --name jobfusion -- run start && pm2 save && pm2 startup"
   },
   "dependencies": {
     "@hookform/resolvers": "^4.1.0",
