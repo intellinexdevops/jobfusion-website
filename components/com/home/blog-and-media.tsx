@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 "use client";
-import MediaCard from "@/components/media-card";
+import MediaCard from "@/components/card/media-card";
 import React from "react";
 
 const data = [

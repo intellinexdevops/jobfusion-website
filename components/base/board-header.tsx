@@ -11,8 +11,21 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 import React from "react";
 
-export default function Favourite() {
-  return <div>Favourite</div>;
+interface BoardHeaderProps {
+  title: string;
+  children?: React.ReactNode;
 }
+
+const BoardHeader = ({ title, children }: BoardHeaderProps) => {
+  return (
+    <div>
+      <p className="text-neutral-800 font-semibold text-xl">{title}</p>
+      {children}
+    </div>
+  );
+};
+
+export default BoardHeader;

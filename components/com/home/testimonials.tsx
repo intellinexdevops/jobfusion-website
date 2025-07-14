@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import TestimonialCard from "../../textimonial-card";
+import TestimonialCard from "../../card/textimonial-card";
 import { Autoplay, Navigation, Pagination, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";

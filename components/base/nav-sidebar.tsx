@@ -13,7 +13,6 @@
 // limitations under the License.
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -30,6 +29,10 @@ const navLinks = [
   {
     label: "Notification",
     href: "/notification",
+  },
+  {
+    label: "My Application",
+    href: "/application",
   },
 ];
 
@@ -66,8 +69,8 @@ const NavSidebar = () => {
             </Link>
           );
         })}
-        <Link
-          href={"/boards/3433"}
+        {/* <Link
+          href={"/boards/3433/applications"}
           className="flex items-center justify-between pe-5"
           target="_blank"
         >
@@ -75,7 +78,7 @@ const NavSidebar = () => {
             <div className={`h-6 bg-white w-[2.5px]`} />
             <span
               className={`${
-                path === "/my-application"
+                path === "/applications"
                   ? "text-primary font-medium"
                   : "text-neutral-500"
               } text-sm`}
@@ -89,7 +92,7 @@ const NavSidebar = () => {
             width={14}
             height={14}
           />
-        </Link>
+        </Link> */}
       </div>
 
       <div className="mt-4 flex flex-col gap-y-4 border-t pt-4 border-t-neutral-100">
@@ -97,36 +100,46 @@ const NavSidebar = () => {
           <span className="s-label">Management</span>
         </div>
         <Link
-          href={"/boards/3433/campaign"}
+          href={"/usr/2322434/campaign"}
           className="flex items-center justify-between pe-5"
-          target="_blank"
         >
           <div className="flex items-center gap-5">
-            <div className={`h-6 bg-white w-[2.5px]`} />
-            <span className={`text-neutral-500 text-sm`}>Jobs</span>
+            <div
+              className={`h-6 ${
+                path === "campaign" ? "bg-primary" : "bg-white "
+              } w-[2.5px]`}
+            />
+            <span
+              className={`${
+                path === "campaign"
+                  ? "text-primary font-medium"
+                  : "text-neutral-500"
+              } text-sm`}
+            >
+              Jobs
+            </span>
           </div>
-          <Image
-            src="/icons/open-link.svg"
-            alt="Open_Blank"
-            width={14}
-            height={14}
-          />
         </Link>
         <Link
-          href={"/boards/3433/favorite"}
+          href={"/usr/2322434/favorite"}
           className="flex items-center justify-between pe-5"
-          target="_blank"
         >
           <div className="flex items-center gap-5">
-            <div className={`h-6 bg-white w-[2.5px]`} />
-            <span className={`text-neutral-500 text-sm`}>Favourite Jobs</span>
+            <div
+              className={`h-6 ${
+                path === "favorite" ? "bg-primary" : "bg-white "
+              } w-[2.5px]`}
+            />
+            <span
+              className={`${
+                path === "favorite"
+                  ? "text-primary font-medium"
+                  : "text-neutral-500"
+              } text-sm`}
+            >
+              Favourite Jobs
+            </span>
           </div>
-          <Image
-            src="/icons/open-link.svg"
-            alt="Open_Blank"
-            width={14}
-            height={14}
-          />
         </Link>
         <Link
           href={`/usr/2322434/organization`}
@@ -150,20 +163,25 @@ const NavSidebar = () => {
           </div>
         </Link>
         <Link
-          href={"/boards/3433/applicants"}
+          href={"/usr/2322434/applicants"}
           className="flex items-center justify-between pe-5"
-          target="_blank"
         >
           <div className="flex items-center gap-5">
-            <div className={`h-6 bg-white w-[2.5px]`} />
-            <span className={`text-neutral-500 text-sm`}>Applicants</span>
+            <div
+              className={`h-6 ${
+                path === "applicants" ? "bg-primary" : "bg-white "
+              } w-[2.5px]`}
+            />
+            <span
+              className={`${
+                path === "applicants"
+                  ? "text-primary font-medium"
+                  : "text-neutral-500"
+              } text-sm`}
+            >
+              Applicants
+            </span>
           </div>
-          <Image
-            src="/icons/open-link.svg"
-            alt="Open_Blank"
-            width={14}
-            height={14}
-          />
         </Link>
       </div>
 

@@ -11,8 +11,12 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
+
+
+import OrganizationComponent from "@/components/pages/account/organization-component";
 import React from "react";
 
 export default function Organization() {
-  return <div>Organization</div>;
+  return <OrganizationComponent />;
 }
