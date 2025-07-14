@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import Footer from "@/components/base/footer";
 import HeaderCandidate from "@/components/base/header-candidate";
 import React from "react";
 
@@ -24,6 +25,7 @@ export default function BoardLayout({
     <div>
       <HeaderCandidate />
       {children}
+      <Footer />
     </div>
   );
 }
