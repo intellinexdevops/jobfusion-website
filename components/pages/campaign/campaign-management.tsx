@@ -13,34 +13,162 @@
 // limitations under the License.
 "use client";
 import BoardHeader from "@/components/base/board-header";
+import TabFilter, { TabFilterType } from "@/components/base/tab-filter";
 import { Button } from "@/components/ui/button";
-import { Archive, Ban, Earth, Folder } from "lucide-react";
+import {
+  Archive,
+  Ban,
+  ChevronDown,
+  EarthIcon,
+  Folder,
+  LayoutList,
+  Send,
+} from "lucide-react";
 import React from "react";
+import CampaignList from "./ui/campaign-list";
+import ScrollToTop from "@/components/ui/scroll-to-top";
+import { data } from "@/public/data/jobs";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 
-type filterStatus = "All" | "Live" | "Closed" | "Draft" | "Archived";
+const campaignFilterApi: TabFilterType[] = [
+  {
+    label: "Live",
+    value: "live",
+    icon: EarthIcon,
+  },
+  {
+    label: "Closed",
+    value: "closed",
+    icon: Ban,
+  },
+  {
+    label: "Draft",
+    value: "draft",
+    icon: Folder,
+  },
+  {
+    label: "Archived",
+    value: "archived",
+    icon: Archive,
+  },
+];
 
 const CampaignManagement = () => {
-  const [filterStatus, setFilterStatus] = React.useState<filterStatus>("All");
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
+  const [sort, setSort] = React.useState<{ name: string; value: string }>({
+    name: "Most Recent",
+    value: "most-recent",
+  });
+  const sorts = [
+    {
+      name: "Most Recent",
+      value: "most-recent",
+    },
+    {
+      name: "Most Popular",
+      value: "most-popular",
+    },
+    {
+      name: "Highest Salary 🤩",
+      value: "highest-salary",
+    },
+    {
+      name: "Lowest Salary",
+      value: "lowest-salary",
+    },
+  ];
+  const handleOnChangeSort = (sort: { name: string; value: string }) => {
+    setIsOpen(false);
+    setSort(sort);
+  };
   return (
-    <div className="p-5 bg-white rounded-lg">
-      <BoardHeader title="Jobs">
-        <div className="flex items-center gap-3 mt-5">
-          {["All", "Live", "Closed", "Draft", "Archived"].map((status) => (
-            <Button
-              key={status}
-              variant={filterStatus === status ? "default" : "outline"}
-              className="rounded-full flex items-center gap-1"
-              onClick={() => setFilterStatus(status as filterStatus)}
-            >
-              {status === "Live" && <Earth size={14} />}
-              {status === "Closed" && <Ban size={14} />}
-              {status === "Draft" && <Folder size={14} />}
-              {status === "Archived" && <Archive size={14} />}
-              {status}
-            </Button>
-          ))}
+    <div className="bg-bg">
+      <div className="bg-white rounded-lg">
+        <BoardHeader title="Jobs">
+          <TabFilter
+            default={{ icon: LayoutList, label: "All" }}
+            paths={campaignFilterApi}
+            endComponent={() => (
+              <Button>
+                <Send size={13} color="#fff" />
+                <span>Post Job</span>
+              </Button>
+            )}
+          />
+        </BoardHeader>
+        <div className="pb-10">
+          <div className="flex justify-between items-center px-5 mt-4">
+            <span className="text-sm text-neutral-600">
+              Showing Results ({data.length})
+            </span>
+            <div className="relative">
+              <Popover
+                modal
+                onOpenChange={() => setIsOpen(!isOpen)}
+                open={isOpen}
+              >
+                <PopoverTrigger asChild onClick={() => setIsOpen(true)}>
+                  <div className="dark:border-gray-800 text-xs flex flex-row px-3 border border-gray-200 items-center rounded py-2 gap-2">
+                    <p className="text-neutral-400">Sort by: </p>
+                    <span className="text-neutral-500">{sort.name}</span>
+                    <ChevronDown size={12} className="text-neutral-400" />
+                  </div>
+                </PopoverTrigger>
+                <PopoverContent align="end" className="p-0 py-1">
+                  {sorts.map((item, index) => (
+                    <div
+                      key={index}
+                      className="cursor-pointer hover:bg-gray-100 px-3 rounded transition-all py-2 text-xs duration-150 ease-linear"
+                      onClick={() => handleOnChangeSort(item)}
+                    >
+                      {item.name}
+                    </div>
+                  ))}
+                </PopoverContent>
+              </Popover>
+            </div>
+          </div>
+          <CampaignList />
+          <Pagination className="mt-4">
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious />
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#">1</PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#" isActive>
+                  2
+                </PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#">3</PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationEllipsis />
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationNext href="#" />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
         </div>
-      </BoardHeader>
+      </div>
+      <ScrollToTop />
     </div>
   );
 };

@@ -13,21 +13,17 @@
 // limitations under the License.
 
 import React from "react";
+import { data } from "@/public/data/jobs";
+import CampaignCard from "./campaign-card";
 
-interface BoardHeaderProps {
-  title: string;
-  children?: React.ReactNode;
-}
-
-const BoardHeader = ({ title, children }: BoardHeaderProps) => {
+const CampaignList = () => {
   return (
-    <div>
-      <p className="text-neutral-800 font-semibold text-xl mb-4 pt-5 px-5">
-        {title}
-      </p>
-      {children}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-5">
+      {data.slice(data.length - 6).map((campaign, index) => (
+        <CampaignCard data={campaign} key={index} />
+      ))}
     </div>
   );
 };
 
-export default BoardHeader;
+export default CampaignList;
