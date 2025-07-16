@@ -7,12 +7,30 @@ import {
   PopoverTrigger,
   PopoverContent,
 } from "@/components/ui/popover";
-import { Tag, Archive, ChevronDown, RefreshCcw } from "lucide-react";
+import { Tag, Archive, ChevronDown, RefreshCcw, LayoutList, RefreshCw, Send } from "lucide-react";
 import FavouriteCampaignCard from "./ui/favourite-campaign-card";
 import BoardHeader from "@/components/base/board-header";
 import { data } from "@/public/data/jobs";
+import TabFilter, { TabFilterType } from "@/components/base/tab-filter";
+import Link from "next/link";
 
-type filterStatus = "All" | "Applied" | "In Progress" | "Archived";
+const campaignFilterApi: TabFilterType[] = [
+  {
+    label: "Applied",
+    value: "applied",
+    icon: Tag,
+  },
+  {
+    label: "InProgress",
+    value: "inprogress",
+    icon: RefreshCw,
+  },
+  {
+    label: "Archived",
+    value: "archived",
+    icon: Archive,
+  },
+];
 
 export default function FavouriteComponent() {
   const [filterStatus, setFilterStatus] = useState<string>("All");
@@ -45,26 +63,23 @@ export default function FavouriteComponent() {
   };
 
   return (
-    <div className="p-5 rounded-lg bg-white">
+    <div className="rounded-lg bg-white">
       <BoardHeader title="Favourite Jobs">
-        <div className="flex items-center gap-3 mt-5">
-          {["All", "Applied", "In Progress", "Archived"].map((status) => (
-            <Button
-              key={status}
-              variant={filterStatus === status ? "default" : "outline"}
-              className="rounded-full flex items-center gap-1"
-              onClick={() => setFilterStatus(status as filterStatus)}
-            >
-              {status === "Applied" && <Tag size={14} />}
-              {status === "In Progress" && <RefreshCcw size={14} />}
-              {status === "Archived" && <Archive size={14} />}
-              {status}
-            </Button>
-          ))}
-        </div>
+        <TabFilter
+          default={{ icon: LayoutList, label: "All" }}
+          paths={campaignFilterApi}
+          endComponent={() => (
+            <Link href={"/campaign"} target="_blank">
+              <Button>
+                <Send size={13} color="#fff" />
+                <span>Find More</span>
+              </Button>
+            </Link>
+          )}
+        />
       </BoardHeader>
 
-      <div className="flex justify-between items-center mb-4 mt-8">
+      <div className="px-5 flex justify-between items-center mb-4 mt-8">
         <span className="text-sm text-neutral-600">
           Showing Results ({data.length})
         </span>
@@ -93,7 +108,7 @@ export default function FavouriteComponent() {
       </div>
 
       {/* Job Cards: 1 col xs, 2 cols sm+ */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div className="p-5 pt-0 grid grid-cols-1 sm:grid-cols-2 gap-6">
         {data.slice(data.length - 2).map((job, index) => (
           <FavouriteCampaignCard job={job} key={index} />
         ))}
