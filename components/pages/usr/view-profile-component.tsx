@@ -64,21 +64,19 @@ function ViewAsProfile() {
         <div className="flex justify-between items-center mb-6 mt-8">
           <div className="flex items-center gap-4">
             <button
-              className={`px-4 py-2 text-sm font-medium focus:outline-none ${
-                activeTab === "about"
+              className={`px-4 py-2 text-sm font-medium focus:outline-none ${activeTab === "about"
                   ? "bg-primary px-3 py-2 rounded-lg text-white"
                   : "text-neutral-500"
-              }`}
+                }`}
               onClick={() => setActiveTab("about")}
             >
               About
             </button>
             <button
-              className={`px-4 py-2 text-sm font-medium focus:outline-none ${
-                activeTab === "background"
+              className={`px-4 py-2 text-sm font-medium focus:outline-none ${activeTab === "background"
                   ? "bg-primary px-3 py-2 rounded-lg text-white"
                   : "text-gray-500"
-              }`}
+                }`}
               onClick={() => setActiveTab("background")}
             >
               Background
