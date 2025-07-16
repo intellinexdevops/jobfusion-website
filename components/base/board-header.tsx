@@ -22,7 +22,9 @@ interface BoardHeaderProps {
 const BoardHeader = ({ title, children }: BoardHeaderProps) => {
   return (
     <div>
-      <p className="text-neutral-800 font-semibold text-xl">{title}</p>
+      <p className="text-neutral-800 font-semibold text-xl mb-4 pt-5 px-5">
+        {title}
+      </p>
       {children}
     </div>
   );

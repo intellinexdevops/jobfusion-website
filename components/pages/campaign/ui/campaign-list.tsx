@@ -12,20 +12,18 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import Footer from "@/components/base/footer";
-import HeaderCandidate from "@/components/base/header-candidate";
 import React from "react";
+import { data } from "@/public/data/jobs";
+import CampaignCard from "./campaign-card";
 
-export default function BoardLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+const CampaignList = () => {
   return (
-    <div>
-      <HeaderCandidate />
-      {children}
-      <Footer />
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-5">
+      {data.slice(data.length - 6).map((campaign, index) => (
+        <CampaignCard data={campaign} key={index} />
+      ))}
     </div>
   );
-}
+};
+
+export default CampaignList;

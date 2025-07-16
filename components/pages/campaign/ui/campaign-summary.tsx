@@ -11,21 +11,10 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
-import Footer from "@/components/base/footer";
-import HeaderCandidate from "@/components/base/header-candidate";
 import React from "react";
 
-export default function BoardLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <div>
-      <HeaderCandidate />
-      {children}
-      <Footer />
-    </div>
-  );
-}
+const CampaignSummary = () => {
+  return <div>CampaignSummary</div>;
+};
+
+export default CampaignSummary;
