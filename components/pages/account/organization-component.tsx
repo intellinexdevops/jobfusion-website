@@ -9,6 +9,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import Link from "next/link";
 
 const organizations = [
   {
@@ -77,9 +78,9 @@ function OrganizationComponent() {
                   </PopoverTrigger>
                   <PopoverContent className="p-0 overflow-hidden" align="end">
                     <ul className="text-sm text-neutral-700">
-                      <li className="px-4 py-2 hover:bg-gray-50 cursor-pointer flex items-center gap-2">
+                      <Link href="/boards/123/viewer/o" target="_blank" className="px-4 py-2 hover:bg-gray-50 cursor-pointer flex items-center gap-2">
                         <Eye size={16} /> View as
-                      </li>
+                      </Link>
                       <li className="px-4 py-2 hover:bg-gray-50 cursor-pointer flex items-center gap-2">
                         <Share2 size={16} /> Share
                       </li>
