@@ -1,18 +1,19 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "@/components/ui/button";
 import {
   Popover,
   PopoverTrigger,
   PopoverContent,
 } from "@/components/ui/popover";
-import { Tag, Archive, ChevronDown, RefreshCcw, LayoutList, RefreshCw, Send } from "lucide-react";
+import { Tag, Archive, ChevronDown, LayoutList, RefreshCw, Send } from "lucide-react";
 import FavouriteCampaignCard from "./ui/favourite-campaign-card";
 import BoardHeader from "@/components/base/board-header";
 import { data } from "@/public/data/jobs";
 import TabFilter, { TabFilterType } from "@/components/base/tab-filter";
 import Link from "next/link";
+import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
 
 const campaignFilterApi: TabFilterType[] = [
   {
@@ -33,7 +34,6 @@ const campaignFilterApi: TabFilterType[] = [
 ];
 
 export default function FavouriteComponent() {
-  const [filterStatus, setFilterStatus] = useState<string>("All");
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
   const [sort, setSort] = React.useState<{ name: string; value: string }>({
     name: "Most Recent",
@@ -113,6 +113,31 @@ export default function FavouriteComponent() {
           <FavouriteCampaignCard job={job} key={index} />
         ))}
       </div>
+      <Pagination className="mt-4 pb-10">
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationPrevious />
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#">1</PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#" isActive>
+              2
+            </PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#">3</PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationEllipsis />
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationNext href="#" />
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>
     </div>
+
   );
 }
