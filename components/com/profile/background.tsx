@@ -13,7 +13,6 @@
 // limitations under the License.
 
 import { Archive, Book, Briefcase, GraduationCap, Infinity, Languages, Verified } from "lucide-react";
-import { Graduate } from "next/font/google";
 import React from "react";
 
 const ProfileBackground = () => {
