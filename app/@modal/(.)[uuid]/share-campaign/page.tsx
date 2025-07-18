@@ -11,11 +11,11 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-import ApplyComponent from "@/components/pages/campaign/campaign-application";
+import CampaignShareComponet from "@/components/pages/campaign/campaign-farvorite-share";
 import React from "react";
 
-const Apply = () => {
-  return <ApplyComponent />;
+const CampaignShare = () => {
+  return <CampaignShareComponet />;
 };
 
-export default Apply;
+export default CampaignShare;
