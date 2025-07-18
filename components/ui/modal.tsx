@@ -15,7 +15,7 @@ const Modal = ({ children }: { children: React.ReactNode }) => {
   return (
     <Dialog open={true} modal onOpenChange={() => router.back()}>
       <DialogContent
-        className="max-w-[425px] w-full"
+        className="min-w-[425px]"
         style={{ borderRadius: 20 }}
       >
         {children}
