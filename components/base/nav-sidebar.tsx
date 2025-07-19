@@ -17,7 +17,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 
-const navLinks = [
+type SidebarLinkType = {
+  label: string;
+  href: string;
+};
+
+export const navLinks: SidebarLinkType[] = [
   {
     label: "Profile",
     href: "/account",
@@ -33,6 +38,25 @@ const navLinks = [
   {
     label: "My Application",
     href: "/application",
+  },
+];
+
+export const managementLinks: SidebarLinkType[] = [
+  {
+    label: "Jobs",
+    href: "/campaign",
+  },
+  {
+    label: "Favourite Jobs",
+    href: "/favorite",
+  },
+  {
+    label: "Organizations",
+    href: "/organization",
+  },
+  {
+    label: "Applicants",
+    href: "/applicants",
   },
 ];
 
@@ -99,90 +123,29 @@ const NavSidebar = () => {
         <div className="px-5">
           <span className="s-label">Management</span>
         </div>
-        <Link
-          href={"/usr/2322434/campaign"}
-          className="flex items-center justify-between pe-5"
-        >
-          <div className="flex items-center gap-5">
-            <div
-              className={`h-6 ${
-                path === "campaign" ? "bg-primary" : "bg-white "
-              } w-[2.5px]`}
-            />
-            <span
-              className={`${
-                path === "campaign"
-                  ? "text-primary font-medium"
-                  : "text-neutral-500"
-              } text-sm`}
+        {managementLinks.map((nav, i) => {
+          const isActive = path === nav.href.slice(1);
+          return (
+            <Link
+              href={`/usr/e987975/${nav.href}`}
+              className="flex items-center gap-5"
+              key={i}
             >
-              Jobs
-            </span>
-          </div>
-        </Link>
-        <Link
-          href={"/usr/2322434/favorite"}
-          className="flex items-center justify-between pe-5"
-        >
-          <div className="flex items-center gap-5">
-            <div
-              className={`h-6 ${
-                path === "favorite" ? "bg-primary" : "bg-white "
-              } w-[2.5px]`}
-            />
-            <span
-              className={`${
-                path === "favorite"
-                  ? "text-primary font-medium"
-                  : "text-neutral-500"
-              } text-sm`}
-            >
-              Favourite Jobs
-            </span>
-          </div>
-        </Link>
-        <Link
-          href={`/usr/2322434/organization`}
-          className="flex items-center justify-between pe-5"
-        >
-          <div className="flex items-center gap-5">
-            <div
-              className={`h-6 ${
-                path === "organization" ? "bg-primary" : "bg-white "
-              } w-[2.5px]`}
-            />
-            <span
-              className={`${
-                path === "organization"
-                  ? "text-primary font-medium"
-                  : "text-neutral-500"
-              } text-sm`}
-            >
-              Organizations
-            </span>
-          </div>
-        </Link>
-        <Link
-          href={"/usr/2322434/applicants"}
-          className="flex items-center justify-between pe-5"
-        >
-          <div className="flex items-center gap-5">
-            <div
-              className={`h-6 ${
-                path === "applicants" ? "bg-primary" : "bg-white "
-              } w-[2.5px]`}
-            />
-            <span
-              className={`${
-                path === "applicants"
-                  ? "text-primary font-medium"
-                  : "text-neutral-500"
-              } text-sm`}
-            >
-              Applicants
-            </span>
-          </div>
-        </Link>
+              <div
+                className={`h-6 ${
+                  isActive ? "bg-primary" : "bg-white"
+                } w-[2.5px]`}
+              />
+              <span
+                className={`${
+                  isActive ? "text-primary font-medium" : "text-neutral-500"
+                } text-sm`}
+              >
+                {nav.label}
+              </span>
+            </Link>
+          );
+        })}
       </div>
 
       <div className="mt-4 flex flex-col gap-y-4 border-t pt-4 border-t-neutral-100">

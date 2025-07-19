@@ -11,23 +11,11 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
+import CampaignShareComponet from "@/components/pages/campaign/campaign-farvorite-share";
 import React from "react";
 
-interface BoardHeaderProps {
-  title: string;
-  children?: React.ReactNode;
-}
-
-const BoardHeader = ({ title, children }: BoardHeaderProps) => {
-  return (
-    <div>
-      <p className="text-neutral-800 font-semibold text-xl mb-4 pt-5 px-5">
-        {title}
-      </p>
-      {children}
-    </div>
-  );
+const CampaignShare = () => {
+  return <CampaignShareComponet />;
 };
 
-export default BoardHeader;
+export default CampaignShare;

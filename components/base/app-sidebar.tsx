@@ -13,60 +13,13 @@
 // limitations under the License.
 
 import React from "react";
-import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
-import { ChevronsDownUp, Link2, Plus } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
 import NavSidebar from "./nav-sidebar";
+import AccountSidebar from "./account-sidebar";
 
 const AppSidebar = () => {
   return (
     <div className="col-span-2 w-full sticky top-24 bottom-0 max-lg:hidden">
-      <Popover>
-        <PopoverTrigger className="w-full">
-          <div className="bg-white rounded-lg py-4 px-5 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="relative w-9 h-9 rounded-full overflow-hidden">
-                <Image src="/images/placeholder-image.webp" fill alt="Logo" />
-              </div>
-              <div>
-                <p className="text-sm text-neutral-600 font-semibold">
-                  Chenter PHAI
-                </p>
-                <Link
-                  href="/"
-                  className="text-xs text-primary flex items-center gap-2"
-                >
-                  <span>Share profile</span>
-                  <Link2 size={12} />
-                </Link>
-              </div>
-            </div>
-            <ChevronsDownUp size={15} className="text-neutral-700" />
-          </div>
-        </PopoverTrigger>
-        <PopoverContent align="start" className="p-0 w-full">
-          <Link href="#">
-            <div className="p-3 hover:bg-neutral-100 flex items-center gap-2">
-              <Image
-                src="/icons/google.svg"
-                alt="Logo"
-                width={16}
-                height={16}
-              />
-              <span className="text-sm leading-none text-neutral-700 font-medium">
-                Google Inc.
-              </span>
-            </div>
-          </Link>
-          <Link href="#">
-            <div className="flex items-center gap-2 p-3 border-t border-t-neutral-100 hover:bg-neutral-50 transition-all duration-200 ease-linear">
-              <Plus size={14} />
-              <span className="text-xs">Create new Organization</span>
-            </div>
-          </Link>
-        </PopoverContent>
-      </Popover>
+      <AccountSidebar />
       <NavSidebar />
     </div>
   );
