@@ -59,7 +59,7 @@ const SettingComponent: React.FC = () => {
       items: [
         {
           icon: "/icons/id.svg",
-          label: "Personal",
+          label: "Personal Information",
           noBorder: true,
           href: "/settings/u/5984795/personal-info",
         },
@@ -109,12 +109,12 @@ const SettingComponent: React.FC = () => {
           icon: "/icons/wrong-access.svg",
           label: "Close Account",
           noBorder: true,
-          href: "/settings/u/5984795/personal-info",
+          href: "/settings/u/5984795/close-account",
         },
         {
           icon: "/icons/bin.svg",
           label: "Delete your account",
-          href: "/settings/u/5984795/personal-info",
+          href: "/settings/u/5984795/delete-account",
         },
       ],
     },
@@ -126,14 +126,14 @@ const SettingComponent: React.FC = () => {
       noIcon: true,
       noBackground: true,
       noBorder: true,
-      href: "/settings/u/5984795/personal-info",
+      href: "/settings/u/5984795/privacy-and-policy",
     },
     {
       label: "Term of uses",
       noIcon: true,
       noBackground: true,
       noBorder: true,
-      href: "/settings/u/5984795/personal-info",
+      href: "/settings/u/5984795/term-of-uses",
     },
     {
       label: "Help Center",
