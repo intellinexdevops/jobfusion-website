@@ -1,6 +1,10 @@
 import AccountComponent from "@/components/pages/account/account-component";
-import React from "react";
+import React, { unstable_ViewTransition as ViewTransaction } from "react";
 
 export default function AccountPage() {
-  return <AccountComponent />;
+  return (
+    <ViewTransaction>
+      <AccountComponent />;
+    </ViewTransaction>
+  );
 }

@@ -24,15 +24,9 @@ export default async function middleware(request: NextRequest) {
   const refreshToken = cookieStore.get("refresh_token")?.value;
 
   // Check if the route is protected
-  const isProtectedRoute = protectedRoutes.some((route) =>
-    currentPath.startsWith(route)
-  );
+  const isProtectedRoute = protectedRoutes.some((route) => currentPath.startsWith(route));
 
-  if (
-    isProtectedRoute &&
-    !refreshToken &&
-    baseConfig.NODE_ENV === "production"
-  ) {
+  if (isProtectedRoute && !refreshToken && baseConfig.NODE_ENV !== "production") {
     const loginUrl = new URL("/sign-in", request.url);
     loginUrl.searchParams.set("redirect", currentPath);
     return NextResponse.redirect(loginUrl);

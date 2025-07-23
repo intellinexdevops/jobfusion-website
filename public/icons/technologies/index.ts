@@ -11,13 +11,8 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-import AnalyticsComponent from "@/components/pages/account/analytics-component";
-import React, { unstable_ViewTransition as ViewTransaction } from "react";
 
-export default function Analytics() {
-  return (
-    <ViewTransaction>
-      <AnalyticsComponent />
-    </ViewTransaction>
-  );
-}
+export const ExpressJS = "/icons/technologies/express.svg";
+export const GitHub = "/icons/technologies/github.svg";
+export const NextJS = "/icons/technologies/nextjs.svg";
+export const ReactJS = "/icons/technologies/react.svg";

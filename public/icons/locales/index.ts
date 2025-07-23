@@ -11,13 +11,7 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-import AnalyticsComponent from "@/components/pages/account/analytics-component";
-import React, { unstable_ViewTransition as ViewTransaction } from "react";
 
-export default function Analytics() {
-  return (
-    <ViewTransaction>
-      <AnalyticsComponent />
-    </ViewTransaction>
-  );
-}
+export const Khmer = "/icons/locales/khmer.svg";
+export const English = "/icons/locales/english.svg";
+export const Chinese = "/icons/locales/chinese.svg";
