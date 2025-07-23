@@ -40,11 +40,7 @@ export default function HeaderNav() {
         <HeaderNavigationMenu />
         <div className="flex-1 flex flex-row justify-end items-center gap-x-3 ">
           <Link href="/sign-in">
-            <Button
-              className="hidden md:flex"
-              variant={"outline"}
-              size={"default"}
-            >
+            <Button className="hidden md:flex" variant={"outline"} size={"default"}>
               Sign In
             </Button>
           </Link>
@@ -55,10 +51,7 @@ export default function HeaderNav() {
             <PopoverTrigger>
               <LanguagesIcon className="text-neutral-500" />
             </PopoverTrigger>
-            <PopoverContent
-              align="end"
-              className="border-0 mt-2 rounded-xl w-auto"
-            >
+            <PopoverContent align="end" className="border-0 mt-2 rounded-xl w-auto">
               <div className="flex flex-col gap-3">
                 {languages.map((item, i) => (
                   <Link
@@ -68,7 +61,7 @@ export default function HeaderNav() {
                     className="flex items-center gap-2 hover:opacity-80 cursor-pointer"
                   >
                     <Image
-                      src={`/icons/${item.icon}`}
+                      src={`/icons/locales/${item.icon}`}
                       alt={item.label}
                       width={20}
                       height={20}

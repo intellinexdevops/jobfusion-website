@@ -79,6 +79,11 @@ export default {
         700: "#616161",
         800: "#424242",
         900: "#212121",
+        education: "#0088FF",
+        project: "#FFCA35",
+        skill: "#6155F5",
+        course: "#00C0E8",
+        habit: "#FF2D55",
       },
       borderRadius: {
         lg: "var(--radius)",

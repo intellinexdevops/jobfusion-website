@@ -2,7 +2,7 @@ import CampaignDetailComponent from "@/components/pages/campaign/campaign-detail
 import { data } from "@/public/data/jobs";
 import { Job } from "@/types/job";
 import { Metadata } from "next";
-import React from "react";
+import React, { unstable_ViewTransition as ViewTransaction } from "react";
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -23,5 +23,9 @@ export default async function CampaignDetailPage({ params }: Props) {
 
   const job: Job | undefined = data.find((item: Job) => item._id === id);
 
-  return <CampaignDetailComponent data={job!} />;
+  return (
+    <ViewTransaction>
+      <CampaignDetailComponent data={job!} />
+    </ViewTransaction>
+  );
 }
