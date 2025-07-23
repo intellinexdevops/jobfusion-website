@@ -12,9 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 import AnalyticsComponent from "@/components/pages/account/analytics-component";
-import React from "react";
+import React, { unstable_ViewTransition as ViewTransaction } from "react";
 
 export default function Analytics() {
-  
-  return <AnalyticsComponent/>;
+  return (
+    <ViewTransaction>
+      <AnalyticsComponent />
+    </ViewTransaction>
+  );
 }

@@ -85,7 +85,7 @@ body {
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border outline-ring/50;
   }
   body {
     @apply bg-bg text-foreground;
@@ -93,31 +93,6 @@ body {
   .container {
     @apply max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-7xl mx-auto max-md:px-4
   }
-}
-
-@layer components {
-  .swiper-pagination-bullet {
-      @apply border-0;
-      @apply bg-muted-foreground text-muted;
-    }
-  
-    .swiper-pagination-bullet-active {
-      background-color: aqua;
-      width: 20px;
-      height: 20px;
-    }
-}
-
-
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-
   .btn-inx {
     @apply text-sm text-white bg-primary py-2 px-4 rounded-xl border-2 border-white
   }
@@ -147,5 +122,54 @@ body {
 
   .tabs-nx-trigger {
       @apply bg-transparent rounded-none gap-2
+  }
+}
+
+@layer components {
+  .swiper-pagination-bullet {
+      @apply border-0;
+      @apply bg-muted-foreground text-muted;
+    }
+  
+  .swiper-pagination-bullet-active {
+    background-color: aqua;
+    width: 20px;
+    height: 20px;
+  }
+  .masonry-grid {
+    display: block;
+    column-count: 1;
+    column-gap:  1.25rem;
+    width: 100%;
+
+    @media (min-width: 1024px) {
+      column-count: 2;
+    }
+  }
+  .masonry-grid > * {
+    break-inside: avoid;
+    margin-bottom: 1.25rem;
+  }
+  .masonry-item {
+    margin-bottom:  1.25rem;
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding:  1.25rem;
+    box-sizing: border-box;
+    width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .bg-holder {
+    @apply bg-200 rounded-lg w-[70px] h-[70px] flex items-center justify-center;
+  }
+
+  /* PROFILE SECTION */
+  .profile-title {
+      @apply text-lg line-clamp-1 text-900 font-medium;
+  }
+  
+  .profile-subtitle {
+      @apply text-sm line-clamp-1 text-600 font-normal;
   }
 }
