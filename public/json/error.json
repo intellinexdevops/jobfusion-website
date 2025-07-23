@@ -1,0 +1,10 @@
+{
+  "INTERNAL_SERVER_ERROR": "Something went wrong!",
+  "NOT_FOUND": "Content not found.",
+  "JOB_NOT_FOUND": "Job not found.",
+  "USER_ALREDY_REGISTERED": "User already registered.",
+  "USER_NOT_REGISTERED": "User not registered.",
+  "INVALID_CREDENTIALS": "Invalid credentials.",
+  "INVALID_EMAIL": "Invalid email address.",
+  "INVALID_PASSWORD": "Invalid password."
+}
